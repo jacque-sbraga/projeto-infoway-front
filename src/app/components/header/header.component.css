@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+hr {
+  margin: 20px 10px 10px 10px;
+}
+
+#header {
+  background-color: white;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.space-under-header {
+    height: 90px;
+}
+
+#header a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo,
+.cart-login-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Righteous", cursive;
+  color: #2496ed;
+  font-size: 36px;
+}
+
+.logo svg {
+  margin-right: 25px;
+}
+
+.search-wrapper {
+  width: 450px;
+  max-width: 50%;
+  position: relative;
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding: 0.5rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.search-wrapper .search {
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.cart-login-wrapper .user {
+  margin: 0 20px;
+}
+
+.cart-login-wrapper .user,
+.cart-login-wrapper .cart {
+  cursor: pointer;
+}
+
+.cart-login-wrapper .login-register a {
+  font-weight: 500;
+  color: #4a4343;
+}
+
+mat-icon {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.categories {
+  display: flex;
+}
