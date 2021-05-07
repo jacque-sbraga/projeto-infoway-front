@@ -9,6 +9,10 @@
   box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
+.space-under-header {
+    height: 90px;
+}
+
 #header a {
   text-decoration: none;
 }
@@ -27,12 +31,12 @@
 
 .logo {
   font-family: "Righteous", cursive;
-  color: #4a4343;
-  font-size: 48px;
+  color: #2496ed;
+  font-size: 36px;
 }
 
 .logo svg {
-  margin-right: 20px;
+  margin-right: 25px;
 }
 
 .search-wrapper {

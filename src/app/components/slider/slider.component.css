@@ -38,13 +38,16 @@
 }
 
 img {
+  padding: 20px;
   width: 100%;
   transition: 300ms;
   cursor: pointer;
 }
 
 img:hover {
-  transform: translate3d(0, -7px, 10px);
+  border-radius: 5px;
+  transform: translate3d(0, -15px, 5px);
+  box-shadow: 0 10px 25px 0 lightgray;
 }
 
 .slider::before {
@@ -62,5 +65,4 @@ img:hover {
   width: 100vw;
   position: relative;
   overflow: hidden;
-  margin-top: 100px;
 }
