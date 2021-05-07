@@ -1,8 +1,135 @@
-.teste {
-  display: flex;
-  background-color: blue;
+:root {
+  --cor-primaria-azul-petroleo: #14213D;
+  --cor-primaria-amarelo: #FCA311;
+  --cor-primaria-cinza-claro: #E5E5E5;
+  --cor-cinza-medio: #C4C4C4;
+  --fonte-roboto: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--fonte-roboto);
+  font-weight: 400;
+  outline: none;
+}
+
+body {
   height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+#header {
+  background-color: var(--cor-primaria-azul-petroleo);
+  display: flex;
+  height: 150px;
   align-items: center;
-  font-size: 30px;
-  color: white;
+  justify-content: space-between;
+  padding: 15px;
+  /* position: absolute; */
+  width: 100%;
+  color: var(--cor-primaria-amarelo);
+}
+
+#header-busca {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0px 5px 10px 0px rgb(246, 246, 246);
+  padding: 20px 0;
+  font-size: 15px;
+  font-family: var(--fonte-roboto);
+  color: var(--cor-primaria-azul-petroleo);
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.logo-loja {
+  width: 150px;
+  margin-left: 50px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: var(--cor-primaria-azul-petroleo);
+  color: var(--cor-cinza-medio);
+  min-width: 100%;
+  height: 75px;
+  bottom: 0;
+  position: absolute;
+  height: 150px;
+  font-size: 14px;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#id-select {
+  padding: 4px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px 0px rgb(173, 173, 173);
+}
+
+.input-busca {
+  border-radius: 5px 0 0 5px;
+  /* box-shadow: 0px 0px 3px 0px rgb(173, 173, 173); */
+  padding: 4px 15px;
+  font-size: 16px;
+  width: 350px;
+  border: 1px solid var(--cor-primaria-cinza-claro);
+  font-size: 14px;
+}
+
+.lupa-icon {
+  width: 20px;
+  background-color: var(--cor-cinza-medio);
+  border-radius: 0 10px 10px 0;
+  padding: 7px;
+  width: 26px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+}
+
+span {
+  margin-right: 15px;
+}
+
+.svg-size {
+  height: 50px;
+  width: 50px;
+  margin-left: 15px;
+}
+
+.checkbox-category span {
+  margin-left: 5px;
+}
+
+.checkbox-filter span {
+  margin-left: 5px;
 }
