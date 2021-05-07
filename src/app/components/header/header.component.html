@@ -1,7 +1,7 @@
 <header id="header">
   <div class="container">
     <div class="logo-wrapper">
-      <a href="#" class="logo">
+      <a routerLink="home" class="logo">
         <svg
           width="55"
           height="50"
@@ -17,12 +17,14 @@
         <span id="title">Infoway</span>
       </a>
     </div>
+    
     <div class="search-wrapper">
       <input type="text" placeholder="Buscar produto ou loja" />
       <i class="fas fa-search search"></i>
     </div>
+
     <div class="cart-login-wrapper">
-      <div class="cart">
+      <a routerLink="cart" class="cart">
         <svg
           width="52"
           height="52"
@@ -72,7 +74,8 @@
             </filter>
           </defs>
         </svg>
-      </div>
+      </a>
+      
       <div class="user">
         <svg
           width="40"
@@ -95,5 +98,27 @@
       </div>
     </div>
   </div>
+
+  <div *ngIf="categories.length">
+    <hr>
+    <div class="categories">
+      <button mat-button [matMenuTriggerFor]="category">
+        <mat-icon>menu</mat-icon>Categorias
+      </button>
+        
+      <mat-menu #category="matMenu">      
+        <div *ngFor="let category of categories">
+          <button mat-menu-item (click)="navigateToProductList(category)">
+            <span>{{ category.category }}</span>
+          </button> 
+        </div>      
+      </mat-menu>
+
+      <div class="featured">
+        <button mat-button *ngFor="let category of featuredCategories" (click)="navigateToProductList(category)">{{ category.category}}</button>        
+      </div>
+    </div>
+  </div>  
+
 </header>
 <div class="space-under-header"></div>

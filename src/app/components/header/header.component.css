@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
+hr {
+  margin: 20px 10px 10px 10px;
+}
+
 #header {
   background-color: white;
   padding: 1rem;
@@ -70,4 +74,13 @@
 .cart-login-wrapper .login-register a {
   font-weight: 500;
   color: #4a4343;
+}
+
+mat-icon {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.categories {
+  display: flex;
 }

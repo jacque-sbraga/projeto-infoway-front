@@ -1,3 +1,4 @@
 export class Category {
-  category?: string;
+  category: string;
+  featured?: boolean;
 }
