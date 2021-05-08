@@ -18,9 +18,22 @@
       </a>
     </div>
     
-    <div class="search-wrapper">
-      <input type="text" placeholder="Buscar produto ou loja" />
-      <i class="fas fa-search search"></i>
+    <div class="search-wrapper">      
+      <form autocomplete="off" novalidate [formGroup]="searchFormGroup">
+        <input formControlName="searchInput" name="searchInput" type="text" placeholder="Buscar produto ou loja"/>
+        <i class="fas fa-search search"></i>
+      </form>
+
+      <ul class="list-group" style="position:absolute" *ngIf="foundProducts.length > 0; else notFound">
+        <!-- O pipe async recupera diretamente os dados do Observable de produtos no momento em que eles forem produzidos -->
+        <li class="list-group-item" *ngFor="let product of foundProducts">
+          <!-- Ao clicar no link, dispara um evento para limpar o menu -->
+          <a (click)="navigateToSelectedProduct(product.id)">
+            {{ product.name | reducedName:15 }}
+          </a>
+        </li>
+      </ul>
+      <ng-template #notFound>{{ searchTextNotFound }}</ng-template>
     </div>
 
     <div class="cart-login-wrapper">
@@ -98,27 +111,25 @@
       </div>
     </div>
   </div>
+  
+  <hr>
+  <div class="categories">
+    <button mat-button [matMenuTriggerFor]="category">
+      <mat-icon>menu</mat-icon>Categorias
+    </button>
+      
+    <mat-menu #category="matMenu">            
+      <div *ngIf="categories.length">
+        <button mat-menu-item *ngFor="let category of categories" (click)="navigateToProductList(category)">
+          <span>{{ category.category }}</span>
+        </button> 
+      </div>      
+    </mat-menu>
 
-  <div *ngIf="categories.length">
-    <hr>
-    <div class="categories">
-      <button mat-button [matMenuTriggerFor]="category">
-        <mat-icon>menu</mat-icon>Categorias
-      </button>
-        
-      <mat-menu #category="matMenu">      
-        <div *ngFor="let category of categories">
-          <button mat-menu-item (click)="navigateToProductList(category)">
-            <span>{{ category.category }}</span>
-          </button> 
-        </div>      
-      </mat-menu>
-
-      <div class="featured">
-        <button mat-button *ngFor="let category of featuredCategories" (click)="navigateToProductList(category)">{{ category.category}}</button>        
-      </div>
+    <div class="featured">
+      <button mat-button *ngFor="let category of featuredCategories" (click)="navigateToProductList(category)">{{ category.category}}</button>        
     </div>
-  </div>  
+  </div>
 
 </header>
 <div class="space-under-header"></div>

@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 export abstract class CrudBaseService<T> {
 
@@ -32,5 +32,14 @@ export abstract class CrudBaseService<T> {
 
   deleteAll(): Observable<any> {
     return this._http.delete(`${this._baseUrl}/${this._path}`);
+  }
+
+  getAllByKeyValue(key: string, value: any, complete: boolean): Observable<T[]> {    
+    const httpParams = new HttpParams()
+      .set('key', key)
+      .set('value', value.toString())
+      .set('complete', complete.toString());
+    
+    return this._http.get<T[]>(`${this._baseUrl}/${this._path}`, { 'params': httpParams });    
   }
 }
