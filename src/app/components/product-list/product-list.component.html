@@ -1,3 +1,12 @@
+<div style="margin-top: 100px;" *ngFor="let product of products">
+  <p>{{ product.name }}</p>
+  <p>{{ product.description }}</p>
+  <p>{{ product.quantity }}</p>
+  <p>{{ product.price }}</p>
+
+</div>
+
+<!--   
 <header id="header-busca">
   <div>
     <p>Exibir todos os produtos(000 produtos encontrados)</p>
@@ -20,15 +29,6 @@
 </header>
 
 <main>
-  <div *ngFor="let product of products">
-    <p>{{ product.name }}</p>
-    <p>{{ product.description }}</p>
-    <p>{{ product.quantity }}</p>
-    <p>{{ product.price }}</p>
-
-  </div>
-
-<!--   
   <div class="container">
     <div class="row">
       <div class="col-md-2">
@@ -168,5 +168,6 @@
         </div>
       </div>
     </div>
-  </div>   -->
+  </div>   
 </main>
+-->
