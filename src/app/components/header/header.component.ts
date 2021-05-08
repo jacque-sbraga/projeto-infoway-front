@@ -67,9 +67,9 @@ export class HeaderComponent implements OnInit {
     this.searchFormGroup.get('searchInput').valueChanges    
     .pipe(debounceTime(400))
       .subscribe((value: string) => {        
-        if (value == null) {          
+        if (value == null || value == '') {          
           this.clearSearch();
-        }
+        }        
         else {
           this.searchText = value;
           this.getProductsByName();          
