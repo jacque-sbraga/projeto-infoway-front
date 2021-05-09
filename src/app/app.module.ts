@@ -3,7 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { MaterialModule } from './shared/material.module';
+
+// Importação do pipe
+import { ReducedName } from './shared/utils/reducedName.pipe';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,9 +27,9 @@ import { CategoryRegisterComponent } from './components/category-register/catego
 import { SliderComponent } from './components/slider/slider.component';
 import { AdminModule } from './admin/admin.module';
 
-
 @NgModule({
   declarations: [
+    ReducedName,
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -46,6 +52,8 @@ import { AdminModule } from './admin/admin.module';
     BrowserAnimationsModule,
     MaterialModule,
     AdminModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

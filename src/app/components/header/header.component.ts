@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Category } from 'src/app/models/category.model';
+import { debounceTime } from 'rxjs/operators';
+
 import { CategoryService } from 'src/app/services/category.service';
+
+import { Category } from 'src/app/models/category.model';
+import { Product } from 'src/app/models/product.model';
+import { ProductService } from 'src/app/services/product.service';
+
 
 @Component({
   selector: 'app-header',
@@ -13,10 +20,22 @@ export class HeaderComponent implements OnInit {
   categories: Category[] = [];
   featuredCategories: Category[] = [];
 
-  constructor(private categoryService: CategoryService, private _router: Router) { }
+  searchFormGroup: FormGroup;
+  searchText: string = '';
+  searchTextNotFound: string = '';
+  foundProducts: Product[] = [];
+
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private categoryService: CategoryService,
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
     this.getCategories();
+    this.formConfig();
+    this.findProducts();
   }
 
   getCategories(): void {
@@ -29,7 +48,51 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  navigateToProductList(selectedCategory: Category): void {    
-    this._router.navigate(['product-list'], { queryParams: { category: selectedCategory.category }});    
+  navigateToProductList(selectedCategory: Category): void {
+    this.router.navigate(['products'], { queryParams: { category: selectedCategory.id }, skipLocationChange: true });
+  }
+
+  navigateToSelectedProduct(id: number): void {
+    this.clearSearch();    
+    this.router.navigateByUrl('/products/' + id);    
+  }
+
+  formConfig(): void {
+    this.searchFormGroup = this.formBuilder.group({
+      searchInput: ['']      
+    });
+  }
+
+  findProducts(): void {
+    this.searchFormGroup.get('searchInput').valueChanges    
+    .pipe(debounceTime(400))
+      .subscribe((value: string) => {        
+        if (value == null || value == '') {          
+          this.clearSearch();
+        }        
+        else {
+          this.searchText = value;
+          this.getProductsByName();          
+        }
+    });
+  }
+
+  getProductsByName(): void {    
+    this.productService.getAllByKeyValue(`name`, this.searchText, false).subscribe(
+      response => {
+        this.foundProducts = response;
+        this.searchTextNotFound = '';
+      },
+      error => {
+        console.log(error);
+        this.searchTextNotFound = 'Nenhum produto encontrado';
+      });
+  }
+  
+  clearSearch(): void {
+    this.searchFormGroup.get('searchInput').reset();
+    this.searchText = '';
+    this.searchTextNotFound = '';
+    this.foundProducts = [];
   }
 }
