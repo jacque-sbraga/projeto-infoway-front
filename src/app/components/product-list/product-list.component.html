@@ -1,9 +1,8 @@
-<div style="margin-top: 100px;" *ngFor="let product of products">
+<div style="margin-top: 100px" *ngFor="let product of products">
   <p>{{ product.name }}</p>
   <p>{{ product.description }}</p>
   <p>{{ product.quantity }}</p>
   <p>{{ product.price }}</p>
-
 </div>
 
 <!--   
@@ -22,8 +21,8 @@
       </select>
     </div>
     <div class="flex">
-      <input class="input-busca" type="text" placeholder="Buscar produto...">
-      <img class="lupa-icon" src="../images/lupa.png" alt="lupa de busca">
+      <input class="input-busca" type="text" placeholder="Buscar produto..." />
+      <img class="lupa-icon" src="../images/lupa.png" alt="lupa de busca" />
     </div>
   </div>
 </header>
@@ -34,6 +33,23 @@
       <div class="col-md-2">
         Categoria
         <div class="input-group-text checkbox-category">
+          <input type="checkbox" /><span>Categoria A</span>
+        </div>
+        <div class="input-group-text checkbox-category">
+          <input type="checkbox" /> <span>Categoria B</span>
+        </div>
+        <div class="input-group-text checkbox-category">
+          <input type="checkbox" /><span>Categoria C</span>
+        </div>
+        Filtro 2
+        <div class="input-group-text checkbox-filter">
+          <input type="checkbox" /> <span>Filtro</span>
+        </div>
+        <div class="input-group-text checkbox-filter">
+          <input type="checkbox" /><span>Filtro</span>
+        </div>
+        <div class="input-group-text checkbox-filter">
+          <input type="checkbox" /> <span>Filtro</span>
           <input type="checkbox" />
           <span>Categoria A</span>
         </div>
@@ -63,9 +79,11 @@
         <div class="row mb-2">
           <div class="col-md-3">
             <div class="card">
-              <img class="card-img-top"
+              <img
+                class="card-img-top"
                 src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-                alt="Card image cap">
+                alt="Card image cap"
+              />
               <div class="card-body">
                 <p class="card-text">+ Adicionar novo produto</p>
                 <a class="btn btn-primary" href="#" role="button">Editar</a>
@@ -74,9 +92,11 @@
           </div>
           <div class="col-md-3">
             <div class="card">
-              <img class="card-img-top"
+              <img
+                class="card-img-top"
                 src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-                alt="Card image cap">
+                alt="Card image cap"
+              />
               <div class="card-body">
                 <h5 class="card-title">R$ 00,00</h5>
                 <p class="card-text">Nome do produto e descrição do produto.</p>
@@ -85,89 +105,113 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img class="card-img-top"
-                src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">R$ 00,00</h5>
-                <p class="card-text">Nome do produto e descrição do produto.</p>
-                <button type="button" class="btn btn-primary">Editar</button>
-                <button type="button" class="btn btn-danger">Excluir</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img class="card-img-top"
-                src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">R$ 00,00</h5>
-                <p class="card-text">Nome do produto e descrição do produto.</p>
-                <button type="button" class="btn btn-primary">Editar</button>
-                <button type="button" class="btn btn-danger">Excluir</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-md-3">
-            <div class="card">
-              <img class="card-img-top"
-                src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">R$ 00,00</h5>
-                <p class="card-text">Nome do produto e descrição do produto.</p>
-                <button type="button" class="btn btn-primary">Editar</button>
-                <button type="button" class="btn btn-danger">Excluir</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img class="card-img-top"
-                src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">R$ 00,00</h5>
-                <p class="card-text">Nome do produto e descrição do produto.</p>
-                <button type="button" class="btn btn-primary">Editar</button>
-                <button type="button" class="btn btn-danger">Excluir</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img class="card-img-top"
-                src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">R$ 00,00</h5>
-                <p class="card-text">Nome do produto e descrição do produto.</p>
-                <button type="button" class="btn btn-primary">Editar</button>
-                <button type="button" class="btn btn-danger">Excluir</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img class="card-img-top"
-                src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">R$ 00,00</h5>
-                <p class="card-text">Nome do produto e descrição do produto.</p>
-                <button type="button" class="btn btn-primary">Editar</button>
-                <button type="button" class="btn btn-danger">Excluir</button>
-              </div>
-            </div>
-          </div>
-        </div>
+          <-- fim do produto -->
+<div class="col-md-3">
+  <div class="card">
+    <img
+      class="card-img-top"
+      src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">R$ 00,00</h5>
+      <p class="card-text">Nome do produto e descrição do produto.</p>
+      <button type="button" class="btn btn-primary">Editar</button>
+      <button type="button" class="btn btn-danger">Excluir</button>
+    </div>
+  </div>
+</div>
+<!-- fim do produto -->
+<div class="col-md-3">
+  <div class="card">
+    <img
+      class="card-img-top"
+      src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">R$ 00,00</h5>
+      <p class="card-text">Nome do produto e descrição do produto.</p>
+      <button type="button" class="btn btn-primary">Editar</button>
+      <button type="button" class="btn btn-danger">Excluir</button>
+    </div>
+  </div>
+</div>
+<!-- fim do produto -->
+<!-- </div> -->
+<div class="row mb-2">
+  <div class="col-md-3">
+    <div class="card">
+      <img
+        class="card-img-top"
+        src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">R$ 00,00</h5>
+        <p class="card-text">Nome do produto e descrição do produto.</p>
+        <button type="button" class="btn btn-primary">Editar</button>
+        <button type="button" class="btn btn-danger">Excluir</button>
+      </div>
+    </div>
+  </div>
+  <!-- fim do produto -->
+  <div class="col-md-3">
+    <div class="card">
+      <img
+        class="card-img-top"
+        src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">R$ 00,00</h5>
+        <p class="card-text">Nome do produto e descrição do produto.</p>
+        <button type="button" class="btn btn-primary">Editar</button>
+        <button type="button" class="btn btn-danger">Excluir</button>
+      </div>
+    </div>
+  </div>
+  <!-- fim do produto -->
+  <div class="col-md-3">
+    <div class="card">
+      <img
+        class="card-img-top"
+        src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">R$ 00,00</h5>
+        <p class="card-text">Nome do produto e descrição do produto.</p>
+        <button type="button" class="btn btn-primary">Editar</button>
+        <button type="button" class="btn btn-danger">Excluir</button>
+      </div>
+    </div>
+  </div>
+  <!-- fim do produto -->
+  <div class="col-md-3">
+    <div class="card">
+      <img
+        class="card-img-top"
+        src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">R$ 00,00</h5>
+        <p class="card-text">Nome do produto e descrição do produto.</p>
+        <button type="button" class="btn btn-primary">Editar</button>
+        <button type="button" class="btn btn-danger">Excluir</button>
+      </div>
+    </div>
+  </div>
+  <!-- fim do produto -->
+</div>
+<!-- </div>
+    </div>
+  </div> -->
+<!-- </div>
       </div>
     </div>
   </div>   
 </main>
+-->
 -->
