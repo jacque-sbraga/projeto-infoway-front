@@ -24,7 +24,7 @@ import { UserRegisterComponent } from './components/user-register/user-register.
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CategoryRegisterComponent } from './components/category-register/category-register.component';
-import { SliderComponent } from './components/slider/slider.component';
+import { SliderComponent } from './shared/components/slider/slider.component';
 
 @NgModule({
   declarations: [

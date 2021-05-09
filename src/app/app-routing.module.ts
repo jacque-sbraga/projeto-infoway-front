@@ -4,12 +4,10 @@ import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { SliderComponent } from './components/slider/slider.component';
-
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: SliderComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'cart', component: CartComponent},
   {path: 'products',   
     children: [

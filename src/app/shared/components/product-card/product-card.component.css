@@ -1,0 +1,11 @@
+.container {
+  padding: 15px;
+}
+
+img {
+  width: 100px;
+}
+
+.price {
+  display: flex;
+}
