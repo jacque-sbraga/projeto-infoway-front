@@ -17,11 +17,15 @@
         <span id="title">Infoway</span>
       </a>
     </div>
-    
+
     <div class="search-wrapper">
       <input type="text" placeholder="Buscar produto ou loja" />
       <i class="fas fa-search search"></i>
     </div>
+
+    <a routerLink="login-admin"
+      ><img src="/assets/images/admin.png" style="width: 45px"
+    /></a>
 
     <div class="cart-login-wrapper">
       <a routerLink="cart" class="cart">
@@ -75,7 +79,7 @@
           </defs>
         </svg>
       </a>
-      
+
       <div class="user">
         <svg
           width="40"
@@ -100,25 +104,30 @@
   </div>
 
   <div *ngIf="categories.length">
-    <hr>
+    <hr />
     <div class="categories">
       <button mat-button [matMenuTriggerFor]="category">
         <mat-icon>menu</mat-icon>Categorias
       </button>
-        
-      <mat-menu #category="matMenu">      
+
+      <mat-menu #category="matMenu">
         <div *ngFor="let category of categories">
           <button mat-menu-item (click)="navigateToProductList(category)">
             <span>{{ category.category }}</span>
-          </button> 
-        </div>      
+          </button>
+        </div>
       </mat-menu>
 
       <div class="featured">
-        <button mat-button *ngFor="let category of featuredCategories" (click)="navigateToProductList(category)">{{ category.category}}</button>        
+        <button
+          mat-button
+          *ngFor="let category of featuredCategories"
+          (click)="navigateToProductList(category)"
+        >
+          {{ category.category }}
+        </button>
       </div>
     </div>
-  </div>  
-
+  </div>
 </header>
 <div class="space-under-header"></div>

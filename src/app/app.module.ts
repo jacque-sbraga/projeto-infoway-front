@@ -14,11 +14,12 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { HomeComponent } from './components/home/home.component';
 import { InventoryControlComponent } from './components/inventory-control/inventory-control.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { UserRegisterComponent } from './components/user-register/user-register.component';
+// import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CategoryRegisterComponent } from './components/category-register/category-register.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { SliderComponent } from './components/slider/slider.component';
     HomeComponent,
     InventoryControlComponent,
     ProductListComponent,
-    UserRegisterComponent,
+    // UserRegisterComponent,
     CartComponent,
     CheckoutComponent,
     CategoryRegisterComponent,
@@ -43,7 +44,8 @@ import { SliderComponent } from './components/slider/slider.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
