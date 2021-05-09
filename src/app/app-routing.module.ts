@@ -10,8 +10,7 @@ import { LoginComponent } from './admin/login/login.component';
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'cart', component: CartComponent},
-  {path: 'product-list', component: ProductListComponent},
+  {path: 'cart', component: CartComponent},  
   {path: 'home/login-admin', component: LoginComponent},
   {path: 'products',   
     children: [
