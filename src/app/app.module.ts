@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
-import { SliderComponent } from './shared/components/slider/slider.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 //importe modules
 // import { AdminModule } from './admin/admin.module';
@@ -34,7 +34,8 @@ import { AdminModule } from './admin/admin.module';
     HeaderComponent,
     FooterComponent,
     SliderComponent,
-    LoginComponent
+    LoginComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
