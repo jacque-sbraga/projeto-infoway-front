@@ -11,6 +11,8 @@
       </a>
     </div>
 
+    <a routerLink="login-admin"><img src="../../../assets/img/admin.png" style="width: 45px" /></a>
+    
     <div class="search-wrapper">
       <form autocomplete="off" novalidate [formGroup]="searchFormGroup">
         <input formControlName="searchInput" name="searchInput" type="text" placeholder="Buscar produto ou loja" />
@@ -29,8 +31,6 @@
       <ng-template #notFound>{{ searchTextNotFound }}</ng-template>
     </div>
 
-    <a routerLink="login-admin"><img src="../../assets/images/admin.png" style="width: 45px" /></a>
-    
     <div class="cart-login-wrapper">
       <a routerLink="cart" class="cart">
         <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
