@@ -17,6 +17,36 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class HeaderComponent implements OnInit {
 
+  itemsMenu: any = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
+  
+  itemsLoginMenu: any = ["Login 1", "Login 2", "Login 3", "Login 4", "Login 5"];
+
+  openedMenu: boolean = false;
+  openedLogin: boolean = false;
+
+  // constructor() {}
+
+  // ngOnInit(): void {}
+
+  toggleMenu() {
+    this.openedMenu = !this.openedMenu;
+    this.closeLogin()
+  }
+
+  closeMenu() {
+    this.openedMenu = false;
+  }
+
+  toggleLogin() {
+    console.log("clicou")
+    this.openedLogin = !this.openedLogin;
+    this.closeMenu()
+  }
+
+  closeLogin() {
+    this.openedLogin = false;
+  }
+
   categories: Category[] = [];
   featuredCategories: Category[] = [];
 

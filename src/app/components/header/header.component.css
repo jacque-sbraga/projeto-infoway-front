@@ -14,7 +14,7 @@ hr {
 }
 
 .space-under-header {
-    height: 90px;
+    height: 120px;
 }
 
 #header a {
@@ -83,4 +83,30 @@ mat-icon {
 
 .categories {
   display: flex;
+}
+
+.header-menu {
+  background-color: white;
+  /* height: 600px; */
+  /* width: 20vw; */
+  position: absolute;
+  padding: 20px;
+  right: 10px;
+  transition: 600ms;
+  overflow: hidden;
+}
+
+.header-menu-hidden {
+  top: 0px;
+  height: 1px;
+  color: transparent;
+}
+
+.header-menu-opened {
+  padding: 20px;
+  top: 160px;
+  border-radius: 0 0 0 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  z-index: 15;
 }
