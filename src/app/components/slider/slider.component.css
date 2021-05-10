@@ -1,5 +1,5 @@
 .slider {
-  height: 250px;
+  /* height: 250px; */
   margin: auto;
   position: relative;
   width: 100%;
@@ -53,5 +53,5 @@ img:hover {
 .overflow {
   width: 100vw;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
