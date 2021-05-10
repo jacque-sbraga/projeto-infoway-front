@@ -4,7 +4,7 @@ import { CartComponent } from './buyer/components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductDetailsComponent } from './buyer/components/product-details/product-details.component';
 import { ProductListComponent } from './buyer/components/product-list/product-list.component';
-import { LoginComponent } from './admin/login/login.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [

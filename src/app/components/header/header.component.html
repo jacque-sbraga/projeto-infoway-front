@@ -18,7 +18,7 @@
       </a>
     </div>
 
-    <a routerLink="login-admin"><img src="../../../assets/img/admin.png" style="width: 45px" /></a>
+    <a (click)="toggleLogin()"><img src="../../../assets/img/admin.png" style="width: 45px" /></a>
 
     <div class="search-wrapper">
       <form autocomplete="off" novalidate [formGroup]="searchFormGroup">
