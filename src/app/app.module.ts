@@ -24,6 +24,7 @@ import { ShopkeeperModule } from './shopkeeper/shopkeeper.module';
 import { HomeComponent } from './components/home/home.component';
 
 import { AdminModule } from './admin/admin.module';
+import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AdminModule } from './admin/admin.module';
     FooterComponent,
     SliderComponent,
     LoginComponent,
-    SliderComponent
+    SliderComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,

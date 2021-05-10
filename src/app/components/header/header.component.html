@@ -18,9 +18,7 @@
       </a>
     </div>
 
-    <a routerLink="login-admin" (click)="toggleLogin()"
-      ><img src="../../../assets/img/admin.png" style="width: 45px"
-    /></a>
+    <a routerLink="login-admin"><img src="../../../assets/img/admin.png" style="width: 45px" /></a>
 
     <div class="search-wrapper">
       <form autocomplete="off" novalidate [formGroup]="searchFormGroup">
@@ -42,7 +40,7 @@
         <li class="list-group-item" *ngFor="let product of foundProducts">
           <!-- Ao clicar no link, dispara um evento para limpar o menu -->
           <a (click)="navigateToSelectedProduct(product.id)">
-            {{ product.name | reducedName: 15 }}
+            {{ product.name | reducedName:30 }}
           </a>
         </li>
       </ul>

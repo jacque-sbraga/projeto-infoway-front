@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
+
+  @Input() featuredProducts: any;
+  
   constructor() {}
 
   sliders: any = [
@@ -27,5 +30,7 @@ export class SliderComponent implements OnInit {
     'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IN_Informatica/v2/MSCJO365LPER00/MSCJO365LPER00_PRD_160_1.jpg',
   ];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.featuredProducts);
+  }
 }
