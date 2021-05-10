@@ -6,13 +6,15 @@ import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  
-  featuredProducts: any[] = [];  
+  featuredProducts: any[] = [];
 
-  constructor(private _categoryService: CategoryService, private _productService: ProductService) { }
+  constructor(
+    private _categoryService: CategoryService,
+    private _productService: ProductService
+  ) {}
 
   ngOnInit(): void {
     this.getFeaturedCategories();
@@ -22,25 +24,32 @@ export class HomeComponent implements OnInit {
 
   getFeaturedCategories(): void {
     this._categoryService.getAllByKeyValue('featured', '1', false).subscribe(
-      categories => {
+      (categories) => {
         for (const category of categories) {
-          this.getFeaturedProducts(category);          
-        }        
+          this.getFeaturedProducts(category);
+        }
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );
   }
 
   getFeaturedProducts(category: Category): void {
-    this._productService.getAllByKeyValue('category_id', category.id, false).subscribe(
-      products => {
-        this.featuredProducts.push({ category: category.category, products: products });
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this._productService
+      .getAllByKeyValue('category_id', category.id, false)
+      .subscribe(
+        (products) => {
+          if (products.length > 0) {
+            this.featuredProducts.push({
+              category: category.category,
+              products: products,
+            });
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }
