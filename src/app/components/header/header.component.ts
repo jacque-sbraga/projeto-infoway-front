@@ -26,10 +26,10 @@ export class HeaderComponent implements OnInit {
   foundProducts: Product[] = [];
 
   constructor(
-    private router: Router,
-    private formBuilder: FormBuilder,
-    private categoryService: CategoryService,
-    private productService: ProductService
+    private _router: Router,
+    private _formBuilder: FormBuilder,
+    private _categoryService: CategoryService,
+    private _productService: ProductService
   ) { }
 
   ngOnInit(): void {
@@ -39,26 +39,26 @@ export class HeaderComponent implements OnInit {
   }
 
   getCategories(): void {
-    this.categoryService.getAll().subscribe(
+    this._categoryService.getAll().subscribe(
       response => {
         this.categories = response;
         this.featuredCategories = this.categories.filter(category => category.featured);
       },
-      error => console.log
+      error => console.log(error)
     );
   }
 
   navigateToProductList(selectedCategory: Category): void {
-    this.router.navigate(['products'], { queryParams: { category: selectedCategory.id }, skipLocationChange: true });
+    this._router.navigate(['products'], { queryParams: { category: selectedCategory.id }, skipLocationChange: true });
   }
 
   navigateToSelectedProduct(id: number): void {
     this.clearSearch();    
-    this.router.navigateByUrl('/products/' + id);    
+    this._router.navigateByUrl('/products/' + id);    
   }
 
   formConfig(): void {
-    this.searchFormGroup = this.formBuilder.group({
+    this.searchFormGroup = this._formBuilder.group({
       searchInput: ['']      
     });
   }
@@ -67,7 +67,7 @@ export class HeaderComponent implements OnInit {
     this.searchFormGroup.get('searchInput').valueChanges    
     .pipe(debounceTime(400))
       .subscribe((value: string) => {        
-        if (value == null || value == '') {          
+        if (!value || value.trim().length == 0) {          
           this.clearSearch();
         }        
         else {
@@ -78,7 +78,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getProductsByName(): void {    
-    this.productService.getAllByKeyValue(`name`, this.searchText, false).subscribe(
+    this._productService.getAllByKeyValue(`name`, this.searchText, false).subscribe(
       response => {
         this.foundProducts = response;
         this.searchTextNotFound = '';
