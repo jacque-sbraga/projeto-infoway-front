@@ -50,17 +50,6 @@ img:hover {
   box-shadow: 0 10px 25px 0 lightgray;
 }
 
-.slider::before {
-  left: 0;
-  top: 0;
-}
-
-.slider::after {
-  right: 0;
-  top: 0;
-  transform: rotateZ(180deg);
-}
-
 .overflow {
   width: 100vw;
   position: relative;

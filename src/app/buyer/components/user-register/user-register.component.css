@@ -1,0 +1,21 @@
+.container-user-register {
+    display: flex;
+    justify-content: space-around;
+    margin: 6%;
+}
+
+.user-register {
+    box-shadow: 0 5px 15px 0px rgba(5, 1, 54, 0.4);
+    border-radius: 10px;
+    width: 50%;
+    padding: 2% 6%;
+    justify-content: center;
+}
+
+.nome-sobrenome,
+.cpf-telefone,
+.pass-repete,
+.buttons-form-user {
+    display: flex;
+    justify-content: space-between;
+}
