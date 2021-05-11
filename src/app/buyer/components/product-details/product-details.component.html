@@ -1,3 +1,50 @@
-<div class="teste" *ngIf="product">
-<p>name: {{ product.name }}</p>
-</div>
+<main id="main">
+  <section class="detail-main">
+    <div class="container">
+      <div class="slider"></div>
+      <div class="info" *ngIf="product">
+        <h2 class="product-name">{{ product.name }}</h2>
+        <span class="product-price">R$ {{ product.price }}</span>
+        <div class="stock-info">
+          <h3 class="available">Disponível</h3>
+          <span>{{ product.quantity }} disponíveis</span>
+        </div>
+        <div class="quantity-control">
+          <span>Quantidade:</span>
+          <div class="quantity">
+            <i
+              class="fas fa-minus minus blue-btn"
+              (click)="incrementDecrease($event.target)"
+            ></i>
+            <input
+              type="number"
+              value="1"
+              min="1"
+              name="quantity"
+              id="quantity"
+              (keyup)="validateQuantityInput($event.target)"
+            />
+            <i
+              class="fas fa-plus plus blue-btn"
+              (click)="incrementDecrease($event.target)"
+            ></i>
+          </div>
+        </div>
+
+        <div class="product-action">
+          <a href="#" class="blue-btn">Adicionar ao carrinho</a>
+          <a href="#" class="blue-btn">Comprar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <section class="description">
+      <div class="container">
+          <h2>Descrição</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae placeat a quod quisquam et nemo laudantium, excepturi totam exercitationem similique. Est nobis nesciunt ipsa eligendi vel tempora ut inventore aspernatur quibusdam id voluptate nostrum nemo, dicta optio maxime deserunt odio hic perferendis autem natus. Alias vel nihil, nam a ut deleniti inventore nobis dolor aut pariatur. Veritatis asperiores, velit ex excepturi nesciunt dolores consequatur minima qui alias quidem aliquid porro possimus, quia a aspernatur tenetur expedita sint. Fugit similique enim tenetur ab a. Labore aperiam corporis autem reprehenderit non! Nihil suscipit consequatur dignissimos reiciendis, beatae nesciunt perspiciatis ducimus deserunt sit?        
+          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad doloremque, vitae sed expedita, fuga non enim dignissimos ullam accusamus, maxime deserunt repellat nulla libero mollitia? Minima reiciendis quae soluta placeat totam enim quos architecto, animi veritatis ipsa! Nemo quidem inventore asperiores aliquam quas similique maiores illum iusto recusandae, libero non odit quae nihil quaerat eum itaque quis ipsum voluptate sit minus provident culpa! Nesciunt rem voluptatem necessitatibus a? Ab accusamus quis reiciendis rem officiis possimus velit deserunt. Obcaecati magnam veritatis architecto aliquam dignissimos placeat ratione! Porro, obcaecati corporis! Sit amet esse, explicabo nam voluptate eos facere magnam et quae est.</p>
+      </div>
+  </section> -->
+</main>
