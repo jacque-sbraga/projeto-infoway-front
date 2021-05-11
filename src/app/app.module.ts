@@ -25,6 +25,10 @@ import { HomeComponent } from './components/home/home.component';
 
 import { AdminModule } from './admin/admin.module';
 import { ProductCardComponent } from './shared/components/product-card/product-card.component';
+import { BladeComponent } from './components/admin/blade/blade.component';
+import { MainAdminComponent } from './components/admin/main-admin/main-admin.component';
+import { ProductDetailsAdminComponent } from './components/admin/product-details-admin/product-details-admin.component';
+import { HomeAdminComponent } from './components/admin/home-admin/home-admin.component';
 
 
 @NgModule({
@@ -37,7 +41,11 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
     SliderComponent,
     LoginComponent,
     SliderComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    BladeComponent,
+    MainAdminComponent,
+    ProductDetailsAdminComponent,
+    HomeAdminComponent
   ],
   imports: [
     BrowserModule,

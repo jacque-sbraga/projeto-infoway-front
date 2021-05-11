@@ -1,0 +1,85 @@
+<div
+  class="blade-container"
+  [ngClass]="[
+    'blade-container',
+    toggle ? 'blade-container-hidden' : 'blade-container-opened'
+  ]"
+>
+  <div>
+    <div class="blade-button">
+      <div class="btn-image-box">
+        <img class="btn-image" src="assets/png/system.png" />
+      </div>
+      <div class="text-box-blade-button">
+        <p>Configurações</p>
+      </div>
+    </div>
+    <div class="blade-button">
+      <div class="btn-image-box">
+        <img class="btn-image" src="assets/png/users.png" />
+      </div>
+      <div class="text-box-blade-button">
+        <p>Usuários</p>
+      </div>
+    </div>
+    <div class="blade-button">
+      <div class="btn-image-box">
+        <img class="btn-image" src="assets/png/user.png" />
+      </div>
+      <div class="text-box-blade-button">
+        <p>Usuário</p>
+      </div>
+    </div>
+    <div class="blade-button">
+      <div class="btn-image-box">
+        <img class="btn-image" src="assets/png/total.png" />
+      </div>
+      <div class="text-box-blade-button">
+        <p>Faturamento</p>
+      </div>
+    </div>
+    <div class="blade-button">
+      <div class="btn-image-box">
+        <img class="btn-image" src="assets/png/statistics.png" />
+      </div>
+      <div class="text-box-blade-button">
+        <p>Estatísticas</p>
+      </div>
+    </div>
+    <div class="blade-button">
+      <div class="btn-image-box">
+        <img class="btn-image" src="assets/png/sell.png" />
+      </div>
+      <div class="text-box-blade-button">
+        <p>Lucros</p>
+      </div>
+    </div>
+    <div class="blade-button">
+      <div class="btn-image-box">
+        <img class="btn-image" src="assets/png/password.png" />
+      </div>
+      <div class="text-box-blade-button">
+        <p>Conta</p>
+      </div>
+    </div>
+    <div class="blade-button">
+      <div class="btn-image-box">
+        <img class="btn-image" src="assets/png/best.png" />
+      </div>
+      <div class="text-box-blade-button">
+        <p>Mais vendidos</p>
+      </div>
+    </div>
+    <div class="blade-button">
+      <div class="btn-image-box">
+        <img class="btn-image" src="assets/png/bad.png" />
+      </div>
+      <div class="text-box-blade-button">
+        <p>Menos vendidos</p>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-button" (click)="toggleBlade()">
+    <img class="arrow" src="assets/left-arrow.png" />
+  </div>
+</div>
