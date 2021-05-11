@@ -6,32 +6,45 @@ import { ProductDetailsComponent } from './buyer/components/product-details/prod
 import { ProductListComponent } from './buyer/components/product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
 import { HomeAdminComponent } from './components/admin/home-admin/home-admin.component';
-
+import { CreateProductComponent } from './components/admin/create-product/create-product.component';
+import { ProductDetailsAdminComponent } from './components/admin/product-details-admin/product-details-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: '**', redirectTo: 'home', pathMatch: 'full' },
-  {path: 'home', component: HomeComponent},
-  {path: 'cart', component: CartComponent},  
-  {path: 'home/login-admin', component: LoginComponent},
-  {path: 'admin-dashboard', component:HomeAdminComponent},
-  {path: 'products',   
+  { path: 'home', component: HomeComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'home/login-admin', component: LoginComponent },
+  {
+    path: 'admin-dashboard',
+    component: HomeAdminComponent,
+
+    children: [
+      { path: '', component: ProductDetailsAdminComponent },
+      { path: 'create-product', component: CreateProductComponent },
+      { path: 'product-list', component: ProductListComponent },
+      { path: 'product-details', component: ProductDetailsAdminComponent },
+    ],
+  },
+
+  {
+    path: 'products',
     children: [
       {
         path: '',
-        component: ProductListComponent
-      },      
+        component: ProductListComponent,
+      },
       {
         path: ':id',
         component: ProductDetailsComponent,
-        pathMatch: 'full'
-      }
-    ]
-  },  
+        pathMatch: 'full',
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

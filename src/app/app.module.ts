@@ -29,6 +29,7 @@ import { BladeComponent } from './components/admin/blade/blade.component';
 import { MainAdminComponent } from './components/admin/main-admin/main-admin.component';
 import { ProductDetailsAdminComponent } from './components/admin/product-details-admin/product-details-admin.component';
 import { HomeAdminComponent } from './components/admin/home-admin/home-admin.component';
+import { CreateProductComponent } from './components/admin/create-product/create-product.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { HomeAdminComponent } from './components/admin/home-admin/home-admin.com
     BladeComponent,
     MainAdminComponent,
     ProductDetailsAdminComponent,
-    HomeAdminComponent
+    HomeAdminComponent,
+    CreateProductComponent
   ],
   imports: [
     BrowserModule,
