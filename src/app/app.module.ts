@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
-import { MaterialModule } from './shared/material.module';
+import { MaterialModule } from './shared/angular-material/material.module';
 
 // Importação do pipe
 import { ReducedName } from './shared/utils/reducedName.pipe';
@@ -14,14 +14,18 @@ import { ReducedName } from './shared/utils/reducedName.pipe';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './login/login.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 //importe modules
-import { AdminModule } from './admin/admin.module';
+// import { AdminModule } from './admin/admin.module';
 import { BuyerModule } from './buyer/buyer.module';
 import { ShopkeeperModule } from './shopkeeper/shopkeeper.module';
 import { HomeComponent } from './components/home/home.component';
-import { SliderComponent } from './components/slider/slider.component';
+
+import { AdminModule } from './admin/admin.module';
+import { ProductCardComponent } from './shared/components/product-card/product-card.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,9 @@ import { SliderComponent } from './components/slider/slider.component';
     HeaderComponent,
     FooterComponent,
     SliderComponent,
-    LoginComponent
+    LoginComponent,
+    SliderComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,

@@ -4,17 +4,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
-html,
-body {
+html {
   height: 100%;
 }
 
 body {
+  background-color: rgb(252, 252, 252);
   height: 100vh;
   display: grid;
   /* place-items: center; */
-  overflow: hidden;
+  /* overflow-x: hidden; */
+  /* overflow-y: auto; */
+  /* height: 2000px; */
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

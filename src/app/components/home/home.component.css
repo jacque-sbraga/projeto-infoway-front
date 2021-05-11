@@ -1,0 +1,11 @@
+.container {
+  margin-top: 100px;
+  overflow: hidden;
+  height: 100vh;
+
+}
+
+.banner {
+  height: 500px;
+  background-color: gray;
+}

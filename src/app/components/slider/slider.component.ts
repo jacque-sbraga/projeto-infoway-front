@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -6,26 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
+
+  @Input() featuredProducts: any;
+  
   constructor() {}
 
-  sliders: any = [
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IN_Informatica/v2/MSCJO365LPER00/MSCJO365LPER00_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IP_Perifericos/EPL6171PTO/V2/EPL6171PTO_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IN_Informatica/EPC11CJ183BCO/EPC11CJ183BCO_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/Marketplace/6869173306/6869173306_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS//Marketplace/6869179311/6869179311_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IN_Informatica/v2/MSCJO365LPER00/MSCJO365LPER00_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IP_Perifericos/EPL6171PTO/V2/EPL6171PTO_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IN_Informatica/EPC11CJ183BCO/EPC11CJ183BCO_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/Marketplace/6869173306/6869173306_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS//Marketplace/6869179311/6869179311_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IN_Informatica/v2/MSCJO365LPER00/MSCJO365LPER00_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IP_Perifericos/EPL6171PTO/V2/EPL6171PTO_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IN_Informatica/EPC11CJ183BCO/EPC11CJ183BCO_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/Marketplace/6869173306/6869173306_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS//Marketplace/6869179311/6869179311_PRD_160_1.jpg',
-    'https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IN_Informatica/v2/MSCJO365LPER00/MSCJO365LPER00_PRD_160_1.jpg',
-  ];
+  insertElement() {
+    
+  }
 
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    console.log(this.featuredProducts);
+  }
 }
