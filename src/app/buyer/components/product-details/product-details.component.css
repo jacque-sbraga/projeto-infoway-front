@@ -53,6 +53,7 @@
   padding: 1px 0;
   text-align: center;
   border: 1px solid rgb(233, 233, 233);
+  outline-color: #21AAF6;
 }
 
 .quantity .minus, 
@@ -66,7 +67,7 @@
   background: #abd8f0;
 }
 
-.quantity .increment{
+.quantity .prev{
   background: #21AAF6;
   cursor: pointer;
 }

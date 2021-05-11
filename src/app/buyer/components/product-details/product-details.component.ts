@@ -10,7 +10,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailsComponent implements OnInit {
   product: Product;
-  quantity: number = 0;
+  quantity: number = 1;
+  availability: string = '';
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService
@@ -40,36 +41,54 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
-  validateQuantityInput(target: EventTarget) {
-    let element = target as HTMLInputElement;
-    const minusBtn = document.querySelector('.minus');
-    this.quantity = parseInt(element.value);
+  // Verificar a disponibilidade do produto
+  checkAvailability() {
+    const quantity = this.product.quantity;
 
-    // Para evitar que o usuário coloque uma quantidade menor que 1
-    if (this.quantity <= 0) {
-      element.value = '1';
-      this.setQuantity(1);
-    }
-      this.quantity > 1 ?
-      minusBtn.classList.add('increment'):
-      minusBtn.classList.remove('increment');
+    if (quantity === 0) return `Produto indisponível no momento`;
+    else if (quantity === 1) return `${quantity} disponível`;
+    return '';
   }
 
-  incrementDecrease(target: any) {
-    const input = document.querySelector('#quantity') as HTMLInputElement;
+  validateQuantityInput(target: any) {
+    let input;
 
-    target.classList.contains('plus')
-      ? this.setQuantity(1)
-      : this.setQuantity(-1);
+    if (target instanceof EventTarget) {
+      input = target as HTMLInputElement;
+    }
+    let value: number = parseInt(input.value);
+
+    // Validação da quantidade digitada pelo usuário
+    if (value <= 0) {
+      input.value = '1';
+    }
+    if (value > this.product.quantity) {
+      input.value = `${this.product.quantity}`;
+    }
+    this.quantity = parseInt(input.value);
+    this.incrementDecrease();
+  }
+
+  incrementDecrease() {
+    const minusBtn = document.querySelector('.minus');
+    this.quantity > 1
+      ? minusBtn.classList.add('prev')
+      : minusBtn.classList.remove('prev');
+  }
+
+  quantityByBtn(target: any) {
+    const input = document.querySelector('#quantity') as HTMLInputElement;
+    const controlBtn = target;
+
+    controlBtn.classList.contains('plus')
+      ? (this.quantity += 1)
+      : (this.quantity -= 1);
 
     input.value = `${this.quantity}`;
     this.validateQuantityInput(input);
   }
 
-  setQuantity(value: number) {
-    if (value <= this.product.quantity) {
-      this.quantity += value;
-      console.log(this.quantity);
-    }
+  priceProduct(){
+    console.log(typeof this.product.price)
   }
 }
