@@ -1,9 +1,5 @@
 <div class="container">
-  <img src="https://www.fastshop.com.br//wcsstore/FastShopCAS/imagens/_IN_Informatica/v2/MSCJO365LPER00/MSCJO365LPER00_PRD_160_1.jpg" alt="">
-  <div class="price">
-    <p>R$ 00 | currency:'BRL'</p>
-    <mat-icon>add_shopping_cart</mat-icon> class="price"
-    <mat-icon>remove_shopping_cart</mat-icon>
-  </div>  
-  <p>Nome do produto</p>
+  <img [src]="product.image" alt="" />
+  <div class="price">Preço: {{ product.price }}</div>
+  <p>{{ product.name }}</p>
 </div>

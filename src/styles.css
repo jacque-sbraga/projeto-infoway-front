@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
 html {
@@ -11,11 +12,12 @@ html {
 }
 
 body {
+  background-color: rgb(252, 252, 252);
   height: 100vh;
   display: grid;
   /* place-items: center; */
   overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   /* height: 2000px; */
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

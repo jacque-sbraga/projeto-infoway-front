@@ -17,6 +17,38 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class HeaderComponent implements OnInit {
 
+  store: any = {
+    user: "Felipe",
+    message: "Seja bem vindo",
+    name: "Infoway",
+  };
+
+  openedMenu: boolean = false;
+  openedLogin: boolean = false;
+
+  // constructor() {}
+
+  // ngOnInit(): void {}
+
+  toggleMenu() {
+    this.openedMenu = !this.openedMenu;
+    this.closeLogin()
+  }
+
+  closeMenu() {
+    this.openedMenu = false;
+  }
+
+  toggleLogin() {
+    console.log("clicou")
+    this.openedLogin = !this.openedLogin;
+    this.closeMenu()
+  }
+
+  closeLogin() {
+    this.openedLogin = false;
+  }
+
   categories: Category[] = [];
   featuredCategories: Category[] = [];
 
