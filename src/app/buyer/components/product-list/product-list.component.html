@@ -1,217 +1,26 @@
-<div style="margin-top: 100px" *ngFor="let product of products">
-  <p>{{ product.name }}</p>
-  <p>{{ product.description }}</p>
-  <p>{{ product.quantity }}</p>
-  <p>{{ product.price }}</p>
-</div>
-
-<!--   
-<header id="header-busca">
-  <div>
-    <p>Exibir todos os produtos(000 produtos encontrados)</p>
-  </div>
-  <div class="flex">
-    <div class="flex">
-      <span>Ordenar por</span>
-      <select id="id-select">
-        <option value="Menor preço">Menor preço</option>
-        <option value="Maior preço">Maior preço</option>
-        <option value="Mais vendidos">Mais vendidos</option>
-        <option value="Menos vendidos">Menos vendidos</option>
-      </select>
-    </div>
-    <div class="flex">
-      <input class="input-busca" type="text" placeholder="Buscar produto..." />
-      <img class="lupa-icon" src="../images/lupa.png" alt="lupa de busca" />
-    </div>
-  </div>
-</header>
-
-<main>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2">
-        Categoria
-        <div class="input-group-text checkbox-category">
-          <input type="checkbox" /><span>Categoria A</span>
-        </div>
-        <div class="input-group-text checkbox-category">
-          <input type="checkbox" /> <span>Categoria B</span>
-        </div>
-        <div class="input-group-text checkbox-category">
-          <input type="checkbox" /><span>Categoria C</span>
-        </div>
-        Filtro 2
-        <div class="input-group-text checkbox-filter">
-          <input type="checkbox" /> <span>Filtro</span>
-        </div>
-        <div class="input-group-text checkbox-filter">
-          <input type="checkbox" /><span>Filtro</span>
-        </div>
-        <div class="input-group-text checkbox-filter">
-          <input type="checkbox" /> <span>Filtro</span>
-          <input type="checkbox" />
-          <span>Categoria A</span>
-        </div>
-        <div class="input-group-text checkbox-category">
-          <input type="checkbox" />
-          <span>Categoria B</span>
-        </div>
-        <div class="input-group-text checkbox-category">
-          <input type="checkbox" />
-          <span>Categoria C</span>
-        </div>
-        Filtro 2
-        <div class="input-group-text checkbox-filter">
-          <input type="checkbox" />
-          <span>Filtro</span>
-        </div>
-        <div class="input-group-text checkbox-filter">
-          <input type="checkbox" />
-          <span>Filtro</span>
-        </div>
-        <div class="input-group-text checkbox-filter">
-          <input type="checkbox" />
-          <span>Filtro</span>
-        </div>
-      </div>
-      <div class="col-md-10">
-        <div class="row mb-2">
-          <div class="col-md-3">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <p class="card-text">+ Adicionar novo produto</p>
-                <a class="btn btn-primary" href="#" role="button">Editar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title">R$ 00,00</h5>
-                <p class="card-text">Nome do produto e descrição do produto.</p>
-                <button type="button" class="btn btn-primary">Editar</button>
-                <button type="button" class="btn btn-danger">Excluir</button>
-              </div>
-            </div>
-          </div>
-          <-- fim do produto -->
-<div class="col-md-3">
-  <div class="card">
-    <img
-      class="card-img-top"
-      src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-      alt="Card image cap"
-    />
-    <div class="card-body">
-      <h5 class="card-title">R$ 00,00</h5>
-      <p class="card-text">Nome do produto e descrição do produto.</p>
-      <button type="button" class="btn btn-primary">Editar</button>
-      <button type="button" class="btn btn-danger">Excluir</button>
-    </div>
-  </div>
-</div>
-<!-- fim do produto -->
-<div class="col-md-3">
-  <div class="card">
-    <img
-      class="card-img-top"
-      src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-      alt="Card image cap"
-    />
-    <div class="card-body">
-      <h5 class="card-title">R$ 00,00</h5>
-      <p class="card-text">Nome do produto e descrição do produto.</p>
-      <button type="button" class="btn btn-primary">Editar</button>
-      <button type="button" class="btn btn-danger">Excluir</button>
-    </div>
-  </div>
-</div>
-<!-- fim do produto -->
-<!-- </div> -->
-<div class="row mb-2">
-  <div class="col-md-3">
-    <div class="card">
-      <img
-        class="card-img-top"
-        src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <h5 class="card-title">R$ 00,00</h5>
-        <p class="card-text">Nome do produto e descrição do produto.</p>
-        <button type="button" class="btn btn-primary">Editar</button>
-        <button type="button" class="btn btn-danger">Excluir</button>
-      </div>
-    </div>
-  </div>
-  <!-- fim do produto -->
-  <div class="col-md-3">
-    <div class="card">
-      <img
-        class="card-img-top"
-        src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <h5 class="card-title">R$ 00,00</h5>
-        <p class="card-text">Nome do produto e descrição do produto.</p>
-        <button type="button" class="btn btn-primary">Editar</button>
-        <button type="button" class="btn btn-danger">Excluir</button>
-      </div>
-    </div>
-  </div>
-  <!-- fim do produto -->
-  <div class="col-md-3">
-    <div class="card">
-      <img
-        class="card-img-top"
-        src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <h5 class="card-title">R$ 00,00</h5>
-        <p class="card-text">Nome do produto e descrição do produto.</p>
-        <button type="button" class="btn btn-primary">Editar</button>
-        <button type="button" class="btn btn-danger">Excluir</button>
-      </div>
-    </div>
-  </div>
-  <!-- fim do produto -->
-  <div class="col-md-3">
-    <div class="card">
-      <img
-        class="card-img-top"
-        src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <h5 class="card-title">R$ 00,00</h5>
-        <p class="card-text">Nome do produto e descrição do produto.</p>
-        <button type="button" class="btn btn-primary">Editar</button>
-        <button type="button" class="btn btn-danger">Excluir</button>
-      </div>
-    </div>
-  </div>
-  <!-- fim do produto -->
-</div>
-<!-- </div>
-    </div>
-  </div> -->
-<!-- </div>
-      </div>
-    </div>
-  </div>   
-</main>
--->
--->
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list>

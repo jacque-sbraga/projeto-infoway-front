@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
 
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
@@ -18,7 +20,9 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     CheckoutComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatGridListModule,
+    MatCardModule
   ],
   exports: [
     UserRegisterComponent,
