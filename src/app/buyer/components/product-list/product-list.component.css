@@ -40,9 +40,12 @@ section.items-display .show-items {
 }
 
 .card {
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
   margin: 10px;
   transition: 0.5s;
+  border-radius: 2%;
 }
 
 .card:hover {
@@ -50,7 +53,9 @@ section.items-display .show-items {
 }
 
 .card-img {
-  height: 300px;
+  width: 250px;
+  height: 224px;
+  display: block;
   border-radius: 0;
 }
 
