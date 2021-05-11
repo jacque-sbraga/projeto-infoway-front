@@ -6,15 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
-
   @Input() featuredProducts: any;
-  
+
   constructor() {}
 
-  insertElement() {
-    
-  }
-
+  insertElement() {}
 
   ngOnInit(): void {
     console.log(this.featuredProducts);
