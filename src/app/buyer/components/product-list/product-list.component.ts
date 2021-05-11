@@ -2,6 +2,8 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
+import { MaterialModule } from 'src/app/shared/angular-material/material.module';
+
 
 @Component({
   selector: 'app-product-list',
@@ -11,7 +13,9 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductListComponent implements OnInit {
 
   category: number;
-  products: Product[] = [];  
+  products: Product[] = [];
+
+  messageText: string = `Exibindo todos os produtos (${this.products.length} produtos encontrados)`;
 
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService) { }
 

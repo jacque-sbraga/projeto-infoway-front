@@ -35,8 +35,7 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
     HeaderComponent,
     FooterComponent,
     SliderComponent,
-    LoginComponent,
-    SliderComponent,
+    LoginComponent,    
     ProductCardComponent
   ],
   imports: [

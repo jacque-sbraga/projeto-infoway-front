@@ -1,5 +1,5 @@
 <header id="header">
-  <div class="container">
+  <div class="container-header">
     <div class="logo-wrapper">
       <a routerLink="home" class="logo">
         <svg
@@ -49,70 +49,11 @@
 
     <div class="cart-login-wrapper">
       <a routerLink="cart" class="cart">
-        <svg
-          width="52"
-          height="52"
-          viewBox="0 0 52 52"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g filter="url(#filter0_d)">
-            <path
-              d="M19.6 35.6C17.84 35.6 16.416 37.04 16.416 38.8C16.416 40.56 17.84 42 19.6 42C21.36 42 22.8 40.56 22.8 38.8C22.8 37.04 21.36 35.6 19.6 35.6ZM10 10V13.2H13.2L18.96 25.344L16.8 29.264C16.544 29.712 16.4 30.24 16.4 30.8C16.4 32.56 17.84 34 19.6 34H38.8V30.8H20.272C20.048 30.8 19.872 30.624 19.872 30.4L19.92 30.208L21.36 27.6H33.28C34.48 27.6 35.536 26.944 36.08 25.952L41.808 15.568C41.936 15.344 42 15.072 42 14.8C42 13.92 41.28 13.2 40.4 13.2H16.736L15.232 10H10ZM35.6 35.6C33.84 35.6 32.416 37.04 32.416 38.8C32.416 40.56 33.84 42 35.6 42C37.36 42 38.8 40.56 38.8 38.8C38.8 37.04 37.36 35.6 35.6 35.6Z"
-              fill="#4A4343"
-            />
-          </g>
-          <defs>
-            <filter
-              id="filter0_d"
-              x="0"
-              y="0"
-              width="52"
-              height="52"
-              filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
-            >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feColorMatrix
-                in="SourceAlpha"
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-              />
-              <feOffset />
-              <feGaussianBlur stdDeviation="5" />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 1 0 0 0 0 0.9875 0 0 0 0 0.9875 0 0 0 0.25 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="BackgroundImageFix"
-                result="effect1_dropShadow"
-              />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="effect1_dropShadow"
-                result="shape"
-              />
-            </filter>
-          </defs>
-        </svg>
+        <mat-icon class="mat-icon">shopping_cart</mat-icon>
       </a>
 
       <div class="user" routerLink="login-admin">
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M19.9999 3.33337C10.7999 3.33337 3.33325 10.8 3.33325 20C3.33325 29.2 10.7999 36.6667 19.9999 36.6667C29.1999 36.6667 36.6666 29.2 36.6666 20C36.6666 10.8 29.1999 3.33337 19.9999 3.33337ZM19.9999 8.33337C22.7666 8.33337 24.9999 10.5667 24.9999 13.3334C24.9999 16.1 22.7666 18.3334 19.9999 18.3334C17.2333 18.3334 14.9999 16.1 14.9999 13.3334C14.9999 10.5667 17.2333 8.33337 19.9999 8.33337ZM19.9999 32C15.8333 32 12.1499 29.8667 9.99992 26.6334C10.0499 23.3167 16.6666 21.5 19.9999 21.5C23.3166 21.5 29.9499 23.3167 29.9999 26.6334C27.8499 29.8667 24.1666 32 19.9999 32Z"
-            fill="#4A4343"
-          />
-        </svg>
+        <mat-icon class="mat-icon">account_circle</mat-icon>
       </div>
       <div class="login-register" routerLink="login-admin">
         <a
@@ -126,7 +67,10 @@
   <hr />
   <div class="categories">
     <button mat-button [matMenuTriggerFor]="category">
-      <mat-icon>menu</mat-icon>Categorias
+      <div class="category-menu">
+        <mat-icon>menu</mat-icon>
+        <label>Categorias</label>
+      </div>
     </button>
 
     <mat-menu #category="matMenu">
@@ -150,7 +94,7 @@
         {{ category.category }}
       </button>
     </div>
-  </div>
+  </div>  
 </header>
 <div class="space-under-header"></div>
 
@@ -160,5 +104,5 @@
     openedLogin ? 'header-menu-opened' : 'header-menu-hidden'
   ]"
 >
-  <app-login></app-login>
+  <app-login></app-login>  
 </div>

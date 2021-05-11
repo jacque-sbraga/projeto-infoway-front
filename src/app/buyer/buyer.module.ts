@@ -6,8 +6,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-
-
+import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
+import { MaterialModule } from '../shared/angular-material/material.module';
 
 @NgModule({
   declarations: [
@@ -15,16 +15,17 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     ProductListComponent,
     ProductDetailsComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports: [
     UserRegisterComponent,
     ProductListComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent    
   ]
 })
 export class BuyerModule { }

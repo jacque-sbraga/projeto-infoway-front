@@ -1,84 +1,67 @@
-:root {
-  --cor-primaria-azul-petroleo: #14213d;
-  --cor-primaria-amarelo: #fca311;
-  --cor-primaria-cinza-claro: #e5e5e5;
-  --cor-cinza-medio: #c4c4c4;
-  --fonte-roboto: "Roboto", sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-family: var(--fonte-roboto);
-  font-weight: 400;
-  outline: none;
-}
-
-header {
-  margin-top: 100px;
-}
-
-body {
-  height: 100vh;
-  display: flex;
-  align-items: stretch;
-}
-
-#header {
-  background-color: var(--cor-primaria-azul-petroleo);
-  display: flex;
-  height: 150px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px;
-  /* position: absolute; */
-  width: 100%;
-  color: var(--cor-primaria-amarelo);
-}
-
-#header-busca {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  box-shadow: 0px 5px 10px 0px rgb(246, 246, 246);
-  padding: 20px 0;
-  font-size: 15px;
-  font-family: var(--fonte-roboto);
-  color: var(--cor-primaria-azul-petroleo);
-}
-
-body {
-  height: 100vh;
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-}
-
-#id-select {
-  padding: 4px 15px;
-  font-size: 14px;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 0px 0px 3px 0px rgb(173, 173, 173);
-}
-
 .flex {
+  display: flex;
+  justify-content: space-between;
+}
+.field-size {
+  margin: 10px;
+  width: 120px;
+}
+
+.container-product-list {
+  display: flex;
+  margin: 70px 30px 15px 30px;
+}
+
+section.filter-menu {
+  display: flex;
+  padding-top: 60px;
+  flex-flow: column;
+  padding-right: 20px;
+  width: 300px;
+}
+
+section.items-display {
+  flex-grow: 4;
+}
+
+.sort {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort .message {
+  margin: 0px 10px 30px 10px;
+  color: rgb(168, 168, 168);
+}
+
+section.items-display .show-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  margin: 10px;
+  transition: 0.5s;
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px 0 lightgray;
+}
+
+.card-img {
+  height: 300px;
+  border-radius: 0;
+}
+
+.add-cart-button {
+  width: 100%;
+  padding: 5px;
+  border-radius: 0;
+}
+
+.buy-product {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 15px;
-}
-
-span {
-  margin-right: 15px;
-}
-
-.checkbox-category span {
-  margin-left: 5px;
-}
-
-.checkbox-filter span {
-  margin-left: 5px;
 }
