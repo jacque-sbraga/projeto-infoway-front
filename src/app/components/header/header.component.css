@@ -1,4 +1,171 @@
-@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+.header {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  box-shadow: rgb(0 0 0 / 3%) 0 1px 10px;
+  min-height: 70px;
+  border: 1px solid rgb(235, 235, 235);
+  color: rgba(0, 0, 0, 0.55);
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background-color: white;
+  box-shadow: rgb(167, 167, 167) 0 0 3px 0;
+}
+
+.header-spacer {
+  height: 100px;
+}
+
+.box-logo {
+  margin-left: 5px;
+  width: 15vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Righteous", cursive;
+  transition: 300ms;
+}
+
+.box-logo-overlay {
+  position: absolute;
+  height: 60px;
+  width: 15vw;
+  transition: 300ms;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.box-logo-overlay:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.box-logo div {
+  display: flex;
+  align-items: center;
+}
+
+.box-logo img {
+  padding: 2px 5px;
+  max-width: 3rem;
+}
+
+.box-logo span {
+  color: rgb(75, 107, 179);
+  font-size: 1.4rem;
+  margin-left: 10px;
+}
+
+.box-input-search {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid gray;
+  width: 200px;
+  transition: all 500ms;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.messages-box {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: 260px;
+  margin-right: 50px;
+  overflow: hidden;
+}
+
+.messages-box span {
+  font-weight: 500;
+}
+
+.icon {
+  width: 25px;
+  padding: 5px 0;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.header-menu-items {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-wrapper {
+  top: 15px;
+  width: 25vw;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.search-wrapper input {
+  border: 2px solid lightgray;
+  width: 100%;
+  padding: 0.15rem 0.5rem;
+  font-family: "Roboto", sans-serif;
+  transition: 300ms;
+}
+
+.search-wrapper input:focus {
+  border: 2px solid rgba(111, 111, 246, 0.582);
+}
+
+.search-wrapper .search {
+  background-color: white;
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.box-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  width: 10vw;
+  transition: 250ms;
+}
+
+.box-icon:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.03);
+  top: 5px;
+}
+
+.categories {
+  display: flex;
+  align-items: center;
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 hr {
   margin: 20px 10px 10px 10px;
@@ -96,7 +263,7 @@ mat-icon.mat-icon {
 
 .categories {
   display: flex;
-}
+} */
 
 .header-menu {
   background-color: white;
@@ -108,13 +275,18 @@ mat-icon.mat-icon {
 }
 
 .header-menu-hidden {
-  top: -380px;
+  top: 75px;
+  right: -1000px;
   color: transparent;
+  position: absolute;
+  z-index: 15;
 }
 
 .header-menu-opened {
+  position: absolute;
   padding: 20px;
-  top: 180px;
+  top: 75px;
+  right: 5px;
   border-radius: 8px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
