@@ -1,3 +1,4 @@
+import { CheckoutComponent } from './buyer/components/checkout/checkout.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './buyer/components/cart/cart.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'cart', component: CartComponent },
   { path: 'home/login-admin', component: LoginComponent },
+  { path: 'checkout', component: CheckoutComponent},
   {
     path: 'admin-dashboard',
     component: HomeAdminComponent,
@@ -25,6 +27,7 @@ const routes: Routes = [
       { path: 'product-list', component: ProductListComponent },
       { path: 'product-details', component: ProductDetailsAdminComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'checkout', component: CheckoutComponent},
     ],
   },
 
