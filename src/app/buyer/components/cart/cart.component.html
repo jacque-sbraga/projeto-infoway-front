@@ -1,6 +1,68 @@
+<div class="container page-margin">
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  <div class="row">
+    <div class="col-md-12">
+      <strong>Carrinho(1)</strong>
+      <hr>
+    </div>
+
+
+  </div>
+
+  <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+  <div class="row">
+    <div class="col-6 col-md-4">
+      <div class="card">
+        <img class="card-img-top"
+          src="https://th.bing.com/th/id/Rf3f52a9921c5c32ac5755f4b126a0117?rik=GK1nosSeQpoXhQ&pid=ImgRaw"
+          alt="imagem de um smarphone Xioame" />
+        <div class="card-body">
+          <h5 class="card-title">R$ 1.200,00</h5>
+          <p class="card-text">Mi 10T Pro 5G (8Gb/256Gb).</p>
+          <button type="button" class="btn btn-primary">Adicionar</button>
+          <button type="button" class="btn btn-danger">Excluir</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="box-button">
+      <button type="button" class="btn btn-primary" (click)="setCounterMinus()">-</button>
+      <span class="count">{{counter}}</span>
+      <button type="button" class="btn btn-primary" (click)="setCounterPlus()">+</button>
+    </div>
+
+
+    <div class="flex-column">
+      <span>Frete: R$ 00,00</span>
+      <span>total á pagar: R$ 00,00</span>
+    </div>
+
+    <hr>
+
+  </div>
+
+  <!-- Columns are always 50% wide, on mobile and desktop -->
+  <div class="row-button">
+    <button type="button" class="btn btn-primary">Excluir</button>
+    <button type="button" class="btn btn-primary">Salvar para depois</button>
+    <button type="button" class="btn btn-primary">Mais produtos do vendendoor</button>
+    <button type="button" class="btn btn-primary">Finalizar compra</button>
+  </div>
+
+  <hr>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <strong>Produtos que podem te intersar</strong>
+    </div>
+    <div class="col-md-12">
+    </div>
+  </div>
+</div>
 <main class="container">
   <section>
-    <h1>Carrinho</h1>
     <app-slider [featuredProducts]="featuredProducts"></app-slider>
   </section>
 </main>

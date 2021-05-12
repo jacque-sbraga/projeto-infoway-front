@@ -3,12 +3,24 @@ import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+  counter: number = 1;
+  
+  setCounterPlus() {
+    this.counter += 1
+  }
+
+  setCounterMinus() {
+    if (this.counter > 1) {
+      this.counter -= 1
+    }
+  }
   featuredProducts: any[] = [];
 
   constructor(
