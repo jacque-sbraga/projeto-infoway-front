@@ -1,50 +1,164 @@
 <div class="container-user-register">
-    <form class="user-register">
-        <div class="nome-sobrenome">
-        <div class="mb-3">      
-          <label for="exampleInputEmail1" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Sobrenome</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-          </div>
-          <div class="cpf-telefone">
-          <div class="mb-3">      
-            <label for="exampleInputEmail1" class="form-label">CPF</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">      
-            <label for="exampleInputEmail1" class="form-label">Telefone com DDD</label>
-            <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </div>
-        </div>   
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Endereço</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">     
-          </div>
-          <div class="pass-repete">
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Repita Senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-        </div>
-        <div class="buttons-form-user">
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-        <button type="submit" class="btn btn-primary">Voltar</button>
+  <form class="user-register">
+    <div class="titulo">
+      <h1>Cadastre-se</h1>
     </div>
-      </form>
-      <div class="image-form">
-          <img src="../../../../assets/img/img-forms.png" alt="">
+
+    <div class="dados-pessoais">
+      <div class="box1">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome *</label>
+          <input
+            type="text"
+            name="nome"
+            class="form-control"
+            id="nome"
+            placeholder="Primeiro nome..."
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="sobrenome" class="form-label">Sobrenome *</label>
+          <input
+            type="text"
+            name="sobrenome"
+            class="form-control"
+            id="sobrenome"
+            placeholder="Último nome..."
+          />
+        </div>
+        <div class="mb-3">
+          <label for="cpf" class="form-label">CPF *</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cpf"
+            placeholder="Somente números..."
+            maxlength="11"
+          />
+        </div>
       </div>
-    
+
+      <div class="box-img">
+        <img
+          src="../../../../assets/img/img-forms.png"
+          class="img-form"
+          alt="ilustração de uma mulher se cadastrando"
+        />
+      </div>
     </div>
+
+      <div class="box2">
+        <div class="ddd">
+          <label for="ddd" class="form-label">DDD *</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="ddd"
+            placeholder="Ex.: 11"
+          />
+        </div>
+
+        <div class="phone">
+          <label for="phone" class="form-label">Telefone *</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="phone"
+            maxlength="9"
+            placeholder="Somente números..."
+          />
+        </div>
+        
+      <div class="mb-3">
+        <label for="cep" class="form-label">CEP *</label>
+        <input type="text" 
+        class="form-control" 
+        id="cep" 
+        name="cep" 
+        placeholder="Somente números..."
+        maxlength="8"
+        required/>
+      </div>
+      <div class="mb-3">
+        <label for="logradouro" class="form-label">Endereço *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="logradouro"
+          name="logradouro"
+          placeholder="Rua/Av tal..."
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="numero" class="form-label">Nº *</label>
+        <input type="text" class="form-control" id="numero"
+        placeholder="..."
+        maxlength="6"
+        required />
+      </div>
+      <div class="mb-3">
+        <label for="bairro" class="form-label">Bairro *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="bairro"
+          name="bairro"
+          placeholder="..."
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="endereco" class="form-label">Complemento</label>
+        <input type="text" class="form-control" id="complemento" />
+      </div>
+      <div class="mb-3">
+        <label for="uf" class="form-label">UF *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="uf"
+          name="uf"
+          placeholder="..."
+          maxlength="2"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="cidade" class="form-label">Cidade *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cidade"
+          name="cidade"
+          placeholder="..."
+          required
+        />
+      </div> 
+    </div>
+
+      <div class="pass">    
+      <div class="mb-3">  
+        <label for="email" class="form-label">E-mail *</label>
+        <input type="email" class="form-control" 
+        id="email"
+        placeholder="Ex.: contato@gmail.com"
+        required />
+      </div>
+      <div class="mb-3">
+        <label for="senha" class="form-label">Senha *</label>
+        <input type="password" class="form-control" id="senha"
+        placeholder="Minimo de 6 caracteres"
+        minlength="6"
+        maxlength="50"
+        required />
+      </div>
+    </div>
+    
+    <div class="buttons-form-user">
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+      <button type="submit" class="btn btn-primary">Voltar</button>
+    </div>
+  </form>
+</div>
