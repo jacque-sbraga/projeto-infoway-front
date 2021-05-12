@@ -5,20 +5,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './shared/angular-material/material.module';
-
 // Para a internacionalização da moeda:
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common'
 import localePtBr from '@angular/common/locales/pt'
 registerLocaleData(localePtBr);
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './login/login.component';
 //importe modules
-// import { AdminModule } from './admin/admin.module';
 import { BuyerModule } from './buyer/buyer.module';
 import { ShopkeeperModule } from './shopkeeper/shopkeeper.module';
 import { HomeComponent } from './components/home/home.component';
@@ -28,8 +24,9 @@ import { MainAdminComponent } from './components/admin/main-admin/main-admin.com
 import { ProductDetailsAdminComponent } from './components/admin/product-details-admin/product-details-admin.component';
 import { HomeAdminComponent } from './components/admin/home-admin/home-admin.component';
 import { CreateProductComponent } from './components/admin/create-product/create-product.component';
-import { ProductsListComponent } from './components/admin/products-list/products-list.component';
-import { SharedModule } from './shared/components/shared.module';
+import { SharedModule } from './shared/shared.module';
+import { MaterialModule } from './shared/angular-material/material.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +39,6 @@ import { SharedModule } from './shared/components/shared.module';
     ProductDetailsAdminComponent,
     HomeAdminComponent,
     CreateProductComponent,
-    ProductsListComponent,
   ],
   imports: [
     BrowserModule,
