@@ -3,7 +3,6 @@
     <div class="flex-row cursor" routerLink="home">
       <div class="box-logo">
         <div>
-          <!-- <img src="/assets/content.png" alt="adm-logo" /> -->
           <span>{{ store.name }}</span>
         </div>
         <div class="pipe"></div>
@@ -26,16 +25,6 @@
           </button>
         </div>
       </mat-menu>
-
-      <!-- <div class="featured">
-        <button
-          mat-button
-          *ngFor="let category of featuredCategories"
-          (click)="navigateToProductList(category)"
-        >
-          {{ category.category }}
-        </button>
-      </div> -->
     </div>
 
     <div class="search-wrapper">
@@ -69,17 +58,17 @@
   </div>
   <div class="header-menu-items">
     <div class="box-icon" routerLink="cart">
-      <img class="icon" src="/assets/img/shopping-cart (2).png" alt="">
+      <img class="icon" src="/assets/img/shopping-cart (2).png" alt="" />
     </div>
 
     <div class="box-icon" (click)="toggleLogin()">
       <img class="icon" src="/assets/user.png" alt="icon" />
     </div>
 
-    <div class="box-icon" (click)="toggleMenu()">
+    <!-- <div class="box-icon" (click)="toggleMenu()">
       <img class="icon" src="/assets/menu.png" alt="icon" />
-    </div>
-  </div>  
+    </div> -->
+  </div>
 </header>
 <div class="space-under-header"></div>
 
@@ -89,15 +78,18 @@
     openedLogin ? 'header-menu-opened' : 'header-menu-hidden'
   ]"
 >
-  <app-login></app-login>  
+  
+  <app-login></app-login>
+  <div class="box-button">
+    <a *ngIf="provider" (click)="signOut()" style="cursor: pointer">SAIR</a>
+  </div>
 </div>
 
 <div
-  
   [ngClass]="[
     'header-menu',
     openedMenu ? 'header-menu-opened' : 'header-menu-hidden'
   ]"
 >
-<a routerLink="admin-dashboard">Admin Dashboard</a>
+  <a *ngIf="provider" routerLink="admin-dashboard">Admin Dashboard</a>
 </div>

@@ -165,106 +165,6 @@
   align-items: center;
 }
 
-/* @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
-
-hr {
-  margin: 20px 10px 10px 10px;
-}
-
-#header {
-  background-color: white;
-  padding: 1rem 1rem 0 1rem;
-  position: fixed;
-  width: 100%;
-  z-index: 5;
-  box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.2);
-}
-
-.space-under-header {
-  height: 120px;
-}
-
-#header a {
-  text-decoration: none;
-}
-
-.container-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo,
-.cart-login-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  font-family: "Righteous", cursive;
-  color: #2496ed;
-  font-size: 36px;
-}
-
-.logo svg {
-  margin-right: 25px;
-}
-
-.search-wrapper {
-  width: 450px;
-  max-width: 50%;
-  position: relative;
-}
-
-.search-wrapper input {
-  width: 100%;
-  padding: 0.5rem;
-  font-family: "Roboto", sans-serif;
-}
-
-.search-wrapper .search {
-  position: absolute;
-  right: 8px;
-  top: 10px;
-  cursor: pointer;
-}
-
-.cart-login-wrapper .user {
-  margin: 0 20px;
-}
-
-.cart-login-wrapper .user,
-.cart-login-wrapper .cart {
-  cursor: pointer;
-}
-
-.cart-login-wrapper .login-register a {
-  font-weight: 500;
-  color: #4a4343;
-}
-
-mat-icon {
-  margin-right: 5px;
-  margin-bottom: 5px;
-  color: #4a4343;
-}
-
-mat-icon.mat-icon {
-  font-size: 40px;
-}
-
-.category-menu {
-  display: flex;
-}
-
-.category-menu label {
-  margin-left: 15px;
-}
-
-.categories {
-  display: flex;
-} */
-
 .header-menu {
   background-color: white;
   position: absolute;
@@ -291,4 +191,18 @@ mat-icon.mat-icon {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   z-index: 15;
+}
+
+.box-button {
+  display: flex;
+  justify-content: center;
+  width: 100%
+}
+
+.box-button a {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
