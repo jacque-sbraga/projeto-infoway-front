@@ -18,10 +18,9 @@
         id="name"
         name="name"
         class="form-control"
-        [(ngModel)]="userSettings.name"
+        [(ngModel)]="product.name"
         required
         #nameField="ngModel"
-        (blur)="onBlur(nameField)"
         [class.field-error]="form.submitted && nameField.invalid"
       />
       <div
@@ -38,11 +37,11 @@
         class="form-control"
         id="category"
         name="category"
-        [(ngModel)]="userSettings.category_id"
+        [(ngModel)]="product.category_id"
         required
       >
-        <option *ngFor="let type of categorys | async">
-          {{ type }}
+        <option *ngFor="let type of categorys" value="{{ type.id }}">
+          {{ type.category }}
         </option>
       </select>
     </div>
@@ -53,10 +52,9 @@
         id="price"
         name="price"
         class="form-control"
-        [(ngModel)]="userSettings.price"
+        [(ngModel)]="product.price"
         required
         #nameField="ngModel"
-        (blur)="onBlur(nameField)"
         [class.field-error]="form.submitted && nameField.invalid"
       />
       <div
@@ -76,10 +74,9 @@
         name="quantity"
         type="number"
         class="form-control"
-        [(ngModel)]="userSettings.quantity"
+        [(ngModel)]="product.quantity"
         required
         #nameField="ngModel"
-        (blur)="onBlur(nameField)"
         [class.field-error]="form.submitted && nameField.invalid"
       />
       <div
@@ -96,10 +93,9 @@
         id="sku"
         name="sku"
         class="form-control"
-        [(ngModel)]="userSettings.sku"
+        [(ngModel)]="product.sku"
         required
         #nameField="ngModel"
-        (blur)="onBlur(nameField)"
         [class.field-error]="form.submitted && nameField.invalid"
       />
       <div
@@ -114,14 +110,13 @@
       <label for="image" style="font-size: 18px; font-weight: 500"
         >URL da imagem</label
       >
-      <input     
+      <input
         id="image"
         name="image"
         class="form-control"
-        [(ngModel)]="userSettings.image"
+        [(ngModel)]="product.image"
         required
         #nameField="ngModel"
-        (blur)="onBlur(nameField)"
         [class.field-error]="form.submitted && nameField.invalid"
       />
       <div
@@ -139,7 +134,7 @@
         id="description"
         rows="3"
         class="form-control"
-        [(ngModel)]="userSettings.description"
+        [(ngModel)]="product.description"
       ></textarea>
     </div>
 
@@ -157,13 +152,29 @@
           id="available"
           name="available"
           class="form-check-input"
-          [(ngModel)]="userSettings.available"
+          [(ngModel)]="product.available"
         />
         <label
           style="font-size: 18px; font-weight: 600; color: rgb(8, 12, 202)"
           for="available"
           class="form-check-label"
           >Disponibilidade imediata?</label
+        >
+      </div>
+
+      <div class="form-check form-group">
+        <input
+          type="checkbox"
+          id="featured"
+          name="featured"
+          class="form-check-input"
+          [(ngModel)]="product.featured"
+        />
+        <label
+          style="font-size: 18px; font-weight: 600; color: rgb(8, 12, 202)"
+          for="featured"
+          class="form-check-label"
+          >Produto em destaque?</label
         >
       </div>
       <button class="btn btn-primary">Cadastrar / Alterar</button>
@@ -173,5 +184,4 @@
       {{ postErrorMessage }}
     </div>
   </form>
-  <!-- <p>{{ userSettings | json }}</p> -->
 </div>
