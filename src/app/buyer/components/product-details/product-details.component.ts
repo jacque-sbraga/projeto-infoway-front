@@ -43,15 +43,30 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
+  getQuantity(){
+    return this.product.quantity >= 1
+  }
   sumQuantity(): void {
-    this.quantity >= this.product.quantity
-      ? (this.quantity = this.product.quantity)
-      : (this.quantity += 1);
+    if(this.getQuantity()){
+      if(this.quantity >= this.product.quantity){
+          this.quantity = this.product.quantity;
+      }
+      else {
+        this.quantity += 1;
+      }
+    } else{
+      this.quantity = 0;
+    }
     this.incrementDecrease();
   }
 
   decreaseQuantity(): void {
-    this.quantity <= 0 ? (this.quantity = 1) : (this.quantity -= 1);
+    
+    if(this.quantity > 1){
+      this.quantity -= 1;
+    }else{
+      this.quantity = 1
+    }
     this.incrementDecrease()
   }
   validateQuantityInput(target: any): void {
@@ -95,7 +110,7 @@ export class ProductDetailsComponent implements OnInit {
   priceProduct(): number {
     return this.product.price;
   }
-
+  
   addToCart(): void {
     const product: any = {
       id: this.product.id,
@@ -104,7 +119,7 @@ export class ProductDetailsComponent implements OnInit {
       price: this.product.price,
       subTotal: this.quantity * this.product.price,
     };
-    // localStorage.setItem('cart', JSON.stringify([].concat(product)));
+    
     !localStorage.cart
       ? localStorage.setItem('cart', JSON.stringify([].concat(product)))
       : this.updateCart(product);
@@ -122,4 +137,5 @@ export class ProductDetailsComponent implements OnInit {
       localStorage.setItem('cart', JSON.stringify([].concat(p)));
     }
   }
+
 }
