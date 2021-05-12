@@ -200,9 +200,14 @@
 }
 
 .box-button a {
-  padding: 10px 20px;
-  background-color: blue;
+  margin-top: 20px;
+  padding: 10px 30px;
+  background-color: rgb(75, 107, 179);
   color: white;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.box-button a:hover {
+  background-color: rgb(8, 8, 153);
 }
