@@ -1,12 +1,5 @@
-<div class="overflow" *ngFor="let categoryProduct of featuredProducts">
-  <div class="category">{{ categoryProduct.category }}</div>
-  <div class="slider">
-    <div class="slider-track">      
-      <div *ngFor="let featuredProduct of categoryProduct.products">
-        <div class="slide">
-          <app-product-card [product]="featuredProduct"></app-product-card>
-        </div>
-      </div>
-    </div>
+<div class="slider">  
+  <div class="slide-tracker">
+    <app-product-card *ngFor="let product of featuredProducts" [product]="product"></app-product-card>
   </div>
 </div>

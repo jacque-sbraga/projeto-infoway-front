@@ -17,9 +17,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getFeaturedCategories();
-
-    console.log(this.featuredProducts);
+    this.getFeaturedCategories();    
   }
 
   getFeaturedCategories(): void {

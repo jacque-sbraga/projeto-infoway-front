@@ -8,3 +8,8 @@
   height: 500px;
   background-color: gray;
 }
+
+.category-display {
+  font-size: 18px;
+  font-weight: 500;
+}

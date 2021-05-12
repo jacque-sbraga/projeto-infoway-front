@@ -1,5 +1,8 @@
 <main class="container">
   <section>
-    <app-slider [featuredProducts]="featuredProducts"></app-slider>
+    <div *ngFor="let category of featuredProducts">
+      <label class="category-display">{{ category.category }}</label>
+      <app-slider [featuredProducts]="category.products"></app-slider>
+    </div>
   </section>
 </main>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-slider',
@@ -6,13 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
-  @Input() featuredProducts: any;
+  @Input() featuredProducts: Product[];
 
   constructor() {}
 
-  insertElement() {}
-
-  ngOnInit(): void {
-    console.log(this.featuredProducts);
+  ngOnInit(): void {    
   }
+
+  insertElement() {}
 }
