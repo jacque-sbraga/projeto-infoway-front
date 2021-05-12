@@ -57,6 +57,15 @@
     </div>
   </div>
   <div class="header-menu-items">
+    <div
+      *ngIf="provider"
+      style="cursor: pointer"
+      class="box-icon"
+      routerLink="admin-dashboard"
+    >
+      <img class="icon" src="/assets/img/admin.png" />
+    </div>
+
     <div class="box-icon" routerLink="cart">
       <img class="icon" src="/assets/img/shopping-cart (2).png" alt="" />
     </div>
@@ -65,9 +74,6 @@
       <img class="icon" src="/assets/user.png" alt="icon" />
     </div>
 
-    <!-- <div class="box-icon" (click)="toggleMenu()">
-      <img class="icon" src="/assets/menu.png" alt="icon" />
-    </div> -->
   </div>
 </header>
 <div class="space-under-header"></div>
@@ -78,7 +84,6 @@
     openedLogin ? 'header-menu-opened' : 'header-menu-hidden'
   ]"
 >
-  
   <app-login></app-login>
   <div class="box-button">
     <a *ngIf="provider" (click)="signOut()" style="cursor: pointer">SAIR</a>
