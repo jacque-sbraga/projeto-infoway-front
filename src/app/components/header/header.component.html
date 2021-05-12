@@ -73,7 +73,6 @@
     <div class="box-icon" (click)="toggleLogin()">
       <img class="icon" src="/assets/user.png" alt="icon" />
     </div>
-
   </div>
 </header>
 <div class="space-under-header"></div>
@@ -85,16 +84,12 @@
   ]"
 >
   <app-login></app-login>
-  <div class="box-button">
-    <a *ngIf="provider" (click)="signOut()" style="cursor: pointer">SAIR</a>
+  <div *ngIf="provider" (click)="signOut()" class="box-button">
+    <a style="cursor: pointer">SAIR</a>
+  </div>
+
+  <div *ngIf="!provider">
+    <button class="button" routerLink="cadastrar">Cadastrar-se</button>
   </div>
 </div>
 
-<div
-  [ngClass]="[
-    'header-menu',
-    openedMenu ? 'header-menu-opened' : 'header-menu-hidden'
-  ]"
->
-  <a *ngIf="provider" routerLink="admin-dashboard">Admin Dashboard</a>
-</div>

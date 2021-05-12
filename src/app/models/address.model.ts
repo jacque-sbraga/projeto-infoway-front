@@ -1,11 +1,11 @@
 export class Address {
-  id: number;
+  id?: number;
   logradouro: string;
   numero: number;
   complemento?: string;
   bairro: string;
   cidade: string;
   estado: string;
-  cep: string; //virtual
+  cep: string;
   user_id: number;
 }

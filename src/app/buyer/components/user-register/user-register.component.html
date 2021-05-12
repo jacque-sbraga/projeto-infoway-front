@@ -1,9 +1,8 @@
 <div class="container-user-register">
-  <form class="user-register">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="user-register">
     <div class="titulo">
       <h1>Cadastre-se</h1>
     </div>
-
     <div class="dados-pessoais">
       <div class="box1">
         <div class="mb-3">
@@ -13,6 +12,7 @@
             name="nome"
             class="form-control"
             id="nome"
+            [(ngModel)]="user.name"
             placeholder="Primeiro nome..."
             required
           />
@@ -24,6 +24,7 @@
             name="sobrenome"
             class="form-control"
             id="sobrenome"
+            [(ngModel)]="user.surname"
             placeholder="Último nome..."
           />
         </div>
@@ -32,7 +33,9 @@
           <input
             type="text"
             class="form-control"
+            name="cpf"
             id="cpf"
+            [(ngModel)]="user.cpf"
             placeholder="Somente números..."
             maxlength="11"
           />
@@ -48,37 +51,45 @@
       </div>
     </div>
 
-      <div class="box2">
-        <div class="ddd">
-          <label for="ddd" class="form-label">DDD *</label>
-          <input
-            type="tel"
-            class="form-control"
-            id="ddd"
-            placeholder="Ex.: 11"
-          />
-        </div>
+    <div class="box2">
+      <div class="ddd">
+        <label for="ddd" class="form-label">DDD *</label>
+        <input
+          type="tel"
+          class="form-control"
+          id="ddd"
+          name="ddd"
+          [(ngModel)]="user.ddd"
+          placeholder="Ex.: 11"
+        />
+      </div>
 
-        <div class="phone">
-          <label for="phone" class="form-label">Telefone *</label>
-          <input
-            type="tel"
-            class="form-control"
-            id="phone"
-            maxlength="9"
-            placeholder="Somente números..."
-          />
-        </div>
-        
+      <div class="phone">
+        <label for="phone" class="form-label">Telefone *</label>
+        <input
+          type="tel"
+          class="form-control"
+          id="phone"
+          name="phone"
+          [(ngModel)]="user.phone"
+          maxlength="9"
+          placeholder="Somente números..."
+        />
+      </div>
+
       <div class="mb-3">
         <label for="cep" class="form-label">CEP *</label>
-        <input type="text" 
-        class="form-control" 
-        id="cep" 
-        name="cep" 
-        placeholder="Somente números..."
-        maxlength="8"
-        required/>
+        <input
+          type="text"
+          class="form-control"
+          id="cep"
+          name="cep"
+          [(ngModel)]="address.cep"
+          name="cep"
+          placeholder="Somente números..."
+          maxlength="8"
+          required
+        />
       </div>
       <div class="mb-3">
         <label for="logradouro" class="form-label">Endereço *</label>
@@ -87,16 +98,24 @@
           class="form-control"
           id="logradouro"
           name="logradouro"
+          [(ngModel)]="address.logradouro"
+          name="logradouro"
           placeholder="Rua/Av tal..."
           required
         />
       </div>
       <div class="mb-3">
         <label for="numero" class="form-label">Nº *</label>
-        <input type="text" class="form-control" id="numero"
-        placeholder="..."
-        maxlength="6"
-        required />
+        <input
+          type="text"
+          class="form-control"
+          id="numero"
+          name="numero"
+          [(ngModel)]="address.numero"
+          placeholder="..."
+          maxlength="6"
+          required
+        />
       </div>
       <div class="mb-3">
         <label for="bairro" class="form-label">Bairro *</label>
@@ -104,6 +123,7 @@
           type="text"
           class="form-control"
           id="bairro"
+          [(ngModel)]="address.bairro"
           name="bairro"
           placeholder="..."
           required
@@ -119,6 +139,7 @@
           type="text"
           class="form-control"
           id="uf"
+          [(ngModel)]="address.estado"
           name="uf"
           placeholder="..."
           maxlength="2"
@@ -131,31 +152,42 @@
           type="text"
           class="form-control"
           id="cidade"
+          [(ngModel)]="address.cidade"
           name="cidade"
           placeholder="..."
           required
         />
-      </div> 
+      </div>
     </div>
-
-      <div class="pass">    
-      <div class="mb-3">  
+    <div class="pass">
+      <div class="mb-3">
         <label for="email" class="form-label">E-mail *</label>
-        <input type="email" class="form-control" 
-        id="email"
-        placeholder="Ex.: contato@gmail.com"
-        required />
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          [(ngModel)]="user.login"
+          placeholder="Ex.: contato@gmail.com"
+          required
+        />
       </div>
       <div class="mb-3">
         <label for="senha" class="form-label">Senha *</label>
-        <input type="password" class="form-control" id="senha"
-        placeholder="Minimo de 6 caracteres"
-        minlength="6"
-        maxlength="50"
-        required />
+        <input
+          type="password"
+          class="form-control"
+          id="senha"
+          name="senha"
+          [(ngModel)]="user.password"
+          placeholder="Minimo de 6 caracteres"
+          minlength="6"
+          maxlength="50"
+          required
+        />
       </div>
     </div>
-    
+
     <div class="buttons-form-user">
       <button type="submit" class="btn btn-primary">Cadastrar</button>
       <button type="submit" class="btn btn-primary">Voltar</button>
