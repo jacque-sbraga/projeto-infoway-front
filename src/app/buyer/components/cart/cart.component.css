@@ -2,7 +2,61 @@
   margin-top: 80px;
 }
 
-.button-count {
+#button #span {
   display: flex;
   bottom: 0;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+
+
+}
+
+.card button {
+  margin-left: 15%;
+}
+
+.row-button button {
+  margin-top: 2%;
+  margin-left: 10%;
+  border-radius: 10px;
+}
+
+.button-count {
+
+  top: 450px;
+  left: 10%;
+}
+
+.count {
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.box-button {
+  border: 1px solid gray;
+  padding: 0;
+  align-self: flex-end;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.row {
+
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-column span {
+  margin: 40px 0;
+
 }
