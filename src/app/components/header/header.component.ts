@@ -110,7 +110,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getProductsByName(): void {    
-    this._productService.getAllByKeyValue(`name`, this.searchText, false).subscribe(
+    this._productService.getAllByParams({ name: this.searchText }).subscribe(
       response => {
         this.foundProducts = response;
         this.searchTextNotFound = '';

@@ -37,7 +37,7 @@ export class CartComponent implements OnInit {
 
   getFeaturedProducts(category: Category): void {
     this._productService
-      .getAllByKeyValue('category_id', category.id, false)
+      .getAllByParams({ category_id: category.id })
       .subscribe(
         (products) => {
           if (products.length > 0) {

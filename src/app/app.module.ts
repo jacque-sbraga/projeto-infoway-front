@@ -6,8 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './shared/angular-material/material.module';
-// Importação do pipe
-import { ReducedName } from './shared/utils/reducedName.pipe';
+
+// Para a internacionalização da moeda:
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common'
+import localePtBr from '@angular/common/locales/pt'
+registerLocaleData(localePtBr);
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -27,7 +32,6 @@ import { ProductsListComponent } from './components/admin/products-list/products
 import { SharedModule } from './shared/components/shared.module';
 @NgModule({
   declarations: [
-    ReducedName,
     AppComponent,
     HomeComponent,
     HeaderComponent,
@@ -53,7 +57,7 @@ import { SharedModule } from './shared/components/shared.module';
     ShopkeeperModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

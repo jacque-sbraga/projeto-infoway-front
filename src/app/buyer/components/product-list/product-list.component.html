@@ -1,259 +1,34 @@
 <div class="container-product-list">
   <section class="filter-menu">    
     <h5>Categorias</h5>
-    <mat-checkbox class="example-margin">Categoria A</mat-checkbox>
-    <mat-checkbox class="example-margin">Categoria B</mat-checkbox>
-    <mat-checkbox class="example-margin">Categoria C</mat-checkbox>
-
-    <hr />
-
-    <h5>Faixa de preço</h5>    
-    <div class="flex">
-      <mat-form-field class="example-margin field-size">
-        <mat-label>Min value</mat-label>
-        <input matInput type="number" >
-      </mat-form-field>
-      <mat-form-field class="example-margin field-size">
-        <mat-label>Max value</mat-label>
-        <input matInput type="number" >
-      </mat-form-field>
+    <div class="categoriesCheckbox" *ngIf="categoriesChecked">
+      <mat-checkbox *ngFor="let category of categoriesChecked" [(ngModel)]="category.isChecked">{{ category.category.category }}</mat-checkbox>    
     </div>
-    <mat-slider class="example-margin" disabled=false min=1 max=5000 step=100
-      thumbLabel=true aria-labelledby="example-name-label">
-    </mat-slider>
-    
-    <hr />
-    
-    <mat-checkbox class="example-margin">Somente disponíveis</mat-checkbox>
-    
-    <hr />
-    
-    <mat-checkbox class="example-margin">Em destaque</mat-checkbox>
-        
+
+    <hr />    
+    <h5>Opções</h5>
+    <mat-checkbox [(ngModel)]="available">Somente disponíveis</mat-checkbox>
+    <mat-checkbox [(ngModel)]="featured">Em destaque</mat-checkbox>
+
+    <button class="btn-filter" mat-stroked-button color="primary" (click)="applyFilter()">Pesquisar</button>
   </section>
 
   <section class="items-display">
     <div class="sort">
       <p class="message">{{ messageText }}</p>
-      <div>
-        <span>Ordenar por</span>
-        <select id="id-select">
-          <option value="Nome">Nome</option>
-          <option value="Menor preço">Menor preço</option>
-          <option value="Maior preço">Maior preço</option>        
-        </select>
+      <div [formGroup]="formSort">
+        <label style="padding-right: 10px;">Ordenar por</label>        
+        <select formControlName="selectFilter" name="selectFilter" (change)="onSortChange()">                    
+          <option value="name">Nome</option>
+          <option value="priceLowest">Menor preço</option>
+          <option value="priceHighest">Maior preço</option>
+        </select>                
       </div>
     </div> 
     
-    <div class="show-items">
-      <!-- <div *ngFor="let product of products"> -->
-        <div class="card">
-          <img class="card-img"
-            src="https://wallpapertag.com/wallpaper/full/2/6/6/119571-free-download-dark-gray-background-2682x1317-laptop.jpg"
-            alt="Imagem do produto" />
-          <div class="card-body">
-            <h5 class="card-title">R$ 00,00</h5> 
-          
-            <p class="card-text"><strong>Nome do produto</strong></p>
-            <p class="card-text">Descrição do produto.</p>
-                        
-            <button type="button" class="add-cart-button" mat-raised-button color="primary">
-              <div class="buy-product">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Adicionar ao carrinho / Excluir
-              </div>
-            </button>
-                      
-            <!-- <button type="button" class="btn btn-primary">Editar</button>
-            <button type="button" class="btn btn-danger">Excluir</button> -->
-          </div>
-        </div>          
-
-        <div class="card">
-          <img class="card-img"
-            src="https://http2.mlstatic.com/fone-headphone-samsung-D_NQ_NP_314521-MLB20788155900_062016-F.jpg"
-          alt="imagem de hsdphone JBL" />
-          <div class="card-body">
-          <h5 class="card-title">R$ 60,00</h5>
-            <p class="card-text"><strong>Fone Headphone S Fio Sd Fm Bluetooth Samsung iPhone Beat</strong></p>
-            <p class="card-text">Descrição do produto.</p>
-        
-            <button type="button" class="add-cart-button" mat-raised-button color="primary">
-              <div class="buy-product">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Adicionar ao carrinho / Excluir
-              </div>
-            </button>
-        
-            <!-- <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-danger">Excluir</button> -->
-          </div>
-        </div>
-
-
-        <div class="card">
-          <img class="card-img"
-            src="https://th.bing.com/th/id/Rf3f52a9921c5c32ac5755f4b126a0117?rik=GK1nosSeQpoXhQ&pid=ImgRaw"
-          alt="imagem de um smarphone Xioame" />
-          <div class="card-body">
-                      <h5 class="card-title">R$ 1.200,00</h5>
-            <p class="card-text"><strong>Mi 10T Pro 5G (8Gb/256Gb)</strong></p>
-            <p class="card-text">Descrição do produto.</p>
-        
-            <button type="button" class="add-cart-button" mat-raised-button color="primary">
-              <div class="buy-product">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Adicionar ao carrinho / Excluir
-              </div>
-            </button>
-        
-            <!-- <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-danger">Excluir</button> -->
-          </div>
-        </div>
-
-
-        <div class="card">
-          <img class="card-img"
-            src="https://www.casasbahia-imagens.com.br/Control/ArquivoExibir.aspx?IdArquivo=800650094"
-          alt="imagem de HD externo" />
-          <div class="card-body">
-                      <h5 class="card-title">R$ 650,00</h5>
-            <p class="card-text"><strong>HD Externo Portátil Seagate Expansion 1 TB USB – Preto</strong></p>
-            <p class="card-text">Descrição do produto.</p>
-        
-            <button type="button" class="add-cart-button" mat-raised-button color="primary">
-              <div class="buy-product">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Adicionar ao carrinho / Excluir
-              </div>
-            </button>
-        
-            <!-- <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-danger">Excluir</button> -->
-          </div>
-        </div>
-
-
-        <div class="card">
-          <img class="card-img"
-            src="https://th.bing.com/th/id/Reab658324c1c5cd75813513d87840973?rik=igxJoMJUUgH4ng&riu=http%3a%2f%2fwww.mymax.ind.br%2fwp-content%2fuploads%2f2018%2f01%2f009069_7-1000x1000.jpg&ehk=6huJyNsdLL%2b6c2bUu23Kf0G%2brwk1afoCfrLG6jiG9Rw%3d&risl=&pid=ImgRaw"
-          alt="imagem deuma cadeira gamer preto com rosa" />
-          <div class="card-body">
-            <h5 class="card-title">R$ 1.500,00</h5>
-            <p class="card-text"><strong>Cadeira Gamer MX7 Giratória Preto/Rosa</strong></p>
-            <p class="card-text">Descrição do produto.</p>
-        
-            <button type="button" class="add-cart-button" mat-raised-button color="primary">
-              <div class="buy-product">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Adicionar ao carrinho / Excluir
-              </div>
-            </button>
-        
-            <!-- <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-danger">Excluir</button> -->
-          </div>
-        </div>
-
-
-        <div class="card">
-          <img class="card-img"
-            src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone11-white-select-2019?wid=1200&hei=630&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1566956148115"
-          alt="imagem de Iphone 11" />
-          <div class="card-body">
-            <h5 class="card-title">R$ 7.199,00</h5>
-            <p class="card-text"><strong>iPhone 11</strong></p>
-            <p class="card-text">Descrição do produto.</p>
-        
-            <button type="button" class="add-cart-button" mat-raised-button color="primary">
-              <div class="buy-product">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Adicionar ao carrinho / Excluir
-              </div>
-            </button>
-        
-            <!-- <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-danger">Excluir</button> -->
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="card-img"
-            src="https://images.tcdn.com.br/img/img_prod/664937/kit_teclado_e_mouse_dell_original_009nk2_oty1yn_com_fio_2897_1_20190612141943.jpg"
-          alt="imagem de um teclado e mouse Dell" />
-          <div class="card-body">
-            <h5 class="card-title">R$ 280,00</h5>
-            <p class="card-text"><strong>Kit Teclado e Mouse Dell Original 009NK2 OTY1YN Com Fio</strong></p>
-            <p class="card-text">Descrição do produto.</p>
-        
-            <button type="button" class="add-cart-button" mat-raised-button color="primary">
-              <div class="buy-product">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Adicionar ao carrinho / Excluir
-              </div>
-            </button>
-        
-            <!-- <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-danger">Excluir</button> -->
-          </div>
-        </div>
-
-
-        <div class="card">
-          <img class="card-img"
-            src="https://th.bing.com/th/id/OIP.UaECQV-nKQ2h4g8clWjREwHaFj?w=249&h=187&c=7&o=5&dpr=1.5&pid=1.7"
-          alt="imagem de um notbook Dell" />
-          <div class="card-body">
-                      <h5 class="card-title">R$ 5.000,00</h5>
-            <p class="card-text"><strong>Notebook Gamer Dell Inspiron 15 Intel Core i5 - 8GB 1TB 15,6” GTX 960M 4GB Windows 10</strong></p>
-            <p class="card-text">Descrição do produto.</p>
-        
-            <button type="button" class="add-cart-button" mat-raised-button color="primary">
-              <div class="buy-product">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Adicionar ao carrinho / Excluir
-              </div>
-            </button>
-        
-            <!-- <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-danger">Excluir</button> -->
-          </div>
-        </div>
-
-
-        <div class="card">
-          <img class="card-img"
-            src="https://th.bing.com/th/id/OIP.XtYXBDtmZRUhkQUOLL3bnQHaEH?pid=ImgDet&rs=1"
-          alt="imagem de um MacBoock" />
-          <div class="card-body">
-                      <h5 class="card-title">R$ 7.199,00</h5>
-            <p class="card-text"><strong>Macbook Apple Air MQD32BZ/A Intel Core i5 13,3" 8GB SSD 128 GB 5ª Geração Mac OS Sierra</strong></p>
-            <p class="card-text">Descrição do produto.</p>
-        
-            <button type="button" class="add-cart-button" mat-raised-button color="primary">
-              <div class="buy-product">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Adicionar ao carrinho / Excluir
-              </div>
-            </button>
-        
-            <!-- <button type="button" class="btn btn-primary">Editar</button>
-                            <button type="button" class="btn btn-danger">Excluir</button> -->
-          </div>
-        </div>
-        
-
-        <!-- <app-product-card [product]="product"></app-product-card> -->
-      <!-- </div>       -->      
+    <div class="show-items" *ngIf="products">
+      <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>        
     </div>
     
   </section>
-</div>
-
-<div style="margin-top: 100px" *ngFor="let product of products">
-  <p>{{ product.name }}</p>
-  <p>{{ product.description }}</p>
-  <p>{{ product.quantity }}</p>
-  <p>{{ product.price }}</p>
 </div>
