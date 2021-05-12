@@ -5,19 +5,26 @@
       <div class="info" *ngIf="product">
         <h2 class="product-name">{{ product.name }}</h2>
         <span class="product-price">R$ {{ product.price }}</span>
-        <div class="stock-info">
-          <h3 class="available">{{checkAvailability()}}</h3>
+
+        <div class="stock-info" >
+          <div class="available" *ngIf="product.quantity === 0">
+            <h3>Produto indisponível no momento</h3>
+          </div>
+          <div class="available" *ngIf="product.quantity === 1">
+            <h3>Resta apenas 1 produto</h3>
+          </div>
         </div>
+        
         <div class="quantity-control">
           <span>Quantidade:</span>
           <div class="quantity">
             <i
               class="fas fa-minus minus blue-btn"
-              (click)="quantityByBtn($event.target)"
+              (click)="decreaseQuantity()"
             ></i>
             <input
               type="number"
-              value="1"
+              [(ngModel)]="quantity"
               min="1"
               name="quantity"
               id="quantity"
@@ -25,14 +32,14 @@
             />
             <i
               class="fas fa-plus plus blue-btn"
-              (click)="quantityByBtn($event.target)"
+              (click)="sumQuantity()"
             ></i>
           </div>
         </div>
 
         <div class="product-action">
-          <a href="#" class="blue-btn">Adicionar ao carrinho</a>
-          <a href="#" class="blue-btn">Comprar</a>
+          <a href="" class="blue-btn" (click)="addToCart()">Adicionar ao carrinho</a>
+          <a href="" class="blue-btn">Comprar</a>
         </div>
       </div>
     </div>

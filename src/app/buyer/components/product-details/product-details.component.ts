@@ -10,12 +10,14 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailsComponent implements OnInit {
   product: Product;
-  quantity: number = 1;
   availability: string = '';
+  quantity: number = 1;
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService
-  ) {}
+  ) {
+    this.quantity = 1;
+  }
 
   ngOnInit(): void {
     this.getProductFromRoute();
@@ -41,16 +43,18 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
-  // Verificar a disponibilidade do produto
-  checkAvailability() {
-    const quantity = this.product.quantity;
-
-    if (quantity === 0) return `Produto indisponível no momento`;
-    else if (quantity === 1) return `${quantity} disponível`;
-    return '';
+  sumQuantity(): void {
+    this.quantity >= this.product.quantity
+      ? (this.quantity = this.product.quantity)
+      : (this.quantity += 1);
+    this.incrementDecrease();
   }
 
-  validateQuantityInput(target: any) {
+  decreaseQuantity(): void {
+    this.quantity <= 0 ? (this.quantity = 1) : (this.quantity -= 1);
+    this.incrementDecrease()
+  }
+  validateQuantityInput(target: any): void {
     let input;
 
     if (target instanceof EventTarget) {
@@ -69,14 +73,14 @@ export class ProductDetailsComponent implements OnInit {
     this.incrementDecrease();
   }
 
-  incrementDecrease() {
+  incrementDecrease(): void {
     const minusBtn = document.querySelector('.minus');
     this.quantity > 1
       ? minusBtn.classList.add('prev')
       : minusBtn.classList.remove('prev');
   }
 
-  quantityByBtn(target: any) {
+  quantityByBtn(target: any): void {
     const input = document.querySelector('#quantity') as HTMLInputElement;
     const controlBtn = target;
 
@@ -88,7 +92,34 @@ export class ProductDetailsComponent implements OnInit {
     this.validateQuantityInput(input);
   }
 
-  priceProduct(){
-    console.log(typeof this.product.price)
+  priceProduct(): number {
+    return this.product.price;
+  }
+
+  addToCart(): void {
+    const product: any = {
+      id: this.product.id,
+      name: this.product.name,
+      quantity: this.quantity,
+      price: this.product.price,
+      subTotal: this.quantity * this.product.price,
+    };
+    // localStorage.setItem('cart', JSON.stringify([].concat(product)));
+    !localStorage.cart
+      ? localStorage.setItem('cart', JSON.stringify([].concat(product)))
+      : this.updateCart(product);
+  }
+
+  updateCart(product: any): void {
+    const p = JSON.parse(localStorage.getItem('cart'));
+    let checkIfExist = p.findIndex((p: any) => p['id'] === product['id']);
+
+    console.log(checkIfExist);
+    if (checkIfExist < 0) {
+      localStorage.setItem('cart', JSON.stringify(p.concat(product)));
+    } else {
+      p.splice(checkIfExist, 1, product);
+      localStorage.setItem('cart', JSON.stringify([].concat(p)));
+    }
   }
 }
