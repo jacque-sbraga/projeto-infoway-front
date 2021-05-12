@@ -1,0 +1,34 @@
+<div class="container-product-list">
+  <section class="filter-menu">    
+    <h5>Categorias</h5>
+    <div class="categoriesCheckbox" *ngIf="categoriesChecked">
+      <mat-checkbox *ngFor="let category of categoriesChecked" [(ngModel)]="category.isChecked">{{ category.category.category }}</mat-checkbox>    
+    </div>
+
+    <hr />    
+    <h5>Opções</h5>
+    <mat-checkbox [(ngModel)]="available">Somente disponíveis</mat-checkbox>
+    <mat-checkbox [(ngModel)]="featured">Em destaque</mat-checkbox>
+
+    <button class="btn-filter" mat-stroked-button color="primary" (click)="applyFilter()">Pesquisar</button>
+  </section>
+
+  <section class="items-display">
+    <div class="sort">
+      <p class="message">{{ messageText }}</p>
+      <div [formGroup]="formSort">
+        <label style="padding-right: 10px;">Ordenar por</label>        
+        <select formControlName="selectFilter" name="selectFilter" (change)="onSortChange()">                    
+          <option value="name">Nome</option>
+          <option value="priceLowest">Menor preço</option>
+          <option value="priceHighest">Maior preço</option>
+        </select>                
+      </div>
+    </div> 
+    
+    <div class="show-items" *ngIf="products">
+      <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>        
+    </div>
+    
+  </section>
+</div>

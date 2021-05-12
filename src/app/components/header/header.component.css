@@ -173,7 +173,7 @@ hr {
 
 #header {
   background-color: white;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   position: fixed;
   width: 100%;
   z-index: 5;
@@ -181,14 +181,14 @@ hr {
 }
 
 .space-under-header {
-    height: 120px;
+  height: 120px;
 }
 
 #header a {
   text-decoration: none;
 }
 
-.container {
+.container-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -246,6 +246,19 @@ hr {
 mat-icon {
   margin-right: 5px;
   margin-bottom: 5px;
+  color: #4a4343;
+}
+
+mat-icon.mat-icon {
+  font-size: 40px;
+}
+
+.category-menu {
+  display: flex;
+}
+
+.category-menu label {
+  margin-left: 15px;
 }
 
 .categories {

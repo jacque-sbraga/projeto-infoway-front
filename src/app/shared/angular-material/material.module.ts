@@ -29,6 +29,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule } from '@angular/material/table';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   imports: [
@@ -61,6 +62,7 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatSliderModule
   ],
   exports: [
     MatIconModule,
@@ -92,6 +94,8 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatSliderModule,
+    
   ]
 })
 export class MaterialModule { }
