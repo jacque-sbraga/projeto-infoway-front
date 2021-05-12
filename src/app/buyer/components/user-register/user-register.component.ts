@@ -54,11 +54,9 @@ export class UserRegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    console.log('onSubmit ', form.valid);
     if (form.valid) {
       this.userService.create(this.user).subscribe(
         (result) => {
-          console.log('sucess', result);
           this.createAddress(result.id);
         },
         (error) => this.onHttpError(error)

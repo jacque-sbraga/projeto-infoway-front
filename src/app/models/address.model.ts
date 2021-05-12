@@ -6,6 +6,6 @@ export class Address {
   bairro: string;
   cidade: string;
   estado: string;
-  cep: string;
+  cep: number;
   user_id: number;
 }

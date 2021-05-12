@@ -130,8 +130,14 @@
         />
       </div>
       <div class="mb-3">
-        <label for="endereco" class="form-label">Complemento</label>
-        <input type="text" class="form-control" id="complemento" />
+        <label for="complemento" class="form-label">Complemento</label>
+        <input
+          type="text"
+          class="form-control"
+          id="complemento"
+          name="complemento"
+          [(ngModel)]="address.complemento"
+        />
       </div>
       <div class="mb-3">
         <label for="uf" class="form-label">UF *</label>
