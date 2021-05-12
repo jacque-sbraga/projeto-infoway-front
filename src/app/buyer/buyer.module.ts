@@ -12,6 +12,7 @@ import { SliderComponent } from '../shared/components/slider/slider.component';
 import { AppComponent } from '../app.component';
 import { AppModule } from '../app.module';
 import { SharedModule } from '../shared/components/shared.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { SharedModule } from '../shared/components/shared.module';
     CartComponent,
     CheckoutComponent,
   ],
-  imports: [CommonModule, MatGridListModule, MatCardModule, SharedModule, MaterialModule],
+  imports: [CommonModule, MatGridListModule, MatCardModule, SharedModule, FormsModule],
   exports: [
     UserRegisterComponent,
     ProductListComponent,
