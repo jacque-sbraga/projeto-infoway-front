@@ -10,6 +10,7 @@ import { HomeAdminComponent } from './components/admin/home-admin/home-admin.com
 import { CreateProductComponent } from './components/admin/create-product/create-product.component';
 import { ProductDetailsAdminComponent } from './components/admin/product-details-admin/product-details-admin.component';
 import { UserRegisterComponent } from './buyer/components/user-register/user-register.component';
+import { CreateCategoryComponent } from './components/admin/create-category/create-category.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
       { path: 'create-product', children: [
         { path: '', component: CreateProductComponent },    
         { path: ':id', component: CreateProductComponent }
-      ]},      
+      ]}, 
+      { path: '', component: CreateCategoryComponent },     
       { path: 'product-list', component: ProductListComponent },
       { path: 'product-details', component: ProductDetailsAdminComponent },
       { path: 'cart', component: CartComponent },
