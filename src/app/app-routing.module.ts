@@ -25,7 +25,10 @@ const routes: Routes = [
 
     children: [
       { path: '', component: ProductDetailsAdminComponent },
-      { path: 'create-product', component: CreateProductComponent },
+      { path: 'create-product', children: [
+        { path: '', component: CreateProductComponent },    
+        { path: ':id', component: CreateProductComponent }
+      ]},      
       { path: 'product-list', component: ProductListComponent },
       { path: 'product-details', component: ProductDetailsAdminComponent },
       { path: 'cart', component: CartComponent },

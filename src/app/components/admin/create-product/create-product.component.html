@@ -8,10 +8,10 @@
       letter-spacing: 2px;
       font-weight: 500;
     "
-    >Cadastro de produto</span
+    >{{ isEditing ? 'Edição do produto' : 'Cadastro de produto' }}</span
   >
 
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="product">
     <div class="form-group">
       <label for="name" style="font-size: 18px; font-weight: 500">Nome</label>
       <input
@@ -177,7 +177,7 @@
           >Produto em destaque?</label
         >
       </div>
-      <button class="btn btn-primary">Cadastrar / Alterar</button>
+      <button class="btn btn-primary">{{ isEditing ? 'Alterar' : 'Cadastrar'}}</button>
     </div>
 
     <div class="mg-top alert alert-danger" [hidden]="!postError">

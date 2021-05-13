@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 
 @Component({
@@ -10,9 +11,16 @@ export class ProductCardAdminComponent implements OnInit {
 
   @Input() product: Product;
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
   }
 
+  editProduct(): void {     
+    this._router.navigateByUrl('/admin-dashboard/create-product/' + this.product.id);
+  }
+
+  deleteProduct(): void {
+
+  }
 }

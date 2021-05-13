@@ -48,3 +48,7 @@ section.items-display .show-items {
   display: flex;
   flex-wrap: wrap;
 }
+
+.show-items {
+  width: 100%;
+}

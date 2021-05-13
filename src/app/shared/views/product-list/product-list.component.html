@@ -1,5 +1,7 @@
 <div class="container-product-list">
-  <section class="filter-menu">    
+  
+  <!-- Exibe somente para o usuário comum -->
+  <section class="filter-menu" *ngIf="!provider">    
     <h5>Categorias</h5>
     <div class="categoriesCheckbox" *ngIf="categoriesChecked">
       <mat-checkbox *ngFor="let category of categoriesChecked" [(ngModel)]="category.isChecked">{{ category.category.category }}</mat-checkbox>    
@@ -12,23 +14,58 @@
 
     <button class="btn-filter" mat-stroked-button color="primary" (click)="applyFilter()">Pesquisar</button>
   </section>
+  <!-- Fim -->
 
   <section class="items-display">
     <div class="sort">
       <p class="message">{{ messageText }}</p>
-      <div [formGroup]="formSort">
-        <label style="padding-right: 10px;">Ordenar por</label>        
-        <select formControlName="selectFilter" name="selectFilter" (change)="onSortChange()">                    
-          <option value="name">Nome</option>
-          <option value="priceLowest">Menor preço</option>
-          <option value="priceHighest">Maior preço</option>
-        </select>                
+
+      <div style="display: flex;" [formGroup]="formSort">
+        <div>
+          <label style="padding-right: 10px;">Ordenar por</label>        
+          <select formControlName="selectFilter" name="selectFilter" (change)="onSortChange()">                    
+            <option value="name">Nome</option>
+            <option value="priceLowest">Menor preço</option>
+            <option value="priceHighest">Maior preço</option>
+          </select>
+        </div>
+      </div>  
+      
+      <!-- Exibe somente para o provider -->
+      <div style="margin-left: 10px;" *ngIf="provider">
+        <label style="padding-right: 10px;">Filtrar por</label>
+        <div style="display: flex;">
+          <div [formGroup]="formSort">
+            <select formControlName="selectCategory" name="selectCategory" (change)="onCategoryChange()">
+              <option selected disabled [value]=null>Categoria</option>
+              <option value=0>Todas</option>
+              <option *ngFor="let category of categoriesChecked" [value]="category.category.id">{{ category.category.category }}</option>            
+            </select>
+          </div>
+          <mat-checkbox style="margin-left: 15px;" [(ngModel)]="available">Somente disponíveis</mat-checkbox>
+          <mat-checkbox style="margin-left: 15px;" [(ngModel)]="featured">Em destaque</mat-checkbox>        
+          <input style="margin-left: 15px; height: 25px;" [(ngModel)]="nameFilter" placeholder="Palavra-chave"/>
+          <button style="margin-left: 15px; margin-top: -10px; height: 50px; width: 150px;" class="btn-filter" mat-stroked-button color="primary"
+            (click)="applyFilter()">Pesquisar</button>
+        </div>
       </div>
+      <!-- Fim -->
+
     </div> 
-    
-    <div class="show-items" *ngIf="products">
-      <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>        
-    </div>
+        
+    <div *ngIf="products">
+      <div *ngIf="provider; else productsUser">
+        <div class="show-items">
+          <app-product-card-admin *ngFor="let product of products" [product]="product"></app-product-card-admin>
+        </div>
+      </div>
+
+      <ng-template #productsUser>
+        <div class="show-items">
+          <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+        </div>
+      </ng-template>
+    </div>    
     
   </section>
 </div>

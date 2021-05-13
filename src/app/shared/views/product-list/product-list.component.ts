@@ -13,18 +13,19 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  private provider = '';
+  provider:boolean = false;
 
   products: Product[] = [];
 
-  // Menu lateral
+  // Menu de filtro
   categoriesChecked: any = [];
   available: boolean = false;
   featured: boolean = false;
+  nameFilter: string = '';
 
   messageText: string = '';
 
-  // Select de ordenação
+  // Forms com os selects (ordenação e categoria)
   formSort: FormGroup;
 
   constructor(
@@ -39,15 +40,13 @@ export class ProductListComponent implements OnInit {
     this.formConfig();
     this.getAllCategories();
     this.getCategoryFromRoute();
-    this.provider = this._getTokenService.getUser().roles;
-    console.log(this.provider);
+    this.provider = this._getTokenService.getUser().roles === 'ROLE_ADMIN' ? true : false;        
   }
 
   getCategoryFromRoute(): void {
     this._activatedRoute.queryParams.subscribe((params) => {
       this.products = [];
-      let categoryIdFromRoute = 0;
-      this.products = [];
+      let categoryIdFromRoute = 0;      
 
       if (params.hasOwnProperty('category')) {
         categoryIdFromRoute = params['category'] as number;
@@ -94,6 +93,11 @@ export class ProductListComponent implements OnInit {
     this.products = [];
     let filter = new ProductQuery();
 
+    // Verifica se há palavra-chave na busca
+    if (this.nameFilter && this.nameFilter.trim().length > 0) {
+      filter.name = this.nameFilter;
+    }
+
     // Define os filtros
     if (this.available) {
       filter.available = true;
@@ -138,12 +142,6 @@ export class ProductListComponent implements OnInit {
     this.products.sort((a: Product, b: Product) => b.price - a.price);
   }
 
-  formConfig(): void {
-    this.formSort = this._formBuilder.group({
-      selectFilter: new FormControl(),
-    });
-  }
-
   onSortChange(): void {
     let selectedFilter = this.formSort.get('selectFilter').value;
 
@@ -158,5 +156,26 @@ export class ProductListComponent implements OnInit {
         this.sortByHighestPrice();
         break;
     }
+  }
+
+  onCategoryChange(): void {
+    let selectedFilter = this.formSort.get('selectCategory').value;    
+    if (!selectedFilter || selectedFilter == 0) {
+      this.categoriesChecked.forEach((element: any) => {
+        element.isChecked = true;
+      });
+    }
+    else {
+      this.categoriesChecked.forEach((element: any) => {
+        element.category.id == selectedFilter ? element.isChecked = true : element.isChecked = false;
+      });
+    }    
+  }
+
+  formConfig(): void {
+    this.formSort = this._formBuilder.group({
+      selectFilter: new FormControl(),
+      selectCategory: new FormControl(),      
+    });
   }
 }

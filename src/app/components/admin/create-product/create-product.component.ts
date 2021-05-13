@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Category } from 'src/app/models/category.model';
 import { Product } from 'src/app/models/product.model';
@@ -22,17 +23,23 @@ export class CreateProductComponent implements OnInit {
     category_id: null,
   };
 
-  product: Product = { ...this.originalProduct };
+  product: Product;
   postError: boolean;
   postErrorMessage: string;
   categorys: Category[] = [];
 
+  // Caso esteja editando um produto
+  productIdFromRoute: number;
+  isEditing: boolean = false;
+
   constructor(
+    private activatedRoute: ActivatedRoute,
     private getCategoriesService: CategoryService,
     private productService: ProductService
   ) {}
 
   ngOnInit(): void {
+
     this.getCategoriesService.getAll().subscribe(
       (categories) => {
         this.categorys = categories;
@@ -41,17 +48,49 @@ export class CreateProductComponent implements OnInit {
         console.log('error', error);
       }
     );
+
+    this.getProductFromRoute();
+  }
+
+  getProductFromRoute(): void {
+    this.productIdFromRoute = this.activatedRoute.snapshot.params['id'];
+    
+    // Significa que está editando um produto
+    if(this.productIdFromRoute) {
+      this.isEditing = true;
+      this.productService.findOne(this.productIdFromRoute)
+        .subscribe((product: Product) => {
+          this.product = product;
+        });
+    }
+    // Se não receber o id, está criando um novo
+    else {
+      this.isEditing = false;
+      this.product = { ...this.originalProduct };      
+    }    
   }
 
   onSubmit(form: NgForm) {
     console.log('onSubmit ', form.valid);
     if (form.valid) {
-      this.productService.create(this.product).subscribe(
-        (result) => {
-          console.log('sucess', result);
-        },
-        (error) => this.onHttpError(error)
-      );
+      // Verifica se está editando um produto já existente
+      if (this.isEditing) {
+        this.productService.update(this.product.id, this.product).subscribe(
+          (result) => {
+            console.log('Produto atualizado com sucesso', result);
+          },
+          (error) => this.onHttpError(error)
+        );
+      }
+      // Senão, cria um novo no banco de dados
+      else {
+        this.productService.create(this.product).subscribe(
+          (result) => {
+            console.log('Produto criado com sucesso', result);
+          },
+          (error) => this.onHttpError(error)
+        );
+      }
     } else {
       this.postError = true;
       this.postErrorMessage =

@@ -1,17 +1,32 @@
-<div class="card-container">
-  <div class="card">  
-    <div>
-      <img class="card-img" [src]="product.image" alt="Imagem do produto" />
-      <h5 class="card-title">{{ product.price | currency:'BRL' }}</h5>
-      <p class="card-text">{{ product.name | reducedName: 70}}</p>      
-    </div>        
-    <button type="button" class="add-cart-button" mat-raised-button>
-      <div class="buy-product">
-        <mat-icon>add_shopping_cart</mat-icon>
-        <label style="padding-left: 5px; margin-top: 7px;">Adicionar ao carrinho</label>
-      </div>
-      <!-- <button type="button" class="btn btn-primary">Editar</button>
-                  <button type="button" class="btn btn-danger">Excluir</button> -->
-    </button>
+<div class="card-container-admin">    
+  <img class="card-img" [src]="product.image" alt="Imagem do produto" />
+  <div class="product-name">
+    <p class="label">Produto</p>
+    <p class="card-title">{{ product.name | reducedName: 100}}</p>
   </div>
+  
+  <div>
+    <p class="label">Preço</p>
+    <p class="card-title">{{ product.price | currency:'BRL' }}</p>
+  </div>
+  
+  <div>
+    <p class="label">Estoque</p>
+    <p class="card-title">{{ product.quantity }}</p>
+  </div>      
+
+  <div>
+    <p class="label">Disponível?</p>
+    <p class="card-title">{{ product.available ? 'Sim' : 'Indisponível' }}</p>
+  </div>
+  
+  <div>
+    <p class="label">Em destaque?</p>
+    <p class="card-title">{{ product.featured ? 'Sim' : 'Não' }}</p>
+  </div>  
+    
+  <div class="buttons-container">
+    <button type="button" class="button-edit" mat-raised-button (click)="editProduct()">Editar</button>
+    <button type="button" class="button-delete" mat-raised-button (click)="deleteProduct()">Excluir</button>
+  </div>  
 </div>
