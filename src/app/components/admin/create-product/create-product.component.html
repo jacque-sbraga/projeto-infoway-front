@@ -3,23 +3,23 @@
 
   <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="product">
     <div class="box1">
-    <div class="form-group">
-      <label for="name">Nome *</label>
-      <input
-        id="name"
-        name="name"
-        class="form-control"
-        placeholder="..."
-        [(ngModel)]="product.name"
-        required
-        #nameField="ngModel"
-        [class.field-error]="form.submitted && nameField.invalid"
-      />
-      <div
-        class="mg-top alert alert-danger"
-        [hidden]="!form.submitted || nameField.valid"
-      >
-        Nome do produto
+      <div class="form-group">
+        <label for="name">Nome *</label>
+        <input
+          id="name"
+          name="name"
+          class="form-control"
+          placeholder="..."
+          [(ngModel)]="product.name"
+          required
+          #nameField="ngModel"
+          [class.field-error]="form.submitted && nameField.invalid"
+        />
+        <div
+          class="mg-top alert alert-danger"
+          [hidden]="!form.submitted || nameField.valid"
+        >
+          Nome do produto
       </div>
     </div>
 

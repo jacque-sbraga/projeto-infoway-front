@@ -85,10 +85,10 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  navigateToProductList(selectedCategory: Category): void {
+  navigateToProductList(selectedCategory: Category): void {    
     this._router.navigate(['products'], {
       queryParams: { category: selectedCategory.id },
-      skipLocationChange: true,
+      skipLocationChange: false,
     });
   }
 
