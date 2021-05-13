@@ -1,5 +1,8 @@
 <div class="slider">  
-  <div class="slide-tracker">
+  <div class="slide-tracker" [style.animation-play-state]="animationStateControl" (mouseover)="stopAnimation()" (mouseleave)="playAnimation()">
+    <app-product-card *ngFor="let product of featuredProducts" [product]="product"></app-product-card>
+  </div>
+  <div class="slide-tracker" [style.animation-play-state]="animationStateControl" (mouseover)="stopAnimation()" (mouseleave)="playAnimation()">
     <app-product-card *ngFor="let product of featuredProducts" [product]="product"></app-product-card>
   </div>
 </div>
