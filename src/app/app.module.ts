@@ -16,7 +16,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './login/login.component';
 //importe modules
 import { BuyerModule } from './buyer/buyer.module';
-import { ShopkeeperModule } from './shopkeeper/shopkeeper.module';
 import { HomeComponent } from './components/home/home.component';
 import { AdminModule } from './admin/admin.module';
 import { BladeComponent } from './components/admin/blade/blade.component';
@@ -26,6 +25,7 @@ import { HomeAdminComponent } from './components/admin/home-admin/home-admin.com
 import { CreateProductComponent } from './components/admin/create-product/create-product.component';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/angular-material/material.module';
+import { CreateCategoryComponent } from './components/admin/create-category/create-category.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { MaterialModule } from './shared/angular-material/material.module';
     ProductDetailsAdminComponent,
     HomeAdminComponent,
     CreateProductComponent,
+    CreateCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,6 @@ import { MaterialModule } from './shared/angular-material/material.module';
     FormsModule,
     ReactiveFormsModule,
     BuyerModule,
-    ShopkeeperModule,
     SharedModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],

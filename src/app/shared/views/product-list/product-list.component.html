@@ -1,7 +1,8 @@
-<div class="container-product-list">
+<div class="container-product-list"
+    [ngStyle]="{'margin-top': !provider || !currentRouteAdmin ? '100px' : '' }">
   
-  <!-- Exibe somente para o usuário comum -->
-  <section class="filter-menu" *ngIf="!provider">    
+  <!-- Exibe para o usuário comum e para o admin, caso ele não esteja no dashboard-->
+  <section class="filter-menu" *ngIf="!provider || !currentRouteAdmin">    
     <h5>Categorias</h5>
     <div class="categoriesCheckbox" *ngIf="categoriesChecked">
       <mat-checkbox *ngFor="let category of categoriesChecked" [(ngModel)]="category.isChecked">{{ category.category.category }}</mat-checkbox>    
@@ -31,8 +32,8 @@
         </div>
       </div>  
       
-      <!-- Exibe somente para o provider -->
-      <div style="margin-left: 10px;" *ngIf="provider">
+      <!-- Exibe somente para o provider, caso ele esteja no dahboard -->
+      <div style="margin-left: 10px;" *ngIf="provider && currentRouteAdmin">
         <label style="padding-right: 10px;">Filtrar por</label>
         <div style="display: flex;">
           <div [formGroup]="formSort">
@@ -54,9 +55,12 @@
     </div> 
         
     <div *ngIf="products">
-      <div *ngIf="provider; else productsUser">
+      <div *ngIf="provider && currentRouteAdmin; else productsUser">
         <div class="show-items">
-          <app-product-card-admin *ngFor="let product of products" [product]="product"></app-product-card-admin>
+          <app-product-card-admin *ngFor="let product of products" [product]="product" 
+            (editButtonPressed)="editButtonPressedHandler($event)"
+            (deleteButtonPressed)="openDialog($event)">
+          </app-product-card-admin>
         </div>
       </div>
 

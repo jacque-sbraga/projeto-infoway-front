@@ -43,16 +43,29 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
+  getQuantity() {
+    return this.product.quantity >= 1;
+  }
   sumQuantity(): void {
-    this.quantity >= this.product.quantity
-      ? (this.quantity = this.product.quantity)
-      : (this.quantity += 1);
+    if (this.getQuantity()) {
+      if (this.quantity >= this.product.quantity) {
+        this.quantity = this.product.quantity;
+      } else {
+        this.quantity += 1;
+      }
+    } else {
+      this.quantity = 0;
+    }
     this.incrementDecrease();
   }
 
   decreaseQuantity(): void {
-    this.quantity <= 0 ? (this.quantity = 1) : (this.quantity -= 1);
-    this.incrementDecrease()
+    if (this.quantity > 1) {
+      this.quantity -= 1;
+    } else {
+      this.quantity = 1;
+    }
+    this.incrementDecrease();
   }
   validateQuantityInput(target: any): void {
     let input;
@@ -96,30 +109,45 @@ export class ProductDetailsComponent implements OnInit {
     return this.product.price;
   }
 
+  totalPurchase() {
+    return this.quantity * this.product.price;
+  }
   addToCart(): void {
+    const total = this.totalPurchase();
     const product: any = {
-      id: this.product.id,
-      name: this.product.name,
-      quantity: this.quantity,
-      price: this.product.price,
-      subTotal: this.quantity * this.product.price,
+      total: total,
+      products: [
+        {
+          product_id: this.product.id,
+          quantity: this.quantity,
+          subTotal: this.quantity * this.product.price,
+        },
+      ],
     };
-    // localStorage.setItem('cart', JSON.stringify([].concat(product)));
+
     !localStorage.cart
-      ? localStorage.setItem('cart', JSON.stringify([].concat(product)))
+      ? localStorage.setItem('cart', JSON.stringify(product))
       : this.updateCart(product);
   }
 
   updateCart(product: any): void {
     const p = JSON.parse(localStorage.getItem('cart'));
-    let checkIfExist = p.findIndex((p: any) => p['id'] === product['id']);
+    const id = product.products[0].product_id;
+    const result = p.products.findIndex((o: any) => o.product_id === id);
 
-    console.log(checkIfExist);
-    if (checkIfExist < 0) {
-      localStorage.setItem('cart', JSON.stringify(p.concat(product)));
+    if (result !== -1) {
+      if (product.products[0].quantity === 0) {
+        p.products.splice(result, 1);
+      } else {
+        p.products[result] = product.products[0];
+      }
     } else {
-      p.splice(checkIfExist, 1, product);
-      localStorage.setItem('cart', JSON.stringify([].concat(p)));
+      p.products.push(product.products[0]);
     }
+    p.total = p.products.reduce((acc:any, current:any)=> {
+      return acc + current.subTotal;
+    }, 0);
+    
+    localStorage.setItem("cart", JSON.stringify(p));
   }
 }

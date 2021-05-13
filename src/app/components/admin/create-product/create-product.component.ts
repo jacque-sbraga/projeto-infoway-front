@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
+import { ModalInformation } from 'src/app/models/modalInformation.model';
 import { Product } from 'src/app/models/product.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
+import { ModalAlertComponent } from 'src/app/shared/components/modal-alert/modal-alert.component';
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
@@ -20,6 +22,7 @@ export class CreateProductComponent implements OnInit {
     sku: '',
     image: '',
     available: true,
+    featured: false,
     category_id: null,
   };
 
@@ -32,10 +35,29 @@ export class CreateProductComponent implements OnInit {
   productIdFromRoute: number;
   isEditing: boolean = false;
 
+  // Informações do diálogo de sucesso
+  dialogDataSuccess: ModalInformation = {    
+    title: 'Sucesso!',
+    text: 'Operação concluída com sucesso.',
+    hasButtonConfim: true,
+    buttonConfirmText: 'Ver lista de produtos',
+    buttonCloseText: 'Cadastrar novo produto'      
+  }
+
+  // Diálogo de erro
+  dialogDataError: ModalInformation = {    
+    title: 'Erro: não foi possível cadastrar o produto',
+    text: 'Verifique se o nome ou o SKU já estão cadastrados, e se todos os dados estão corretamente preenchidos.',
+    hasButtonConfim: false,    
+    buttonCloseText: 'Fechar'      
+  }
+
   constructor(
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private getCategoriesService: CategoryService,
-    private productService: ProductService
+    private productService: ProductService,
+    public confirmDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -78,17 +100,25 @@ export class CreateProductComponent implements OnInit {
         this.productService.update(this.product.id, this.product).subscribe(
           (result) => {
             console.log('Produto atualizado com sucesso', result);
+            this.openDialogSuccess(form);
           },
-          (error) => this.onHttpError(error)
+          (error) => {
+            this.onHttpError(error);
+            this.openDialogError();
+          }          
         );
       }
       // Senão, cria um novo no banco de dados
-      else {
+      else {        
         this.productService.create(this.product).subscribe(
           (result) => {
             console.log('Produto criado com sucesso', result);
+            this.openDialogSuccess(form);
           },
-          (error) => this.onHttpError(error)
+          (error) => {
+            this.onHttpError(error);
+            this.openDialogError();
+          }
         );
       }
     } else {
@@ -102,4 +132,31 @@ export class CreateProductComponent implements OnInit {
     console.log('Error: ', error);
     (this.postError = true), (this.postErrorMessage = error.error.errorMessage);
   }
+
+
+ // Modal de feedback
+  openDialogSuccess(form: NgForm): void {
+    const dialogRef = this.confirmDialog.open(ModalAlertComponent, {
+      width: '500px', data: this.dialogDataSuccess
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Ir para a lista de produtos do admin
+        this.router.navigate(['admin-dashboard', 'product-list']);
+      }
+      else {
+        // Cadastrar novo produto. Limpa o form        
+        form.resetForm();
+        this.product = { ...this.originalProduct };        
+      }
+    });    
+  }
+
+  openDialogError(): void {
+    const dialogRef = this.confirmDialog.open(ModalAlertComponent, {
+      width: '500px', data: this.dialogDataError 
+    });
+  }
+
 }
