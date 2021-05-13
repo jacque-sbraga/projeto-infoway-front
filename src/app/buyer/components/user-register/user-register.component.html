@@ -193,7 +193,11 @@
         />
       </div>
     </div>
-
+    <div class="mb-3">
+      <label for="avatar" class="form-label">Foto</label>
+      <input type="file" #fileInput/>
+      <button type="button" (click)="onUpload()">Upload</button>
+    </div>
     <div class="buttons-form-user">
       <button type="submit" class="btn btn-primary">Cadastrar</button>
       <button type="submit" class="btn btn-primary">Voltar</button>

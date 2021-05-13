@@ -9,7 +9,7 @@ export class CartService {
   getShippingPrices() {
     return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
   }
-  items = [];
+  items: Product[] = [];
 
 
   addToCart(product:Product) {

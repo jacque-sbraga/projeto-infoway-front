@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Address } from 'src/app/models/address.model';
 import { Users } from 'src/app/models/user.model';
@@ -48,10 +49,32 @@ export class UserRegisterComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private addressService: AddressService
+    private addressService: AddressService,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {}
+
+  //-------------Avatar-------------
+
+  @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
+
+  baseUrl: string = 'http://localhost:3030/files';
+
+  onUpload() {
+    
+    const imageBlob = this.fileInput.nativeElement.files[0];
+
+    const file = new FormData();
+
+    file.set('file', imageBlob);
+
+    this.http.post<any>(this.baseUrl, file).subscribe((response) => {
+      console.log(response);
+    });
+  }
+
+  //-------------Avatar-------------
 
   onSubmit(form: NgForm) {
     if (form.valid) {
@@ -65,7 +88,7 @@ export class UserRegisterComponent implements OnInit {
       this.postError = true;
       this.postErrorMessage =
         'Por favor, preencha corretamente os campos em vermelho!';
-    }
+    }    
   }
 
   onHttpError(error: any) {
@@ -84,4 +107,6 @@ export class UserRegisterComponent implements OnInit {
       }
     );
   }
+
+  createAvatarImage(userId: number) {}
 }
