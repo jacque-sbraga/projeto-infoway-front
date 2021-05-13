@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Cart } from 'src/app/models/cart.model';
 import { Product } from 'src/app/models/product.model';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
+
 
 @Component({
   selector: 'app-product-details',
@@ -14,7 +17,9 @@ export class ProductDetailsComponent implements OnInit {
   quantity: number = 1;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService : CartService,
+    private router: Router
   ) {
     this.quantity = 1;
   }
@@ -113,21 +118,9 @@ export class ProductDetailsComponent implements OnInit {
     return this.quantity * this.product.price;
   }
   addToCart(): void {
-    const total = this.totalPurchase();
-    const product: any = {
-      total: total,
-      products: [
-        {
-          product_id: this.product.id,
-          quantity: this.quantity,
-          subTotal: this.quantity * this.product.price,
-        },
-      ],
-    };
-
-    !localStorage.cart
-      ? localStorage.setItem('cart', JSON.stringify(product))
-      : this.updateCart(product);
+    const item: Cart = {product_id: this.product.id,  quantity: this.quantity};
+    this.cartService.addToCart(item)
+    this.router.navigate(["cart"])
   }
 
   updateCart(product: any): void {
