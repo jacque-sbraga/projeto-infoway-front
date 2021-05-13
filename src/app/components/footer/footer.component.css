@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
-#footer {
-  width: 100%;
+.footer {
+  width: 101%;
   background-color: white;
   color: #7a7979;
   padding: 10px;
@@ -14,11 +14,12 @@
 }
 
 .infoway-dados {
-  margin: 0 10px;
+ margin-left: 20px;
 }
 
 .avanade-github {
-  margin: 20px;
+  margin: 1.45vw;
+  padding: 10px;
 }
 
 .avanade-github img.ico-footer {
@@ -27,7 +28,18 @@
 
 .fale-conosco {
   display: flex;
-  margin: 30px;
+  justify-content: space-around;
+  margin: 2.20vw;
   font-size: 14px;
- 
+}
+
+.fale-conosco p,
+.fale-conosco a,
+.avanade-github a {
+  padding: 5px;
+  color: #7a7979;
+} 
+
+.fale-conosco a:hover {
+  color: rgb(75, 107, 179) ;
 }

@@ -1,23 +1,15 @@
 <div class="container local-container">
-  <span
-    style="
-      display: block;
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 25px;
-      letter-spacing: 2px;
-      font-weight: 500;
-    "
-    >{{ isEditing ? 'Edição do produto' : 'Cadastro de produto' }}</span
-  >
+  <h1>{{ isEditing ? 'Edição do produto' : 'Cadastro de produto' }}</h1>
 
   <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="product">
+    <div class="box1">
     <div class="form-group">
-      <label for="name" style="font-size: 18px; font-weight: 500">Nome</label>
+      <label for="name">Nome *</label>
       <input
         id="name"
         name="name"
         class="form-control"
+        placeholder="..."
         [(ngModel)]="product.name"
         required
         #nameField="ngModel"
@@ -32,7 +24,7 @@
     </div>
 
     <div class="form-group">
-      <label for="category">Categoria</label>
+      <label for="category">Categoria *</label>
       <select
         class="form-control"
         id="category"
@@ -45,9 +37,8 @@
         </option>
       </select>
     </div>
-
     <div class="form-group">
-      <label for="price" style="font-size: 18px; font-weight: 500">Preço</label>
+      <label for="price">Preço *</label>
       <input
         id="price"
         name="price"
@@ -66,8 +57,7 @@
     </div>
 
     <div class="form-group">
-      <label for="quantity" style="font-size: 18px; font-weight: 500"
-        >Quantidade</label
+      <label for="quantity">Quantidade *</label
       >
       <input
         id="quantity"
@@ -88,11 +78,12 @@
     </div>
 
     <div class="form-group">
-      <label for="sku" style="font-size: 18px; font-weight: 500">SKU</label>
+      <label for="sku">SKU *</label>
       <input
         id="sku"
         name="sku"
         class="form-control"
+        placeholder="..."
         [(ngModel)]="product.sku"
         required
         #nameField="ngModel"
@@ -105,15 +96,16 @@
         SKU ( Código do produto )
       </div>
     </div>
-
+  </div>
+<div class="box2">
     <div class="form-group">
-      <label for="image" style="font-size: 18px; font-weight: 500"
-        >URL da imagem</label
+      <label for="image">URL da imagem</label
       >
       <input
         id="image"
         name="image"
         class="form-control"
+        placeholder="..."
         [(ngModel)]="product.image"
         required
         #nameField="ngModel"
@@ -128,24 +120,19 @@
     </div>
 
     <div class="form-group">
-      <label for="description">Descrição</label>
+      <label for="description">Descrição *</label>
       <textarea
         name="description"
         id="description"
+        placeholder="Breve descrição do produto..."
         rows="3"
         class="form-control"
         [(ngModel)]="product.description"
       ></textarea>
     </div>
+  </div>
+  <div class="checkboxes">
 
-    <div
-      style="
-        margin-top: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-      "
-    >
       <div class="form-check form-group">
         <input
           type="checkbox"
@@ -154,14 +141,12 @@
           class="form-check-input"
           [(ngModel)]="product.available"
         />
-        <label
-          style="font-size: 18px; font-weight: 600; color: rgb(8, 12, 202)"
+        <label    
           for="available"
           class="form-check-label"
           >Disponibilidade imediata?</label
         >
       </div>
-
       <div class="form-check form-group">
         <input
           type="checkbox"
@@ -171,14 +156,16 @@
           [(ngModel)]="product.featured"
         />
         <label
-          style="font-size: 18px; font-weight: 600; color: rgb(8, 12, 202)"
           for="featured"
           class="form-check-label"
           >Produto em destaque?</label
         >
       </div>
+    </div>
+    <div class="button-cad">
       <button class="btn btn-primary">{{ isEditing ? 'Alterar' : 'Cadastrar'}}</button>
     </div>
+    
 
     <div class="mg-top alert alert-danger" [hidden]="!postError">
       {{ postErrorMessage }}
