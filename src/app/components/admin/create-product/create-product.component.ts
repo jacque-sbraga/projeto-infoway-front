@@ -20,6 +20,7 @@ export class CreateProductComponent implements OnInit {
     sku: '',
     image: '',
     available: true,
+    featured: false,
     category_id: null,
   };
 
@@ -84,6 +85,7 @@ export class CreateProductComponent implements OnInit {
       }
       // Senão, cria um novo no banco de dados
       else {
+        console.log('craindo produot', this.product);
         this.productService.create(this.product).subscribe(
           (result) => {
             console.log('Produto criado com sucesso', result);

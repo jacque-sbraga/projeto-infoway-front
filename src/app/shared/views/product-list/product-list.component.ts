@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnInit, NgModule } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductQuery } from 'src/app/models/productQuery.model';
 import { CategoryService } from 'src/app/services/category.service';
@@ -13,7 +13,11 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  provider:boolean = false;
+
+  provider: boolean = false;
+  
+  // Para saber em qual rota o user/admin está
+  currentRouteAdmin: boolean = false;
 
   products: Product[] = [];
 
@@ -30,6 +34,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private _activatedRoute: ActivatedRoute,
+    private _router: Router,
     private _formBuilder: FormBuilder,
     private _categoryService: CategoryService,
     private _productService: ProductService,
@@ -37,6 +42,10 @@ export class ProductListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Obtém qual a rota em que o user está    
+    const currentRoute = this._router.url;
+    currentRoute.indexOf('admin-dashboard') == 1 ? this.currentRouteAdmin = true : this.currentRouteAdmin = false;    
+
     this.formConfig();
     this.getAllCategories();
     this.getCategoryFromRoute();
@@ -84,6 +93,36 @@ export class ProductListComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  //************************************************************************* */
+  // Métodos dos botões Editar e Excluir do Child
+  //************************************************************************* */
+  editButtonPressedHandler(productId: number) {
+    if (this.provider) {
+      this._router.navigateByUrl('/admin-dashboard/create-product/' + productId);
+    }
+    else {
+      console.log('Você deve estar logado como administrador!');
+    }
+  }
+
+  deleteButtonPressedHandler(productId: number) {
+    if (this.provider) {
+      // Exclui o produto
+      this._productService.delete(productId).subscribe(
+        response => {
+          console.log('Produto excluído com sucesso', response);          
+          // Remove o produto da lista de produtos carregada
+          this.products.splice(this.products.indexOf(response), 1);
+        },
+      error => console.error()
+      );
+    }
+    else {
+      console.log('Você deve estar logado como administrador!');
+    }
+    
   }
 
   //************************************************************************* */
