@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeAdminComponent } from './components/admin/home-admin/home-admin.component';
 import { CreateProductComponent } from './components/admin/create-product/create-product.component';
 import { ProductDetailsAdminComponent } from './components/admin/product-details-admin/product-details-admin.component';
+import { UserRegisterComponent } from './buyer/components/user-register/user-register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'home/login-admin', component: LoginComponent },
   { path: 'checkout', component: CheckoutComponent},
+  { path: 'cadastrar', component: UserRegisterComponent},
   {
     path: 'admin-dashboard',
     component: HomeAdminComponent,

@@ -8,31 +8,31 @@ import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category.model';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
-
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
   store: any = {
-    user: "Felipe",
-    message: "Seja bem vindo",
-    name: "Infoway",
+    name: 'Infoway',
   };
+
+  provider = false;
 
   openedMenu: boolean = false;
   openedLogin: boolean = false;
 
-  // constructor() {}
-
-  // ngOnInit(): void {}
+  signOut(): void {
+    window.sessionStorage.clear();
+    window.location.href = 'http://localhost:4200';
+  }
 
   toggleMenu() {
     this.openedMenu = !this.openedMenu;
-    this.closeLogin()
+    this.closeLogin();
   }
 
   closeMenu() {
@@ -40,9 +40,9 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleLogin() {
-    console.log("clicou")
+    console.log('clicou');
     this.openedLogin = !this.openedLogin;
-    this.closeMenu()
+    this.closeMenu();
   }
 
   closeLogin() {
@@ -61,66 +61,75 @@ export class HeaderComponent implements OnInit {
     private _router: Router,
     private _formBuilder: FormBuilder,
     private _categoryService: CategoryService,
-    private _productService: ProductService
-  ) { }
+    private _productService: ProductService,
+    private _getTokenService: TokenStorageService
+  ) {}
 
   ngOnInit(): void {
     this.getCategories();
     this.formConfig();
     this.findProducts();
+    this.provider =
+      this._getTokenService.getUser().roles === 'ROLE_ADMIN' ? true : false;
   }
 
   getCategories(): void {
     this._categoryService.getAll().subscribe(
-      response => {
+      (response) => {
         this.categories = response;
-        this.featuredCategories = this.categories.filter(category => category.featured);
+        this.featuredCategories = this.categories.filter(
+          (category) => category.featured
+        );
       },
-      error => console.log(error)
+      (error) => console.log(error)
     );
   }
 
   navigateToProductList(selectedCategory: Category): void {
-    this._router.navigate(['products'], { queryParams: { category: selectedCategory.id }, skipLocationChange: true });
+    this._router.navigate(['products'], {
+      queryParams: { category: selectedCategory.id },
+      skipLocationChange: true,
+    });
   }
 
   navigateToSelectedProduct(id: number): void {
-    this.clearSearch();    
-    this._router.navigateByUrl('/products/' + id);    
+    this.clearSearch();
+    this._router.navigateByUrl('/products/' + id);
   }
 
   formConfig(): void {
     this.searchFormGroup = this._formBuilder.group({
-      searchInput: ['']      
+      searchInput: [''],
     });
   }
 
   findProducts(): void {
-    this.searchFormGroup.get('searchInput').valueChanges    
-    .pipe(debounceTime(400))
-      .subscribe((value: string) => {        
-        if (!value || value.trim().length == 0) {          
+    this.searchFormGroup
+      .get('searchInput')
+      .valueChanges.pipe(debounceTime(400))
+      .subscribe((value: string) => {
+        if (!value || value.trim().length == 0) {
           this.clearSearch();
-        }        
-        else {
+        } else {
           this.searchText = value;
-          this.getProductsByName();          
+          this.getProductsByName();
         }
-    });
+      });
   }
 
-  getProductsByName(): void {    
+  getProductsByName(): void {
     this._productService.getAllByParams({ name: this.searchText }).subscribe(
-      response => {
+      (response) => {
         this.foundProducts = response;
         this.searchTextNotFound = '';
       },
-      error => {
+      (error) => {
         console.log(error);
         this.searchTextNotFound = 'Nenhum produto encontrado';
-      });
+      }
+    );
   }
-  
+
   clearSearch(): void {
     this.searchFormGroup.get('searchInput').reset();
     this.searchText = '';

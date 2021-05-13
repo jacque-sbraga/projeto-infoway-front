@@ -1,7 +1,7 @@
 export class Users {
-  id: number;
+  id?: number;
   name: string;
-  surname: number;
+  surname: string;
   cpf: number;
   ddd: number;
   phone: number;
@@ -9,4 +9,5 @@ export class Users {
   password: string; //virtual
   password_hash: string;
   provider: boolean;
+  active: boolean;
 }

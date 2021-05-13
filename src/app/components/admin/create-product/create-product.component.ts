@@ -1,43 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { DataService } from '../data/data.service';
-import { UserSettings } from '../data/interface-user-settings';
-
+import { Category } from 'src/app/models/category.model';
+import { Product } from 'src/app/models/product.model';
+import { CategoryService } from 'src/app/services/category.service';
+import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
-  styleUrls: ['./create-product.component.css']
+  styleUrls: ['./create-product.component.css'],
 })
 export class CreateProductComponent implements OnInit {
-  originalUserSettings: UserSettings = {
+  originalProduct: Product = {
     name: '',
     description: '',
     quantity: 0,
-    price: 0.00,
+    price: 0.0,
     sku: '',
     image: '',
     available: true,
-    token: 'Não implementado ainda!',
-    category_id: '',
+    category_id: null,
   };
 
-  userSettings: UserSettings = { ...this.originalUserSettings };
+  product: Product = { ...this.originalProduct };
   postError: boolean;
   postErrorMessage: string;
-  categorys: Observable<string[]>;
+  categorys: Category[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private getCategoriesService: CategoryService,
+    private productService: ProductService
+  ) {}
 
   ngOnInit(): void {
-    this.categorys = this.dataService.getCategories();
+    this.getCategoriesService.getAll().subscribe(
+      (categories) => {
+        this.categorys = categories;
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
   }
 
   onSubmit(form: NgForm) {
     console.log('onSubmit ', form.valid);
-
     if (form.valid) {
-      this.dataService.postUserSettingsForm(this.userSettings).subscribe(
+      this.productService.create(this.product).subscribe(
         (result) => {
           console.log('sucess', result);
         },
@@ -45,17 +54,13 @@ export class CreateProductComponent implements OnInit {
       );
     } else {
       this.postError = true;
-      this.postErrorMessage = 'Por favor, preencha corretamente os campos em vermelho!';
+      this.postErrorMessage =
+        'Por favor, preencha corretamente os campos em vermelho!';
     }
-  }
-
-  onBlur(field: NgModel) {
-    console.log('onBlur ', field.valid);
   }
 
   onHttpError(error: any) {
     console.log('Error: ', error);
     (this.postError = true), (this.postErrorMessage = error.error.errorMessage);
   }
-
 }
