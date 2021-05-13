@@ -1,6 +1,6 @@
 <header class="header">
   <div class="flex-row">
-    <div class="flex-row cursor" routerLink="home">
+    <div class="flex-row cursor" routerLink="home" (click)="closeLogin()">
       <div class="box-logo">
         <div>
           <span>{{ store.name }}</span>
@@ -26,7 +26,6 @@
         </div>
       </mat-menu>
     </div>
-
     <div class="search-wrapper">
       <form autocomplete="off" novalidate [formGroup]="searchFormGroup">
         <input
@@ -37,7 +36,6 @@
         />
         <i class="fas fa-search search"></i>
       </form>
-
       <div>
         <ul
           class="list-group"
@@ -73,6 +71,10 @@
     <div class="box-icon" (click)="toggleLogin()">
       <img class="icon" src="/assets/user.png" alt="icon" />
     </div>
+
+    <div *ngIf="!provider" class="box-button" (click)="closeLogin()">
+      <button class="button" routerLink="cadastrar">Cadastrar-se</button>
+    </div>
   </div>
 </header>
 <div class="space-under-header"></div>
@@ -84,11 +86,9 @@
   ]"
 >
   <app-login></app-login>
-  <div *ngIf="provider" (click)="signOut()"  class="box-button">
-    <a style="cursor: pointer">SAIR</a>
-  </div>
-
-  <div *ngIf="!provider">
-    <button class="button" routerLink="cadastrar">Cadastrar-se</button>
+  <div style="display: flex">
+    <div *ngIf="provider" (click)="signOut()" class="box-button">
+      <a style="cursor: pointer">SAIR</a>
+    </div>
   </div>
 </div>

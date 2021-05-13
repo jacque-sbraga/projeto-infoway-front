@@ -1,5 +1,5 @@
 export class Category {
-  id: number;
+  id?: number;
   category: string;
   featured?: boolean;
 }

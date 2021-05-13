@@ -61,7 +61,6 @@ export class CreateProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     this.getCategoriesService.getAll().subscribe(
       (categories) => {
         this.categorys = categories;

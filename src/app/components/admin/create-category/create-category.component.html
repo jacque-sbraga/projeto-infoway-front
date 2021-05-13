@@ -1,6 +1,6 @@
 <div class="container-category-register">
   <div class="category">
-    <form>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
       <div class="titulo">
         <h1>Cadastro de categoria</h1>
       </div>
@@ -12,6 +12,7 @@
             name="category"
             class="form-control"
             id="category"
+            [(ngModel)]="category.category"
             placeholder="Nome da categoria..."
             required
           />
@@ -20,6 +21,7 @@
           <input
             type="checkbox"
             id="featured"
+            [(ngModel)]="category.featured"
             name="featured"
             class="form-check-input"
           />
@@ -29,7 +31,7 @@
         </div>
         <div class="buttons-category">
           <button type="submit" class="btn btn-primary">Cadastrar</button>
-          <button type="submit" class="btn btn-primary">Excluir</button>
+          <!-- <button type="submit" class="btn btn-primary">Excluir</button> -->
         </div>
       </div>
     </form>
