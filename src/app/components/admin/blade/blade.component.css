@@ -4,7 +4,7 @@
   justify-content: space-between;
   flex-direction: column;
   height: 94vh;
-  width: 15vw;
+  width: 12vw;
   background-color: rgba(234, 234, 234, 1);
   overflow: hidden;
   transition: 500ms;
@@ -17,7 +17,7 @@
 
 .text-box-blade-button p {
   color: white;
-  font-size: 15px;
+  font-size: 14px;
   margin: 10px;
 }
 
@@ -43,7 +43,8 @@
 }
 
 .btn-image-box {
-  width: 70px;
+  width: 50px;
+  margin-left: 10px;
 }
 
 .blade-button:hover {
@@ -53,7 +54,7 @@
 
 .blade-button img {
   margin-left: 10px;
-  width: 30px;
+  width: 25px;
 }
 
 .arrow-button {
@@ -66,8 +67,7 @@
 }
 
 .arrow-button:hover,
-.blade-button:hover,
-.text-box-blade-button:hover {
+.blade-button:hover {
   cursor: pointer;
   background-color: rgb(32, 46, 78);
 }

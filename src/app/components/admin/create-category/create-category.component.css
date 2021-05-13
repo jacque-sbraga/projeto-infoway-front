@@ -9,7 +9,7 @@
 .category {
   box-shadow: 0 5px 15px 0px rgba(5, 1, 54, 0.4);
   border-radius: 10px;
-  width: 50%;
+  width: 40%;
   padding: 3%;
   justify-content: center;
   background: #dde9f1;
@@ -32,6 +32,10 @@ form h1 {
 form label {
   font-size: 14px;
   font-weight: 500;
+}
+
+form label.form-check-label {
+  color: rgb(75, 107, 179);
 }
 
 form input {
