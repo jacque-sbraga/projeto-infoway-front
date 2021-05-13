@@ -1,0 +1,33 @@
+<div class="card-container-cart">
+  <img class="card-img-size"
+    [src]="product.image"
+    alt="Imagem do produto" />  
+  
+  <div class="card-body product-name">
+    <h5 class="card-title">{{ product.name | reducedName: 100}}</h5>
+    <p class="card-text">Preço unitário: {{ product.price | currency:'BRL' }}</p>
+      
+    <div class="quantity-control">      
+      <div class="quantity">        
+        <div style="display: flex; align-items: flex-end;">
+          <div>
+            <span class="label">Quantidade:</span>
+            <div style="margin-top: 10px;">
+              <i class="fas fa-minus minus blue-btn" (click)="setCounterMinus()"></i>
+              <input type="number" [(ngModel)]="quantity" [disabled]="quantity === 0" min="1" name="quantity" id="quantity" />              
+              <i class="fas fa-plus plus blue-btn" (click)="setCounterPlus()"></i>
+            </div>
+          </div>
+          <button type="button" style="height: 40px; margin-left: 50px; margin-bottom: -5px;" 
+            class="btn btn-outline-danger" (click)="deleteCartItem()">
+              Excluir
+          </button>
+        </div>                
+        <div style="text-align: right; margin-bottom: -15px;">
+          <p class="card-title">Subtotal</p>
+          <h5 class="card-title" style="margin-top: 10px;">{{ subtotal | currency:'BRL' }}</h5>
+        </div>
+      </div>            
+    </div>
+  </div>
+</div>

@@ -1,17 +1,31 @@
 .page-margin {
-  margin-top: 80px;
+  margin-top: 90px;
 }
 
-#button #span {
+.cart-items {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-column-gap: 30px;
+}
+
+.valores {
+  margin-top: 10px;
+  height: min-content;
+  padding: 20px;
+  border: 1px solid rgb(172, 172, 172);
+}
+
+.flex-column {
   display: flex;
-  bottom: 0;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 20px;
+}
 
+.flex-column span {
+  margin: 0px 0px 30px 0px;
+}
 
+.flex-row {
+  display: flex;
+  justify-content: space-between;
 }
 
 .card button {
@@ -22,41 +36,4 @@
   margin-top: 2%;
   margin-left: 10%;
   border-radius: 5px;
-}
-
-.button-count {
-
-  top: 450px;
-  left: 10%;
-}
-
-.count {
-  margin-left: 10px;
-  margin-right: 10px;
-
-}
-
-.box-button {
-  border: 1px solid gray;
-  padding: 0;
-  align-self: flex-end;
-  justify-content: center;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-.row {
-
-  justify-content: space-between;
-}
-
-.flex-column {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flex-column span {
-  margin: 40px 0;
-
 }

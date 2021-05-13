@@ -1,0 +1,127 @@
+.card-container-cart {
+  display: flex;
+  grid-column-gap: 15px;
+  grid-template-columns: 200px;
+  justify-content: space-between;
+  align-content: start;
+  width: 100%;
+  height: 230px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid rgb(172, 172, 172);
+}
+
+.card-img-size {
+  height: 200px;
+  display: block;
+  object-fit: contain;
+}
+
+.product-name {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+}
+
+#button #span {
+  display: flex;
+  bottom: 0;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.row-button button {
+  margin-top: 2%;
+  margin-left: 10%;
+  border-radius: 5px;
+}
+
+.button-count {
+  top: 450px;
+  left: 10%;
+}
+
+.count {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.box-button {
+  border: 1px solid gray;
+  padding: 0;
+  align-self: flex-end;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.row {
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-column span {
+  margin: 40px 0;
+}
+
+.cart-item {
+  display: flex;
+}
+
+.quantity-control {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.quantity-control .quantity {
+  position: relative;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.quantity input {
+  width: 100px;
+  padding: 1px 0;
+  text-align: center;
+  border: 1px solid rgb(233, 233, 233);
+  outline-color: #21aaf6;
+}
+
+.quantity .minus,
+.quantity .plus {
+  position: absolute;
+  padding: 6px;
+}
+
+.quantity .minus {
+  left: 0px;
+  background: #abd8f0;
+}
+
+.quantity .prev {
+  background: #21aaf6;
+  cursor: pointer;
+}
+
+.quantity .plus {
+  left: 74px;
+  cursor: pointer;
+}
+
+.blue-btn {
+  background: #21aaf6;
+  border-radius: 3px;
+  color: #fff;
+}

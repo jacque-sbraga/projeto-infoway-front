@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
+import { Product } from 'src/app/models/product.model';
+import { CartService } from 'src/app/services/cart.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -9,59 +11,39 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-export class CartComponent implements OnInit {
-  counter: number = 1;
-  
-  setCounterPlus() {
-    this.counter += 1
-  }
+export class CartComponent implements OnInit {  
+    
+  cartProducts: Product[] = [];
 
-  setCounterMinus() {
-    if (this.counter > 1) {
-      this.counter -= 1
-    }
-  }
-  featuredProducts: any[] = [];
-
-  constructor(
-    private _categoryService: CategoryService,
-    private _productService: ProductService
+  constructor(    
+    private _productService: ProductService,
+    private _cartService: CartService
   ) {}
 
   ngOnInit(): void {
-    this.getFeaturedCategories();
+    this.getCartProducts();
+  } 
 
-    console.log(this.featuredProducts);
-  }
+  getCartProducts(): void {
 
-  getFeaturedCategories(): void {
-    this._categoryService.getAllByKeyValue('featured', '1', false).subscribe(
-      (categories) => {
-        for (const category of categories) {
-          this.getFeaturedProducts(category);
-        }
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
 
-  getFeaturedProducts(category: Category): void {
-    this._productService
-      .getAllByParams({ category_id: category.id })
-      .subscribe(
-        (products) => {
-          if (products.length > 0) {
-            this.featuredProducts.push({
-              category: category.category,
-              products: products,
-            });
-          }
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+
+
+
+    // this._productService
+    //   .getAllByParams({ category_id: category.id })
+    //   .subscribe(
+    //     (products) => {
+    //       if (products.length > 0) {
+    //         this.featuredProducts.push({
+    //           category: category.category,
+    //           products: products,
+    //         });
+    //       }
+    //     },
+    //     (error) => {
+    //       console.log(error);
+    //     }
+    //   );
   }
 }

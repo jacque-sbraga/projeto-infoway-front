@@ -11,10 +11,25 @@ import { ProductListComponent } from './views/product-list/product-list.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductCardAdminComponent } from './components/product-card-admin/product-card-admin.component';
 import { ModalAlertComponent } from './components/modal-alert/modal-alert.component';
+import { ProductCartItemComponent } from './components/product-cart-item/product-cart-item.component';
 
 @NgModule({
-  declarations: [SliderComponent, ProductCardComponent, ReducedName, ProductListComponent, ProductCardAdminComponent, ModalAlertComponent],
+  declarations: [
+    SliderComponent,
+    ProductCardComponent,
+    ReducedName,
+    ProductListComponent,
+    ProductCardAdminComponent,
+    ModalAlertComponent,
+    ProductCartItemComponent,
+    ProductCartItemComponent],
   imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
-  exports: [SliderComponent, ProductCardComponent, ReducedName, ProductListComponent, ModalAlertComponent],
+  exports: [
+    SliderComponent,
+    ProductCardComponent,
+    ReducedName,
+    ProductListComponent,
+    ModalAlertComponent,
+    ProductCartItemComponent],
 })
 export class SharedModule {}
