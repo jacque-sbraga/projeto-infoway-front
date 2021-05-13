@@ -1,119 +1,121 @@
 .container-user-register {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    margin: 6%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  margin: 6%;
 }
 .user-register {
-    box-shadow: 0 5px 15px 0px rgba(5, 1, 54, 0.4);
-    border-radius: 10px;
-    width: 70%;
-    padding: 4% ;
-    justify-content: center;
-    background: #dde9f1;
+  box-shadow: 0 5px 15px 0px rgba(5, 1, 54, 0.4);
+  border-radius: 10px;
+  width: 70%;
+  padding: 3%;
+  justify-content: center;
+  background: #dde9f1;
 }
 .user-register label {
-    margin: 10px 0;
-    display: inline-block;
-  } 
+  margin: 8px 0;
+  display: inline-block;
+  font-size: 13px;
+}
 
 form h1 {
-    text-align: center;
-    margin-bottom: 35px;
-    color: rgb(75, 107, 179);
-    font-size: 38px;
+  text-align: center;
+  margin-bottom: 25px;
+  color: rgb(75, 107, 179);
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+form input {
+  font-size: 12px;
 }
 
 .dados-pessoais,
 .box2,
 .pass,
 .buttons-form-user {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0.7320644216691069vw;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0.8vw;
 }
 
 .box1 {
-    width: 45%;
+  width: 50%;
 }
 
 .box-img img.img-form {
-    width: 25.62225475841874vw;
+  width: 22vw;
+  margin-right: 3vw;
+  margin-top: 1.5vw;
 }
 
- 
 #phone,
 #cep,
 #email,
 #senha,
 #complemento,
 #cidade {
-    width: 20.497803806734993vw;
+  width: 21vw;
 }
 
 #numero {
-    width: 5.124450951683748vw;
+  width: 6vw;
 }
 
 #ddd,
 #uf {
-    width: 8vw;
+  width: 8vw;
 }
 
 #logradouro {
-    width: 29.282576866764277vw;
+  width: 29vw;
 }
 
 .buttons-form-user {
-    justify-content: space-around;
-    padding: 4%;
+  justify-content: space-around;
+  padding: 3%;
 }
 
 .btn-primary {
-    width: 150px;
-    margin-top: 10px;
-    background-color: rgb(75, 107, 179);
+  width: 120px;
+  background-color: rgb(75, 107, 179);
+  font-size: 14px;
 }
 
 .btn-primary:hover {
-    background-color: rgb(8, 8, 153);
-
+  background-color: rgb(8, 8, 153);
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
+  .box-img {
+    display: none;
+  }
 
-    .box-img {
-        display: none;
-    }
+  .box1 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 
-    .box1 {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    
-    #nome,
-    #sobrenome,
-    #cpf {
-        width: 50vw;
-    }
+  #nome,
+  #sobrenome,
+  #cpf {
+    width: 50vw;
+  }
 
-    #email,
-    #senha {
-        width: 25vw;
-    }
+  #email,
+  #senha {
+    width: 25vw;
+  }
 
-    #numero {
-        width: 20vw;
-    }
-
+  #numero {
+    width: 20vw;
+  }
 }
 
-@media (max-width: 600px){
-
-    .btn-primary{
-        width: 100px;
-    }
+@media (max-width: 600px) {
+  .btn-primary {
+    width: 100px;
+  }
 }
-

@@ -40,7 +40,7 @@
 
 .box-logo-overlay:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.06);
 }
 
 .box-logo div {
@@ -156,7 +156,7 @@
 
 .box-icon:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.06);
   top: 5px;
 }
 
