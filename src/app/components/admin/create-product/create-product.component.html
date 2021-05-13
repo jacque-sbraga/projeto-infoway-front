@@ -1,138 +1,130 @@
 <div class="container local-container">
-  <h1>{{ isEditing ? 'Edição do produto' : 'Cadastro de produto' }}</h1>
-
+  <h1>{{ isEditing ? "Edição do produto" : "Cadastro de produto" }}</h1>
   <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="product">
     <div class="box1">
-    <div class="form-group">
-      <label for="name">Nome *</label>
-      <input
-        id="name"
-        name="name"
-        class="form-control"
-        placeholder="..."
-        [(ngModel)]="product.name"
-        required
-        #nameField="ngModel"
-        [class.field-error]="form.submitted && nameField.invalid"
-      />
-      <div
-        class="mg-top alert alert-danger"
-        [hidden]="!form.submitted || nameField.valid"
-      >
-        Nome do produto
+      <div class="form-group">
+        <label for="name">Nome *</label>
+        <input
+          id="name"
+          name="name"
+          class="form-control"
+          placeholder="..."
+          [(ngModel)]="product.name"
+          required
+          #nameField="ngModel"
+          [class.field-error]="form.submitted && nameField.invalid"
+        />
+        <div
+          class="mg-top alert alert-danger"
+          [hidden]="!form.submitted || nameField.valid"
+        >
+          Nome do produto
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="category">Categoria *</label>
+        <select
+          class="form-control"
+          id="category"
+          name="category"
+          [(ngModel)]="product.category_id"
+          required
+        >
+          <option *ngFor="let type of categorys" value="{{ type.id }}">
+            {{ type.category }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="price">Preço *</label>
+        <input
+          id="price"
+          name="price"
+          class="form-control"
+          [(ngModel)]="product.price"
+          required
+          #nameField="ngModel"
+          [class.field-error]="form.submitted && nameField.invalid"
+        />
+        <div
+          class="mg-top alert alert-danger"
+          [hidden]="!form.submitted || nameField.valid"
+        >
+          Preço
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantidade *</label>
+        <input
+          id="quantity"
+          name="quantity"
+          type="number"
+          class="form-control"
+          [(ngModel)]="product.quantity"
+          required
+          #nameField="ngModel"
+          [class.field-error]="form.submitted && nameField.invalid"
+        />
+        <div
+          class="mg-top alert alert-danger"
+          [hidden]="!form.submitted || nameField.valid"
+        >
+          Quantidade
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sku">SKU *</label>
+        <input
+          id="sku"
+          name="sku"
+          class="form-control"
+          placeholder="..."
+          [(ngModel)]="product.sku"
+          required
+          #nameField="ngModel"
+          [class.field-error]="form.submitted && nameField.invalid"
+        />
+        <div
+          class="mg-top alert alert-danger"
+          [hidden]="!form.submitted || nameField.valid"
+        >
+          SKU ( Código do produto )
+        </div>
       </div>
     </div>
-
-    <div class="form-group">
-      <label for="category">Categoria *</label>
-      <select
-        class="form-control"
-        id="category"
-        name="category"
-        [(ngModel)]="product.category_id"
-        required
-      >
-        <option *ngFor="let type of categorys" value="{{ type.id }}">
-          {{ type.category }}
-        </option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="price">Preço *</label>
-      <input
-        id="price"
-        name="price"
-        class="form-control"
-        [(ngModel)]="product.price"
-        required
-        #nameField="ngModel"
-        [class.field-error]="form.submitted && nameField.invalid"
-      />
-      <div
-        class="mg-top alert alert-danger"
-        [hidden]="!form.submitted || nameField.valid"
-      >
-        Preço
+    <div class="box2">
+      <div class="form-group">
+        <label for="image">URL da imagem</label>
+        <input
+          id="image"
+          name="image"
+          class="form-control"
+          placeholder="..."
+          [(ngModel)]="product.image"
+          required
+          #nameField="ngModel"
+          [class.field-error]="form.submitted && nameField.invalid"
+        />
+        <div
+          class="mg-top alert alert-danger"
+          [hidden]="!form.submitted || nameField.valid"
+        >
+          URL da imagem
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Descrição *</label>
+        <textarea
+          name="description"
+          id="description"
+          placeholder="Breve descrição do produto..."
+          rows="3"
+          class="form-control"
+          [(ngModel)]="product.description"
+        ></textarea>
       </div>
     </div>
-
-    <div class="form-group">
-      <label for="quantity">Quantidade *</label
-      >
-      <input
-        id="quantity"
-        name="quantity"
-        type="number"
-        class="form-control"
-        [(ngModel)]="product.quantity"
-        required
-        #nameField="ngModel"
-        [class.field-error]="form.submitted && nameField.invalid"
-      />
-      <div
-        class="mg-top alert alert-danger"
-        [hidden]="!form.submitted || nameField.valid"
-      >
-        Quantidade
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="sku">SKU *</label>
-      <input
-        id="sku"
-        name="sku"
-        class="form-control"
-        placeholder="..."
-        [(ngModel)]="product.sku"
-        required
-        #nameField="ngModel"
-        [class.field-error]="form.submitted && nameField.invalid"
-      />
-      <div
-        class="mg-top alert alert-danger"
-        [hidden]="!form.submitted || nameField.valid"
-      >
-        SKU ( Código do produto )
-      </div>
-    </div>
-  </div>
-<div class="box2">
-    <div class="form-group">
-      <label for="image">URL da imagem</label
-      >
-      <input
-        id="image"
-        name="image"
-        class="form-control"
-        placeholder="..."
-        [(ngModel)]="product.image"
-        required
-        #nameField="ngModel"
-        [class.field-error]="form.submitted && nameField.invalid"
-      />
-      <div
-        class="mg-top alert alert-danger"
-        [hidden]="!form.submitted || nameField.valid"
-      >
-        URL da imagem
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="description">Descrição *</label>
-      <textarea
-        name="description"
-        id="description"
-        placeholder="Breve descrição do produto..."
-        rows="3"
-        class="form-control"
-        [(ngModel)]="product.description"
-      ></textarea>
-    </div>
-  </div>
-  <div class="checkboxes">
-
+    <div class="checkboxes">
       <div class="form-check form-group">
         <input
           type="checkbox"
@@ -141,9 +133,7 @@
           class="form-check-input"
           [(ngModel)]="product.available"
         />
-        <label    
-          for="available"
-          class="form-check-label"
+        <label for="available" class="form-check-label"
           >Disponibilidade imediata?</label
         >
       </div>
@@ -155,20 +145,18 @@
           class="form-check-input"
           [(ngModel)]="product.featured"
         />
-        <label
-          for="featured"
-          class="form-check-label"
+        <label for="featured" class="form-check-label"
           >Produto em destaque?</label
         >
       </div>
     </div>
     <div class="button-cad">
-      <button class="btn btn-primary">{{ isEditing ? 'Alterar' : 'Cadastrar'}}</button>
+      <button class="btn btn-primary">
+        {{ isEditing ? "Alterar" : "Cadastrar" }}
+      </button>
     </div>
-    
-
     <div class="mg-top alert alert-danger" [hidden]="!postError">
       {{ postErrorMessage }}
     </div>
-  </form>
+  </form>  
 </div>

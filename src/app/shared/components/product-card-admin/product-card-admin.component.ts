@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 
 @Component({
@@ -10,17 +9,19 @@ import { Product } from 'src/app/models/product.model';
 export class ProductCardAdminComponent implements OnInit {
 
   @Input() product: Product;
-
-  constructor(private _router: Router) { }
+  @Output() editButtonPressed: EventEmitter<number> = new EventEmitter();
+  @Output() deleteButtonPressed: EventEmitter<number> = new EventEmitter();
+  
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  editProduct(): void {     
-    this._router.navigateByUrl('/admin-dashboard/create-product/' + this.product.id);
+  editProduct(): void {
+    this.editButtonPressed.emit(this.product.id);    
   }
 
   deleteProduct(): void {
-
+    this.deleteButtonPressed.emit(this.product.id);
   }
 }
