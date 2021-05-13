@@ -61,16 +61,13 @@ export class UserRegisterComponent implements OnInit {
 
   baseUrl: string = 'http://localhost:3030/files';
 
-  onUpload() {
-    
+  onUpload(bodyAvatarFk: string) {
     const imageBlob = this.fileInput.nativeElement.files[0];
-
     const file = new FormData();
-
     file.set('file', imageBlob);
-
+    file.set('body',bodyAvatarFk)
     this.http.post<any>(this.baseUrl, file).subscribe((response) => {
-      console.log(response);
+      // this.send(response)
     });
   }
 
@@ -79,8 +76,9 @@ export class UserRegisterComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.valid) {
       this.userService.create(this.user).subscribe(
-        (result) => {
-          this.createAddress(result.id);
+        (user) => {
+          this.createAddress(user.id);
+          this.onUpload(user.login);
         },
         (error) => this.onHttpError(error)
       );
@@ -88,7 +86,7 @@ export class UserRegisterComponent implements OnInit {
       this.postError = true;
       this.postErrorMessage =
         'Por favor, preencha corretamente os campos em vermelho!';
-    }    
+    }
   }
 
   onHttpError(error: any) {
