@@ -9,7 +9,7 @@
 
 .container-product-list {
   display: flex;
-  margin: 90px 30px 15px 30px;
+  margin: 15px 30px 15px 30px;
   min-height: 75vh;
 }
 

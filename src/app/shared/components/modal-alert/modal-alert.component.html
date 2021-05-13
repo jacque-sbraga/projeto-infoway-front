@@ -1,9 +1,8 @@
-<h1 mat-dialog-title>Confirmar</h1>
+<h1 mat-dialog-title>{{ data.title }}</h1>
 <div mat-dialog-content>
-  <p>Você realmente gostaria de excluir este produto?</p>  
+  <p>{{ data.text }}</p>  
 </div>
-<div mat-dialog-actions>  
-  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirmar</button>
-  <button mat-button mat-dialog-close>Cancelar</button>
+<div mat-dialog-actions>    
+  <button *ngIf="data.hasButtonConfim" mat-button [mat-dialog-close]="true" cdkFocusInitial>{{ data.buttonConfirmText }}</button>
+  <button mat-button mat-dialog-close>{{ data.buttonCloseText }}</button>
 </div>

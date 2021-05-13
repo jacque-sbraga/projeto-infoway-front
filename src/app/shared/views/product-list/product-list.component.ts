@@ -1,11 +1,14 @@
-import { Component, OnChanges, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductQuery } from 'src/app/models/productQuery.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { ModalInformation } from 'src/app/models/modalInformation.model';
+import { ModalAlertComponent } from '../../components/modal-alert/modal-alert.component';
 
 @Component({
   selector: 'app-product-list',
@@ -32,13 +35,23 @@ export class ProductListComponent implements OnInit {
   // Forms com os selects (ordenação e categoria)
   formSort: FormGroup;
 
+  // Informações do diálogo para confirmar exclusão
+  dialogData: ModalInformation = {    
+    title: 'Confirmar',
+    text: 'Você realmente gostaria de excluir este produto?',
+    hasButtonConfim: true,
+    buttonConfirmText: 'Confirmar',
+    buttonCloseText: 'Cancelar'      
+  }
+
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
     private _formBuilder: FormBuilder,
     private _categoryService: CategoryService,
     private _productService: ProductService,
-    private _getTokenService: TokenStorageService
+    private _getTokenService: TokenStorageService,
+    public confirmDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -107,7 +120,7 @@ export class ProductListComponent implements OnInit {
     }
   }
 
-  deleteButtonPressedHandler(productId: number) {
+  deleteItem(productId: number) {    
     if (this.provider) {
       // Exclui o produto
       this._productService.delete(productId).subscribe(
@@ -121,8 +134,21 @@ export class ProductListComponent implements OnInit {
     }
     else {
       console.log('Você deve estar logado como administrador!');
-    }
-    
+    }    
+  }
+
+  
+  // Modal de confirmação  
+  openDialog(productId: number): void {
+    const dialogRef = this.confirmDialog.open(ModalAlertComponent, {
+      width: '250px', data: this.dialogData 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteItem(productId);
+      }
+    });    
   }
 
   //************************************************************************* */
@@ -216,5 +242,5 @@ export class ProductListComponent implements OnInit {
       selectFilter: new FormControl(),
       selectCategory: new FormControl(),      
     });
-  }
+  }  
 }
