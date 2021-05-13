@@ -6,6 +6,18 @@
       </div>
       <div class="category-register">
         <div class="mb-3">
+          <label for="category">Categoria *</label>
+          <select
+            class="form-control"
+            id="category"
+            [(ngModel)]="categorySelected"
+            name="category"
+          >
+            <option *ngFor="let type of categorys" value="{{ type.id }}">
+              {{ type.category }}
+            </option>
+          </select>
+
           <label for="category" class="form-label">Categoria *</label>
           <input
             type="text"
@@ -31,7 +43,15 @@
         </div>
         <div class="buttons-category">
           <button type="submit" class="btn btn-primary">Cadastrar</button>
-          <!-- <button type="submit" class="btn btn-primary">Excluir</button> -->
+          <button
+            class="btn btn-primary"
+            (click)="updateCategoryName(category.category, category.featured)"
+          >
+            Alterar
+          </button>
+          <button class="btn btn-primary" (click)="deleteCategory()">
+            Excluir
+          </button>
         </div>
       </div>
     </form>
