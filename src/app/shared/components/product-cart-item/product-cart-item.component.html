@@ -1,11 +1,11 @@
 <div class="card-container-cart">
   <img class="card-img-size"
-    [src]="product.image"
+    [src]="product.product.image"
     alt="Imagem do produto" />  
   
   <div class="card-body product-name">
-    <h5 class="card-title">{{ product.name | reducedName: 100}}</h5>
-    <p class="card-text">Preço unitário: {{ product.price | currency:'BRL' }}</p>
+    <h5 class="card-title">{{ product.product.name | reducedName: 100}}</h5>
+    <p class="card-text">Preço unitário: {{ product.product.price | currency:'BRL' }}</p>
       
     <div class="quantity-control">      
       <div class="quantity">        
@@ -14,7 +14,7 @@
             <span class="label">Quantidade:</span>
             <div style="margin-top: 10px;">
               <i class="fas fa-minus minus blue-btn" (click)="setCounterMinus()"></i>
-              <input type="number" [(ngModel)]="quantity" [disabled]="quantity === 0" min="1" name="quantity" id="quantity" />              
+              <input type="number" [(ngModel)]="product.quantity" [disabled]="product.quantity === 0" min="1" name="quantity" id="quantity" />              
               <i class="fas fa-plus plus blue-btn" (click)="setCounterPlus()"></i>
             </div>
           </div>

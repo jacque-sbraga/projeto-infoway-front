@@ -19,7 +19,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'home/login-admin', component: LoginComponent },
   { path: 'checkout', component: CheckoutComponent},
-  { path: 'cadastrar', component: UserRegisterComponent},
+  { path: 'cadastrar', component: UserRegisterComponent },
+  { path: 'finished', component: FinishedBuyerComponent},
   {
     path: 'admin-dashboard',
     component: HomeAdminComponent,
@@ -34,7 +35,7 @@ const routes: Routes = [
       { path: 'product-list', component: ProductListComponent },
       { path: 'product-details', component: ProductDetailsAdminComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'checkout', component: CheckoutComponent},
+      { path: 'checkout', component: CheckoutComponent },      
     ],
   },
 

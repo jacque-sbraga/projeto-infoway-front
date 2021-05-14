@@ -1,4 +1,4 @@
-<main id="main">
+<main id="main" *ngIf="product">
   <section class="detail-main">
     <div class="container">
       <div class="product-image" *ngIf="product">
@@ -20,9 +20,10 @@
         <div class="quantity-control" *ngIf="product.quantity >= 1">
           <span>Quantidade:</span>
           <div class="quantity">
-            <i
+            <i              
               class="fas fa-minus minus blue-btn"
               (click)="decreaseQuantity()"
+              
             ></i>
             <input
               type="number"
@@ -33,15 +34,18 @@
               id="quantity"
               (input)="validateQuantityInput($event.target)"
             />
-            <i
+            <i            
               class="fas fa-plus plus blue-btn"
               (click)="sumQuantity()"
             ></i>
           </div>
           <div class="product-action">
-            <a class="blue-btn" (click)="addToCart()">Adicionar ao carrinho</a>
+            <a class="blue-btn" (click)="addToCart()" 
+                [style.pointer-events]="product.available ? '' : 'none'" 
+                [style.background]="product.available ? '#21aaf6' : '#72cbfb'"
+            >{{ product.available ? 'Adicionar ao carrinho' : 'Produto indisponível'}}</a>
             
-            <a class="blue-btn">Comprar</a>
+            <a (click)="viewProducts()" class="blue-btn">Ver mais produtos</a>
           </div>
         </div>
 
@@ -52,7 +56,7 @@
       <div class="container">
         <h2 class="title-h2">Descrição</h2>
           <p>
-            <!-- {{product.description}} -->
+            {{product.description || 'Sem descrição cadastrada'}}
           </p>
       </div>
   </section>

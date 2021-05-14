@@ -143,4 +143,8 @@ export class ProductDetailsComponent implements OnInit {
     
     localStorage.setItem("cart", JSON.stringify(p));
   }
+
+  viewProducts(): void {
+    this.router.navigate(['products']);
+  }
 }

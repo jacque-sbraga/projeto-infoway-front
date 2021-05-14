@@ -1,24 +1,20 @@
-<div class="container page-margin">  
+<div class="container page-margin" *ngIf="cartProducts || cartProducts.length > 0">  
   <div class="row">
     <div class="col-md-12">
-      <strong>Carrinho(1)</strong>
+      <strong>Carrinho ({{ cartProducts.length }})</strong>
       <hr>
     </div>
   </div>
   
   <div class="cart-items">
     <section>
-      <app-product-cart-item></app-product-cart-item>
-      <app-product-cart-item></app-product-cart-item>
-      <app-product-cart-item></app-product-cart-item>
-      <app-product-cart-item></app-product-cart-item>
-      <app-product-cart-item></app-product-cart-item>
+      <app-product-cart-item *ngFor="let cartItem of cartProducts" [product]="cartItem"></app-product-cart-item>      
     </section>
 
     <section class="flex-column valores">
       <div class="flex-row">
         <span>Subtotal:</span>
-        <span>R$ 00,00</span>
+        <span>{{ subtotal | currency:"BRL"}}</span>
       </div>      
       
       <div class="flex-row">
@@ -32,11 +28,11 @@
       <hr>
       <div class="flex-row" style="align-items: flex-end;">
         <h5 style="margin-bottom: 10px;">Total a pagar:</h5>
-        <h3>R$ 00,00</h3>
+        <h3>{{ total | currency:"BRL"}}</h3>
       </div>
       <hr>
       
-      <button type="button" class="btn btn-primary">Finalizar compra</button>      
+      <button type="button" class="btn btn-primary" (click)="ckeckout()" [disabled]="cartProducts.length == 0 ? true : false">Finalizar compra</button>      
     </section>
   </div>
 
@@ -44,9 +40,9 @@
 
   <!-- Columns are always 50% wide, on mobile and desktop -->
   <div class="row-button">
-    <button type="button" class="btn btn-primary">Limpar carrinho</button>
-    <button type="button" class="btn btn-primary">Finalizar compra</button>
-    <button type="button" class="btn btn-primary">Ver mais produtos</button>    
+    <button type="button" class="btn btn-primary" (click)="clearCart()" [disabled]="cartProducts.length == 0 ? true : false">Limpar carrinho</button>
+    <button type="button" class="btn btn-primary" (click)="ckeckout()" [disabled]="cartProducts.length == 0 ? true : false">Finalizar compra</button>
+    <button type="button" class="btn btn-primary" (click)="keepShopping()">Ver mais produtos</button>    
   </div>
 
   <hr>

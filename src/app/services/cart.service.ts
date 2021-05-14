@@ -2,6 +2,10 @@ import { Cart } from './../models/cart.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ProductService } from './product.service';
+import { catchError, tap} from 'rxjs/operators';
+import { Observable, pipe} from 'rxjs';
+import { Product } from '../models/product.model';
+import { CartItem } from '../models/cartItem.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +28,6 @@ export class CartService {
 
   updateCart(product: Cart): void {
     const p = JSON.parse(localStorage.getItem('cart'));
-    console.log(p)
 
     const id = product.product_id;
 
@@ -39,42 +42,47 @@ export class CartService {
     localStorage.setItem("cart", JSON.stringify(p));
   }
 
-  delete(id: number){
+  replaceCart(products: Cart[]): void {
+    localStorage.setItem("cart", JSON.stringify(products));
+  }
+
+  getCart(): Cart[] {
+    return JSON.parse(localStorage.getItem('cart'));    
+  }
+
+  delete(id: number): void {
     const p = JSON.parse(localStorage.getItem('cart'));
     const result = p.findIndex((o: any) => o.product_id === id);
 
     if (result >= -1) {
       p.splice(result, 1);
       localStorage.setItem("cart", JSON.stringify(p));
-    } 
-    
+    }     
   }
 
-  deleteAll(){
+  deleteAll(): void{
     localStorage.removeItem("cart");
   }
   
-  checkout(idUser: number){
-    const cart = JSON.parse(localStorage.get("cart"));
+  checkout(idUser: number, cartItems: CartItem[]): Observable<any> {
+
     let total = 0;
-    const products: any = [];
+    const products: any[] = [];
 
-    for(let item of cart){
-
-      this.productService.findOne(item.id).subscribe(response => {
-        const price = response.price;
-        const subtotal = price * item.quantity;
-        total += subtotal;
-        products.push({
-          product_id: response.id,
-          quantity: item.quantity,
-          subtotal: subtotal,
-        })
-      })
-    }
+    cartItems.forEach((item: CartItem) => {
+      const price = item.product.price;
+      const subtotal = price * item.quantity;
+      total += subtotal;
+      products.push({
+        product_id: item.product.id,
+        quantity: item.quantity,
+        subtotal: subtotal,
+      });
+    });
+      
     return this.http.post<any>(`http://localhost:3030/user/${idUser}/order`, {
       total,
       products
-    })
-  }
+    });    
+  }  
 }

@@ -22,7 +22,6 @@ import { ProductCartItemComponent } from './components/product-cart-item/product
     ProductListComponent,
     ProductCardAdminComponent,
     ModalAlertComponent,
-    ProductCartItemComponent,
     ProductCartItemComponent],
   imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule, NgbModule],
   exports: [
@@ -30,6 +29,7 @@ import { ProductCartItemComponent } from './components/product-cart-item/product
     ProductCardComponent,
     ReducedName,
     ProductListComponent,
+    ProductCardAdminComponent,
     ModalAlertComponent,
     ProductCartItemComponent],
 })

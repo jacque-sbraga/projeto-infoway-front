@@ -41,4 +41,8 @@ export class ProductService extends CrudBaseService<Product> {
         
     return this._http.get<Product[]>(`${this._baseUrl}/product`, { 'params': httpParams });    
   }
+
+  getAllByIds(ids: number[]): Observable<Product[]> {
+    return this._http.post<Product[]>(`${this._baseUrl}/productsById`, ids);    
+  }
 }

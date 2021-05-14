@@ -1,48 +1,49 @@
 .container-finished {
-    width: 90%;
-    margin: 6%;
-    display: flex;
-    justify-content: center;
+  width: 90%;
+  margin: 6%;
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
 }
 
 .compra-final {
-    width: 37%;
-    box-shadow: 0 5px 15px 0px rgba(5, 1, 54, 0.6);
-    border-radius: 10px;
-    background: #dde9f1;
+  width: 37%;
+  box-shadow: 0 5px 15px 0px rgba(5, 1, 54, 0.6);
+  border-radius: 10px;
+  background: #dde9f1;
 }
 
 .titulo {
-    width: 90%;
-    text-align: center;
-    margin: 15px;
+  width: 90%;
+  text-align: center;
+  margin: 15px;
 }
 
 h1 {
-    font-family: "Roboto", sans-serif;
-    font-size: 25px;
-    letter-spacing: 1px;
-    color: rgb(75, 107, 179);
-    padding: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  letter-spacing: 1px;
+  color: rgb(75, 107, 179);
+  padding: 10px;
 }
 
 .img-compras img {
-    margin-left: 50px;
-    width: 25vw;
-    border-radius: 60%;
-    box-shadow: 0 5px 15px 0px rgba(5, 1, 54, 0.4);
-    background-color: white;
+  margin-left: 50px;
+  width: 25vw;
+  border-radius: 60%;
+  box-shadow: 0 5px 15px 0px rgba(5, 1, 54, 0.4);
+  background-color: white;
 }
 
 .text {
-    text-align: center;
-    margin: 20px;
+  text-align: center;
+  margin: 20px;
 }
 
 h2 {
-    font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    letter-spacing: 1px;
-    color: rgb(75, 107, 179);
-    padding: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: rgb(75, 107, 179);
+  padding: 10px;
 }
