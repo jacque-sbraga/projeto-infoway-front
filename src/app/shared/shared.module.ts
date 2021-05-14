@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Importação do pipe
 
@@ -14,7 +15,7 @@ import { ModalAlertComponent } from './components/modal-alert/modal-alert.compon
 
 @NgModule({
   declarations: [SliderComponent, ProductCardComponent, ReducedName, ProductListComponent, ProductCardAdminComponent, ModalAlertComponent],
-  imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule, NgbModule],
   exports: [SliderComponent, ProductCardComponent, ReducedName, ProductListComponent, ModalAlertComponent],
 })
 export class SharedModule {}

@@ -1,7 +1,12 @@
 .container-home {
+  width: 100vw;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
   margin-top: 100px;
   overflow: hidden;
   min-height: 100vh;
+
 }
 
 .banner {
@@ -12,4 +17,13 @@
 .category-display {
   font-size: 18px;
   font-weight: 500;
+}
+
+.view-carousel-container {
+  box-shadow: 0 0 15px 3px rgb(240, 240, 240);
+  border-radius: 5px;
+  border: 1px solid lightblue;
+  width: 40vw;
+  justify-self: flex-start;
+  align-self: center;
 }

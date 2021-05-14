@@ -15,7 +15,6 @@ import { FinishedBuyerComponent } from './buyer/components/finished-buyer/finish
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  // { path: '**', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'cart', component: CartComponent },
   { path: 'home/login-admin', component: LoginComponent },
@@ -26,7 +25,7 @@ const routes: Routes = [
     component: HomeAdminComponent,
 
     children: [
-      { path: '', component: ProductDetailsAdminComponent },
+      { path: '', component: ProductListComponent },
       { path: 'create-product', children: [
         { path: '', component: CreateProductComponent },    
         { path: ':id', component: CreateProductComponent }
