@@ -40,19 +40,22 @@ export class CartComponent implements OnInit {
     const cart = this._cartService.getCart();    
     this.total = 0;
 
-    let ids = cart.map((item: any) => item.product_id);    
-    this._productService.getAllByIds(ids).subscribe((response: Product[]) => {
-      response.forEach(product => {
-        const item = cart.find(item => item.product_id == product.id);
-        const quantity = item.quantity;
-        this.subtotal = product.price * item.quantity;
-        this.total += this.subtotal;
-        this.cartProducts.push({ quantity: quantity, product: product });
-      })
-    },
-    (error) => {
-      console.log(error);
-    });
+    let ids = cart.map((item: any) => item.product_id);
+    if (ids.length > 0) {
+      this._productService.getAllByIds(ids).subscribe((response: Product[]) => {
+        console.log(this.cartProducts);
+        response.forEach(product => {
+          const item = cart.find(item => item.product_id == product.id);
+          const quantity = item.quantity;
+          this.subtotal = product.price * item.quantity;
+          this.total += this.subtotal;
+          this.cartProducts.push({ quantity: quantity, product: product });
+        })
+      },
+        (error) => {
+          console.log(error);
+        });
+    }
   }
 
   clearCart(): void {
@@ -93,5 +96,36 @@ export class CartComponent implements OnInit {
 
     this._cartService.replaceCart(cartItems);
     this._router.navigate(['products']);
+  }
+
+  deleteButtonPressedHandler(productId: number): void {
+    const index = this.cartProducts.findIndex(item => item.product.id == productId);    
+
+    if (index >= 0) {
+      this.cartProducts.splice(index, 1);
+      const cartItems = this.cartProducts.map(product => {
+      return {
+        product_id: product.product.id,
+        quantity: product.quantity
+      } as Cart;
+      });
+      this._cartService.replaceCart(cartItems);
+      this.recalculateTotal();
+    }
+  }
+
+  quantityChangedHandler() {
+    this.recalculateTotal();
+  }
+
+  recalculateTotal(): void {
+    this.subtotal = 0;
+    this.total = 0;
+    this.cartProducts.forEach(item => {
+      const quantity = item.quantity;
+      const subtotal = item.product.price * item.quantity;      
+      this.subtotal += subtotal;
+    });
+    this.total = this.subtotal;
   }
 }

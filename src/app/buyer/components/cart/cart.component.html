@@ -8,7 +8,10 @@
   
   <div class="cart-items">
     <section>
-      <app-product-cart-item *ngFor="let cartItem of cartProducts" [product]="cartItem"></app-product-cart-item>      
+      <app-product-cart-item *ngFor="let cartItem of cartProducts;" 
+        [product]="cartItem"        
+        (deleteButtonPressed)="deleteButtonPressedHandler($event)"
+        (quantityChanged)="quantityChangedHandler()"></app-product-cart-item>      
     </section>
 
     <section class="flex-column valores">
@@ -32,7 +35,9 @@
       </div>
       <hr>
       
-      <button type="button" class="btn btn-primary" (click)="ckeckout()" [disabled]="!userId || cartProducts.length == 0 ? true : false">Finalizar compra</button>      
+      <button type="button" class="btn btn-primary" (click)="ckeckout()" 
+      [disabled]="!userId || cartProducts.length == 0 ? true : false">
+      {{ userId != 0 ? 'Finalizar compra' : 'Faça o login para comprar' }}</button>      
     </section>
   </div>
 
@@ -41,7 +46,7 @@
   <!-- Columns are always 50% wide, on mobile and desktop -->
   <div class="row-button">
     <button type="button" class="btn btn-primary" (click)="clearCart()" [disabled]="cartProducts.length == 0 ? true : false">Limpar carrinho</button>
-    <button type="button" class="btn btn-primary" (click)="ckeckout()" [disabled]="!userId || cartProducts.length == 0 ? true : false">Finalizar compra</button>
+    <button type="button" class="btn btn-primary" (click)="ckeckout()" [disabled]="!userId || cartProducts.length == 0 ? true : false">{{ userId != 0 ? 'Finalizar compra' : 'Faça o login para comprar' }}</button>
     <button type="button" class="btn btn-primary" (click)="keepShopping()">Ver mais produtos</button>    
   </div>
 

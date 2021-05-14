@@ -22,8 +22,7 @@ export class CartService {
 
     !localStorage.cart
     ? localStorage.setItem('cart', JSON.stringify(array))
-      : this.updateCart(item);
-    console.log(localStorage.cart)
+      : this.updateCart(item);   
   }
 
   updateCart(product: Cart): void {

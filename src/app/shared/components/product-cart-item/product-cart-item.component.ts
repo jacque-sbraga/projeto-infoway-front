@@ -10,32 +10,35 @@ export class ProductCartItemComponent implements OnInit {
 
   @Input() product: CartItem;
   @Output() deleteButtonPressed: EventEmitter<any> = new EventEmitter();
+  @Output() quantityChanged: EventEmitter<any> = new EventEmitter();
 
-  subtotal: number = 0;
+  subtotal: number = 0;  
 
   constructor() { }
 
   ngOnInit(): void {
-    this.subtotal = this.product.product.price * this.product.quantity;
+    this.calculateSubtotal();
   }
 
   setCounterPlus() {
-    if (this.product.quantity < this.product.quantity) {
-      this.product.quantity += 1      
+    if (this.product.quantity < this.product.product.quantity) {
+      this.product.quantity += 1
+      this.calculateSubtotal();
     }
   }
 
   setCounterMinus() {
     if (this.product.quantity > 1) {
       this.product.quantity -= 1
+      this.calculateSubtotal();
     }
   }
 
   deleteCartItem(): void {
-    this.deleteButtonPressed.emit();
+    this.deleteButtonPressed.emit(this.product.product.id);
   }
 
-   validateQuantityInput(target: any): void {
+  validateQuantityInput(target: any): void {
     let input;
 
     if (target instanceof EventTarget) {
@@ -46,11 +49,19 @@ export class ProductCartItemComponent implements OnInit {
     // Validação da quantidade digitada pelo usuário
     if (value <= 0) {
       input.value = '1';
+      this.product.quantity = value as number;
+      this.subtotal = this.product.product.price;
+      this.quantityChanged.emit();
     }
     if (value > this.product.product.quantity) {
-      input.value = `${this.product.product.quantity}`;
+      input.value = `${this.product.product.quantity}`;      
+      this.calculateSubtotal();
     }
-    this.product.quantity = parseInt(input.value);
-    this.setCounterMinus();
+    this.quantityChanged.emit();
+  }
+
+  calculateSubtotal(): void {
+    this.subtotal = this.product.product.price * this.product.quantity;
+    this.quantityChanged.emit();
   }
 }
