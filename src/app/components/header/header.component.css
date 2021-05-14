@@ -154,7 +154,8 @@
   transition: 250ms;
 }
 
-.box-icon:hover {
+.box-icon:hover,
+.cadastrar:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.06);
   top: 5px;
@@ -192,6 +193,16 @@
   box-shadow: rgba(50, 50, 93, 0.4) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   z-index: 25;
+}
+
+.cadastro {
+  height: 58px;
+  width: 10vw;
+}
+
+img.logo-cadastro {
+  width: 30px;
+  margin: 10px;
 }
 
 .box-button {
