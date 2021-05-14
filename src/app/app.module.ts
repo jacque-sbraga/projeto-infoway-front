@@ -26,6 +26,8 @@ import { CreateProductComponent } from './components/admin/create-product/create
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/angular-material/material.module';
 import { CreateCategoryComponent } from './components/admin/create-category/create-category.component';
+import { CarouselLargeComponent } from './components/carousel-large/carousel-large.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { CreateCategoryComponent } from './components/admin/create-category/crea
     HomeAdminComponent,
     CreateProductComponent,
     CreateCategoryComponent,
+    CarouselLargeComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { CreateCategoryComponent } from './components/admin/create-category/crea
     ReactiveFormsModule,
     BuyerModule,
     SharedModule,
+    NgbModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
