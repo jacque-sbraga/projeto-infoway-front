@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   subtotal: number = 0;
   total: number = 0;
 
-  userId: number;
+  userId: number = 0;
 
   constructor(    
     private _productService: ProductService,
@@ -28,7 +28,8 @@ export class CartComponent implements OnInit {
     private _router: Router
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
+    this.userId = 0;
     this.total = 0;
     this.subtotal = 0;
     this.userId = this._getTokenService.getUser().id;
@@ -36,7 +37,7 @@ export class CartComponent implements OnInit {
   } 
 
   getCartProducts(): void {
-    const cart = this._cartService.getCart();
+    const cart = this._cartService.getCart();    
     this.total = 0;
 
     let ids = cart.map((item: any) => item.product_id);    
