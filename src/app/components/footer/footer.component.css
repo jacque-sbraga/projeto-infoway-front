@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   height: 7.5vw;
+  max-height: 7.5vw;
   font-size: 10px;
   font-family: "Righteous", cursive;
 }

@@ -21,9 +21,14 @@
 form h1 {
   text-align: center;
   margin-bottom: 25px;
+  letter-spacing: 1px;
   color: rgb(75, 107, 179);
   font-size: 30px;
   letter-spacing: 1px;
+}
+form label {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 form input {
