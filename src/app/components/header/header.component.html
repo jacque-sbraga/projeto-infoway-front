@@ -27,7 +27,7 @@
       </mat-menu>
     </div>
 
-    <div class="search-wrapper">
+    <div class="search-wrapper" data-toggle="tooltip" data-placement="bottom" title="Buscar">
       <form autocomplete="off" novalidate [formGroup]="searchFormGroup">
         <input
           formControlName="searchInput"
@@ -66,12 +66,16 @@
       <img class="icon" src="/assets/img/admin.png" />
     </div>
 
-    <div class="box-icon" routerLink="cart">
+    <div class="box-icon" routerLink="cart" data-toggle="tooltip" data-placement="bottom" title="Carrinho">
       <img class="icon" src="/assets/img/shopping-cart (2).png" alt="" />
     </div>
 
-    <div class="box-icon" (click)="toggleLogin()">
+    <div class="box-icon" (click)="toggleLogin()" data-toggle="tooltip" data-placement="bottom" title="Entre">
       <img class="icon" src="/assets/user.png" alt="icon" />
+    </div>
+
+    <div *ngIf="!provider" class="cadastrar">
+      <a routerLink="cadastrar" data-toggle="tooltip" data-placement="bottom" title="Cadastre-se"> <img class="logo-cadastro" src="../../../assets/img/cadastro.png" alt="icone para se cadastrar"></a>
     </div>
   </div>
 </header>
@@ -88,7 +92,4 @@
     <a style="cursor: pointer">SAIR</a>
   </div>
 
-  <div *ngIf="!provider">
-    <button class="button" routerLink="cadastrar">Cadastrar-se</button>
-  </div>
 </div>

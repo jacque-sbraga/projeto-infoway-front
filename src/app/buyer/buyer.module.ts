@@ -8,6 +8,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { FinishedBuyerComponent } from './components/finished-buyer/finished-buyer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { UserRegisterComponent } from './components/user-register/user-register.
     ProductDetailsComponent,
     CartComponent,
     CheckoutComponent,
+    FinishedBuyerComponent,
   ],
   imports: [
     CommonModule,
