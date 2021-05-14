@@ -87,7 +87,7 @@
 >
   <app-login></app-login>
   <div style="display: flex">
-    <div *ngIf="provider" (click)="signOut()" class="box-button">
+    <div *ngIf="provider || user" (click)="signOut()" class="box-button">
       <a style="cursor: pointer">SAIR</a>
     </div>
   </div>
