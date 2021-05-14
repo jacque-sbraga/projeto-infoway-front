@@ -5,7 +5,7 @@
 }
 
 .button {
-  width: 14vw;
+  width: 16vw;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -16,4 +16,14 @@
 
 .button:hover {
   background-color: rgb(8, 8, 153);
+}
+
+.box-login {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 20px;
 }

@@ -3,10 +3,10 @@
 footer {
   width: 100vw;
   font-size: 13px;
+  margin-top: 50px;
   padding: 5px 0;
   background-color: white;
   color: #7a7979;
-  /* padding: 10px; */
   box-shadow: rgb(167, 167, 167) 0 0 4px 0;
   height: 70px;
   font-size: 10px;
@@ -43,6 +43,11 @@ footer {
   margin: 0 !important;
 }
 
+.fale-conosco{
+  display: flex;
+  align-items: center;
+}
+
 .fale-conosco p,
 .fale-conosco a,
 .avanade-github a {
@@ -52,4 +57,15 @@ footer {
 
 .fale-conosco a:hover {
   color: rgb(75, 107, 179) ;
+}
+
+@media (max-width: 468px){
+  footer{
+    height: 135px;
+  }
+  .footer{
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 }

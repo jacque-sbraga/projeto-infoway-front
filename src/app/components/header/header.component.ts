@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   };
 
   provider = false;
+  user = false;
 
   openedMenu: boolean = false;
   openedLogin: boolean = false;
@@ -71,6 +72,8 @@ export class HeaderComponent implements OnInit {
     this.findProducts();
     this.provider =
       this._getTokenService.getUser().roles === 'ROLE_ADMIN' ? true : false;
+    this.user =
+      this._getTokenService.getUser().roles === 'ROLE_USER' ? true : false;
   }
 
   getCategories(): void {
@@ -85,7 +88,7 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  navigateToProductList(selectedCategory: Category): void {    
+  navigateToProductList(selectedCategory: Category): void {
     this._router.navigate(['products'], {
       queryParams: { category: selectedCategory.id },
       skipLocationChange: false,

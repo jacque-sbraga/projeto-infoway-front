@@ -11,6 +11,7 @@ import { CreateProductComponent } from './components/admin/create-product/create
 import { ProductDetailsAdminComponent } from './components/admin/product-details-admin/product-details-admin.component';
 import { UserRegisterComponent } from './buyer/components/user-register/user-register.component';
 import { CreateCategoryComponent } from './components/admin/create-category/create-category.component';
+import { FinishedBuyerComponent } from './buyer/components/finished-buyer/finished-buyer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

@@ -22,8 +22,8 @@
 .view-carousel-container {
   box-shadow: 0 0 15px 3px rgb(240, 240, 240);
   border-radius: 5px;
-  border: 1px solid lightblue;
-  width: 40vw;
+  border: 1px solid rgb(229, 236, 238);
+  width: 92vw;
   justify-self: flex-start;
   align-self: center;
 }

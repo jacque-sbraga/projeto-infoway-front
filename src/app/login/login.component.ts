@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+
+
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
       },
@@ -46,6 +48,6 @@ export class LoginComponent implements OnInit {
   }
 
   reloadPage(): void {
-    window.location.reload();
+    window.location.href = 'http://localhost:4200';
   }
 }
