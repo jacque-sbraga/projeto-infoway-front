@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Importação do pipe
 
@@ -23,7 +24,7 @@ import { ProductCartItemComponent } from './components/product-cart-item/product
     ModalAlertComponent,
     ProductCartItemComponent,
     ProductCartItemComponent],
-  imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule, NgbModule],
   exports: [
     SliderComponent,
     ProductCardComponent,

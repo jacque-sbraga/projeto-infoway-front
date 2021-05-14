@@ -11,10 +11,10 @@ import { CreateProductComponent } from './components/admin/create-product/create
 import { ProductDetailsAdminComponent } from './components/admin/product-details-admin/product-details-admin.component';
 import { UserRegisterComponent } from './buyer/components/user-register/user-register.component';
 import { CreateCategoryComponent } from './components/admin/create-category/create-category.component';
+import { FinishedBuyerComponent } from './buyer/components/finished-buyer/finished-buyer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  // { path: '**', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'cart', component: CartComponent },
   { path: 'home/login-admin', component: LoginComponent },
@@ -25,7 +25,7 @@ const routes: Routes = [
     component: HomeAdminComponent,
 
     children: [
-      { path: '', component: ProductDetailsAdminComponent },
+      { path: '', component: ProductListComponent },
       { path: 'create-product', children: [
         { path: '', component: CreateProductComponent },    
         { path: ':id', component: CreateProductComponent }
