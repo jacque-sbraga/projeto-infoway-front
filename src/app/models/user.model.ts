@@ -4,7 +4,7 @@ export class Users {
   surname: string;
   cpf: number;
   ddd: number;
-  phone: number;
+  phone?: number;
   login: string;
   password: string; //virtual
   password_hash: string;

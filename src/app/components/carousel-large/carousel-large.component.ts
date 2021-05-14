@@ -13,6 +13,6 @@ export class CarouselLargeComponent {
     'https://www.fastshop.com.br/wcsstore/FastShop/img/home/2021/05/10/intpro-_-100521-_-15-_-ND-_-JBL-_-AD-_-Produto-_-rotativohome.jpg',
     'https://www.fastshop.com.br/wcsstore/FastShop/img/home/2021/05/10/intpro-_-110521-_-00-_-MassEffect-_-ND-_-GM-_-Grupo-_-rotativohome.jpg',
     'https://www.fastshop.com.br/wcsstore/FastShop/img/home/2021/05/10/intpro-_-130521-_-00-_-ND-_-LG-_-VD-_-Grupo-_-rotativohome.jpg',
+    'https://www.fastshop.com.br/wcsstore/FastShop/img/oferta-madrugada/2021/intpro-_-130521-_-00-_-Smartphones-_-Samsung-_-CL-_-Grupo-_-madrugada.jpg',
   ];
-
 }

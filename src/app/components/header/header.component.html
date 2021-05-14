@@ -26,9 +26,13 @@
         </div>
       </mat-menu>
     </div>
-    
-    <div class="search-wrapper" data-toggle="tooltip" data-placement="bottom" title="Buscar">
-    
+
+    <div
+      class="search-wrapper"
+      data-toggle="tooltip"
+      data-placement="bottom"
+      title="Buscar"
+    >
       <form autocomplete="off" novalidate [formGroup]="searchFormGroup">
         <input
           formControlName="searchInput"
@@ -57,6 +61,11 @@
     </div>
   </div>
   <div class="header-menu-items">
+    <div class="box-icon" style="cursor: pointer">
+      <!-- <img src='' alt=""> -->
+      <!-- <button (click)="getUserAvatar()">AVATAR</button> -->
+    </div>
+
     <div
       *ngIf="provider"
       style="cursor: pointer"
@@ -66,17 +75,38 @@
       <img class="icon" src="/assets/img/admin.png" />
     </div>
 
-    <div class="box-icon" routerLink="cart" data-toggle="tooltip" data-placement="bottom" title="Carrinho">
+    <div
+      class="box-icon"
+      routerLink="cart"
+      data-toggle="tooltip"
+      data-placement="bottom"
+      title="Carrinho"
+    >
       <img class="icon" src="/assets/img/shopping-cart (2).png" alt="" />
     </div>
 
-    <div class="box-icon" (click)="toggleLogin()" data-toggle="tooltip" data-placement="bottom" title="Entre">
+    <div
+      class="box-icon"
+      (click)="toggleLogin()"
+      data-toggle="tooltip"
+      data-placement="bottom"
+      title="Entre"
+    >
       <img class="icon" src="/assets/user.png" alt="icon" />
     </div>
 
     <div *ngIf="!provider" class="cadastrar">
-      <a routerLink="cadastrar" data-toggle="tooltip" data-placement="bottom" title="Cadastre-se"> <img class="logo-cadastro" src="../../../assets/img/cadastro.png" alt="icone para se cadastrar"></a>
-
+      <a
+        routerLink="cadastrar"
+        data-toggle="tooltip"
+        data-placement="bottom"
+        title="Cadastre-se"
+      >
+        <img
+          class="logo-cadastro"
+          src="../../../assets/img/cadastro.png"
+          alt="icone para se cadastrar"
+      /></a>
     </div>
   </div>
 </header>
@@ -95,5 +125,4 @@
       <a style="cursor: pointer">SAIR</a>
     </div>
   </div>
-
 </div>

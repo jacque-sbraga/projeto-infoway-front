@@ -3,10 +3,12 @@
     <app-carousel-large></app-carousel-large>
   </div>
 
-  <section>
-    <div *ngFor="let category of featuredProducts">
-      <label class="category-display">{{ category.category }}</label>
-      <app-slider [featuredProducts]="category.products"></app-slider>
-    </div>
-  </section>
+  <div style="margin-top: 100px;">
+    <section class="slider-container">
+      <div *ngFor="let category of featuredProducts">
+        <label class="category-display">{{ category.category }}</label>
+        <app-slider [featuredProducts]="category.products"></app-slider>
+      </div>
+    </section>
+  </div>
 </main>

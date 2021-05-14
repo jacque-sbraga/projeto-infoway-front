@@ -27,3 +27,12 @@
   padding: 10px;
   margin-top: 20px;
 }
+
+.img-rounded {
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 50px;
+}
