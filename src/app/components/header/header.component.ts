@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { debounceTime } from 'rxjs/operators';
+import { catchError, debounceTime, tap } from 'rxjs/operators';
 
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -9,6 +9,9 @@ import { Category } from 'src/app/models/category.model';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +24,7 @@ export class HeaderComponent implements OnInit {
   };
 
   provider = false;
+  user = false;
 
   openedMenu: boolean = false;
   openedLogin: boolean = false;
@@ -57,12 +61,15 @@ export class HeaderComponent implements OnInit {
   searchTextNotFound: string = '';
   foundProducts: Product[] = [];
 
+  userAvartar: string = '';
+
   constructor(
     private _router: Router,
     private _formBuilder: FormBuilder,
     private _categoryService: CategoryService,
     private _productService: ProductService,
-    private _getTokenService: TokenStorageService
+    private _getTokenService: TokenStorageService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -71,6 +78,9 @@ export class HeaderComponent implements OnInit {
     this.findProducts();
     this.provider =
       this._getTokenService.getUser().roles === 'ROLE_ADMIN' ? true : false;
+    this.user =
+      this._getTokenService.getUser().roles === 'ROLE_USER' ? true : false;
+    this.userAvartar = this._getTokenService.getToken();
   }
 
   getCategories(): void {
@@ -85,7 +95,7 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  navigateToProductList(selectedCategory: Category): void {    
+  navigateToProductList(selectedCategory: Category): void {
     this._router.navigate(['products'], {
       queryParams: { category: selectedCategory.id },
       skipLocationChange: false,
@@ -135,5 +145,19 @@ export class HeaderComponent implements OnInit {
     this.searchText = '';
     this.searchTextNotFound = '';
     this.foundProducts = [];
+  }
+
+  avatarUrl: string = '';
+
+  getUserAvatar(login: string): void {
+    console.log(login);
+
+    this.userService.getUserAvatarr(login).subscribe((data) => {
+      this.avatarUrl = data;
+
+      console.log('header' + data);
+
+      this._getTokenService.saveUserAvatar(data);
+    });
   }
 }

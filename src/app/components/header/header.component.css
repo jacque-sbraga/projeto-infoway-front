@@ -173,6 +173,7 @@
   right: 10px;
   transition: 600ms;
   overflow: hidden;
+  z-index: 24;
 }
 
 .header-menu-hidden {
@@ -180,7 +181,7 @@
   right: -1000px;
   color: transparent;
   position: absolute;
-  z-index: 15;
+  z-index: 24;
 }
 
 .header-menu-opened {
@@ -189,9 +190,9 @@
   top: 75px;
   right: 5px;
   border-radius: 8px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+  box-shadow: rgba(50, 50, 93, 0.4) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  z-index: 15;
+  z-index: 25;
 }
 
 .cadastro {
@@ -221,4 +222,14 @@ img.logo-cadastro {
 
 .box-button a:hover {
   background-color: rgb(8, 8, 153);
+}
+
+.box-login {
+  width: 30vw;
+}
+
+@media (max-width: 768px){
+  .header-menu, .header-menu-opened{
+    position: fixed;
+  }
 }

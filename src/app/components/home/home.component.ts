@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,12 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _categoryService: CategoryService,
-    private _productService: ProductService
+    private _productService: ProductService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
-    this.getFeaturedCategories();    
+    this.getFeaturedCategories();
   }
 
   getFeaturedCategories(): void {
@@ -34,20 +36,28 @@ export class HomeComponent implements OnInit {
   }
 
   getFeaturedProducts(category: Category): void {
-    this._productService
-      .getAllByParams({ category_id: category.id })
-      .subscribe(
-        (products) => {
-          if (products.length > 0) {
-            this.featuredProducts.push({
-              category: category.category,
-              products: products,
-            });
-          }
-        },
-        (error) => {
-          console.log(error);
+    this._productService.getAllByParams({ category_id: category.id }).subscribe(
+      (products) => {
+        if (products.length > 0) {
+          this.featuredProducts.push({
+            category: category.category,
+            products: products,
+          });
         }
-      );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  avatarUrl: string = '';
+
+  getUserAvatar(login: string): void {
+    this.userService.getUserAvatarr(login).subscribe((data) => {
+      this.avatarUrl = data;
+      console.log(this.avatarUrl);
+      console.log(data);
+    });
   }
 }

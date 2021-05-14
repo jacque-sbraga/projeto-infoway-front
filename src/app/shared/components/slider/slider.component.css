@@ -17,8 +17,8 @@
   /* perspective: 100px; */
   margin: 10px 0px 10px 0px;
   transition: 300ms;
-  width: 100%;
-  animation: scroll 100s linear infinite;
+  width: 5000px;
+  animation: scroll 150s linear infinite;
 }
 
 .slide-tracker:hover {
@@ -33,4 +33,10 @@
   100% {
     transform: translateX(-100%);
   }
+}
+
+.slider-container {
+  margin: auto;
+  width: 80vw;
+  /* border: 1px solid; */
 }

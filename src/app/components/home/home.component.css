@@ -6,7 +6,6 @@
   margin-top: 100px;
   overflow: hidden;
   min-height: 100vh;
-
 }
 
 .banner {
@@ -15,15 +14,30 @@
 }
 
 .category-display {
-  font-size: 18px;
+  color: rgb(20, 83, 167);
+  border: 2px solid rgb(233, 233, 233);
+  font-size: 22px;
   font-weight: 500;
+  background-color: rgb(252, 252, 252);
+  padding: 5px 25px;  
+  width: 15vw;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .view-carousel-container {
   box-shadow: 0 0 15px 3px rgb(240, 240, 240);
   border-radius: 5px;
-  border: 1px solid lightblue;
-  width: 40vw;
+  border: 1px solid rgb(229, 236, 238);
+  width: 92vw;
   justify-self: flex-start;
   align-self: center;
+}
+
+.slider-container {
+  margin-top: 150px;
+  /* border: 1px solid; */
+  width: 80vw;
+  margin: auto;
+  overflow: hidden;
 }
