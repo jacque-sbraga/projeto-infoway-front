@@ -18,7 +18,7 @@
   margin: 10px 0px 10px 0px;
   transition: 300ms;
   width: 5000px;
-  animation: scroll 150s linear infinite;
+  animation: scroll 200s linear infinite;
 }
 
 .slide-tracker:hover {

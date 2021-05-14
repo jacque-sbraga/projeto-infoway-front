@@ -1,6 +1,6 @@
 .main-content-container {
   height: 91.3vh;
-  width: calc(100vw);
+  width: calc(90vw);
   overflow-y: auto;
   padding: 10px;
 }
