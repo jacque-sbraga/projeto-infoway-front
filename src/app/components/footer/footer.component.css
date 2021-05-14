@@ -1,37 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
-.footer {
-  width: 101%;
+footer {
+  width: 100vw;
+  font-size: 13px;
+  margin-top: 50px;
+  padding: 5px 0;
   background-color: white;
   color: #7a7979;
-  padding: 10px;
   box-shadow: rgb(167, 167, 167) 0 0 4px 0;
-  display: flex;
-  justify-content: space-between;
-  height: 7.5vw;
-  max-height: 7.5vw;
+  height: 70px;
   font-size: 10px;
   font-family: "Righteous", cursive;
 }
 
-.infoway-dados {
- margin-left: 20px;
+.footer{
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
 }
+/* .infoway-dados {
+ margin-left: 20px;
+} */
 
-.avanade-github {
+/* .avanade-github {
   margin: 1.45vw;
   padding: 10px;
-}
+} */
 
 .avanade-github img.ico-footer {
-  width: 40px;
+  height: 20px;
 }
 
-.fale-conosco {
+.contato {
+  font-size: 10px;
   display: flex;
-  justify-content: space-around;
-  margin: 2.20vw;
+  /* margin: 2.20vw; */
   font-size: 14px;
+}
+
+.infoway-dados p{
+  margin: 0 !important;
+}
+
+.fale-conosco{
+  display: flex;
+  align-items: center;
 }
 
 .fale-conosco p,
@@ -43,4 +57,15 @@
 
 .fale-conosco a:hover {
   color: rgb(75, 107, 179) ;
+}
+
+@media (max-width: 468px){
+  footer{
+    height: 135px;
+  }
+  .footer{
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 }

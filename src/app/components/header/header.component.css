@@ -227,3 +227,9 @@ img.logo-cadastro {
 .box-login {
   width: 30vw;
 }
+
+@media (max-width: 768px){
+  .header-menu, .header-menu-opened{
+    position: fixed;
+  }
+}
